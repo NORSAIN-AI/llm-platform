@@ -1,204 +1,154 @@
 # NORSAIN GPT Platform
 
-A comprehensive platform for managing Custom GPT knowledge packs, agents, and tools with TypeScript-based scaffolding, validation, and index generation utilities.
+Plattform for å utvikle og drifte Custom GPT-er med TypeScript-baserte verktøy for scaffolding, validering og indeksgenerering.
 
-## Overview
+<!-- Badges -->
+[![CI – Validate GPTs](https://github.com/NORSAIN-AI/norsain-gpt-platform/actions/workflows/validate-gpts.yml/badge.svg)](https://github.com/NORSAIN-AI/norsain-gpt-platform/actions/workflows/validate-gpts.yml)
+[![Auto PR](https://github.com/NORSAIN-AI/norsain-gpt-platform/actions/workflows/auto-pr.yml/badge.svg)](https://github.com/NORSAIN-AI/norsain-gpt-platform/actions/workflows/auto-pr.yml)
+[![License: MIT](https://img.shields.io/github/license/NORSAIN-AI/norsain-gpt-platform)](LICENSE)
+[![Node >=18](https://img.shields.io/badge/node-%3E=18.0.0-339933?logo=node.js)](package.json)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)](https://www.typescriptlang.org/)
+[![Prettier](https://img.shields.io/badge/code%20style-Prettier-ff69b4?logo=prettier)](https://prettier.io/)
+[![ESLint](https://img.shields.io/badge/lint-ESLint-4B32C3?logo=eslint)](https://eslint.org/)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#bidra)
 
-This platform provides a structured approach to creating and managing Custom GPTs with:
-- **Knowledge packs** (maximum 20 files per Custom GPT)
-- **TypeScript tools** for scaffolding, validation, and index generation
-- **Agent templates** for consistent GPT creation
-- **GitHub Actions** for automated validation
-- **Future web app** (Vercel + ChatKit) for agent builder, playground, and evaluation
+## Oversikt
 
-## Project Structure
+Strukturert plattform for å bygge og vedlikeholde Custom GPT-er med:
 
-```
+- Maks 20 kunnskapsfiler per GPT (i tråd med plattformbegrensninger)
+- TypeScript-CLI for scaffolding, validering og indeksgenerering
+- Standardiserte maler for agenter og actions (OpenAPI 3.1)
+- GitHub Actions for automatisk validering og PR-automatisering
+
+
+## Arkitektur og mappestruktur
+
+```text
 norsain-gpt-platform/
-├── agents/               # Custom GPT templates and configurations
-│   ├── _template/       # Base template for new GPTs
-│   │   ├── instructions/  # GPT instructions and prompts
-│   │   ├── actions/       # OpenAPI schemas for custom actions
-│   │   ├── knowledge/     # Knowledge files (max 20)
-│   │   └── gpt.json      # GPT configuration metadata
-│   └── [gpt-name]/      # Individual GPT instances
-├── scripts/             # TypeScript CLI tools
-│   ├── scaffold-gpt.mts    # Create new GPT from template
-│   ├── validate-gpt.mts    # Validate GPT structures
-│   ├── generate-index.mts  # Generate knowledge indexes
-│   └── utils/           # Shared utility modules
-├── .github/             # GitHub Actions workflows
-│   └── workflows/       # CI/CD pipelines
-└── web/                 # Future Next.js/Vercel web app
-    └── README.md        # Web app documentation
+├── agents/                 # GPT-pakker (template + instanser)
+│   ├── _template/          # Basemal for nye GPT-er
+│   │   ├── instructions/   # System-/rolle-instruksjon
+│   │   ├── actions/        # OpenAPI 3.1-skjemaer
+│   │   ├── knowledge/      # Kunnskapsfiler (≤ 20)
+│   │   └── gpt.json        # Meta og struktur
+│   └── <gpt-navn>/         # Konkrete GPT-installasjoner
+├── scripts/                # TypeScript-CLI (ESM .mts)
+│   ├── scaffold-gpt.mts    # Scaffold ny GPT fra template
+│   ├── validate-gpt.mts    # Valider GPT-struktur og teller
+│   ├── generate-index.mts  # Generer knowledge/index.md
+│   └── utils/              # Delte utilmoduler
+├── .github/                # GitHub-konfig, prompts og workflows
+│   ├── prompts/            # Commit/PR/branch-prompter
+│   └── workflows/          # CI/CD (validate-gpts, auto-pr)
+└── web/                    # Fremtidig Next.js/Vercel-app
 ```
 
-## Getting Started
+## Forutsetninger
 
-### Prerequisites
+- Node.js `>=18.0.0`
+- npm (eller pnpm/yarn – eksempelene bruker npm)
 
-- Node.js 18.0 or higher
-- npm or yarn
-
-### Installation
+## Installering
 
 ```bash
-# Clone the repository
 git clone https://github.com/NORSAIN-AI/norsain-gpt-platform.git
 cd norsain-gpt-platform
-
-# Install dependencies
 npm install
 ```
 
-## Usage
+## Hurtigstart
 
-### Creating a New GPT
-
-Use the scaffold script to create a new Custom GPT from the template:
+Opprett en ny GPT fra mal og generer indeks:
 
 ```bash
-npm run scaffold my-assistant
-```
-
-With options:
-
-```bash
+# Scaffold ny GPT
 npm run scaffold my-assistant \
-  --description "A helpful AI assistant" \
-  --author "Your Name" \
+  --description "En hjelpsom assistent" \
+  --author "Ditt Navn" \
   --tags "helper,assistant,productivity"
-```
 
-This creates a new directory under `agents/my-assistant/` with:
-- `instructions/main.md` - GPT instructions
-- `actions/schema.json` - OpenAPI schema for custom actions
-- `knowledge/` - Directory for knowledge files
-- `gpt.json` - Configuration metadata
-
-### Adding Knowledge Files
-
-Add your knowledge files to the `knowledge/` directory:
-
-```bash
-cp your-file.md agents/my-assistant/knowledge/
-```
-
-**Important**: Maximum 20 files per GPT (Custom GPT limit).
-
-### Validating GPT Structure
-
-Validate a specific GPT:
-
-```bash
+# Valider GPT-struktur
 npm run validate my-assistant
+
+# Generer knowledge/index.md
+npm run generate-index my-assistant
 ```
 
-Validate all GPTs:
+## CLI-skript
+
+- `npm run scaffold <navn>`: Oppretter ny GPT fra `agents/_template`
+- `npm run validate [navn]`: Validerer en spesifikk eller alle GPT-er
+- `npm run generate-index [navn]`: Lager `knowledge/index.md`
+- `npm run lint`: ESLint-kjøring for `.ts/.mts`
+- `npm run format`: Kodeformattering med Prettier
+- `npm run typecheck`: TypeScript typekontroll
+- `npm run preflight`: Lint + typecheck + validate i ett steg
+
+## Kvalitetsregler (NGAS)
+
+- Streng struktur i `agents/` og `scripts/` – ikke fravik uten eksplisitt behov
+- Kunnskapsfiler i `agents/<gpt>/knowledge/`:
+  - Maks 20 filer pr. GPT
+  - Filnavn: `NN.NN_snake_case.md`
+  - YAML-frontmatter er påkrevd
+- Actions skal være gyldig OpenAPI 3.1 med tydelige `schemas`
+- Bruk eksisterende script-kommandoer ved utvikling og validering
+
+## CI/CD-workflows
+
+- `validate-gpts.yml`: Kjører GPT-validering (struktur og filantall) ved push/PR
+- `auto-pr.yml`: Automatiserer PR-oppgaver (der relevant)
+
+Statusbadger vises øverst i README og lenker til workflow-kjøringer.
+
+## Vanlige oppgaver
+
+Opprette ny GPT:
+
+```bash
+npm run scaffold sales-assistant --description "Selgerstøtte" --tags "sales,b2b"
+```
+
+Validere alt innhold:
 
 ```bash
 npm run validate
 ```
 
-### Generating Knowledge Index
-
-Generate an `index.md` file listing all knowledge files:
-
-```bash
-npm run generate-index my-assistant
-```
-
-Generate indexes for all GPTs:
+Generere index for alle GPT-er:
 
 ```bash
 npm run generate-index
 ```
 
-## Scripts
+Preflight før PR:
 
-- `npm run scaffold <name>` - Create new GPT from template
-- `npm run validate [name]` - Validate GPT structure(s)
-- `npm run generate-index [name]` - Generate knowledge index(es)
-- `npm run lint` - Lint TypeScript code
-- `npm run format` - Format code with Prettier
-- `npm run typecheck` - Type check TypeScript code
-
-## GPT Template Structure
-
-Each GPT follows this structure:
-
-### `gpt.json`
-Configuration metadata:
-```json
-{
-  "name": "GPT Name",
-  "version": "1.0.0",
-  "description": "Brief description",
-  "created": "ISO Date",
-  "author": "Author Name",
-  "tags": ["tag1", "tag2"],
-  "maxKnowledgeFiles": 20,
-  "structure": {
-    "instructions": "instructions/main.md",
-    "actions": "actions/schema.json",
-    "knowledge": "knowledge/"
-  }
-}
+```bash
+npm run preflight
 ```
 
-### `instructions/main.md`
-GPT instructions defining:
-- Role and purpose
-- Core instructions
-- Capabilities
-- Constraints
-- Response format
+## Bidra
 
-### `actions/schema.json`
-OpenAPI 3.1 schema for custom actions (optional).
+1. Opprett branch: `feat/<kort-scope>-<kort-beskrivelse>` (små bokstaver, kebab-case)
+2. Gjør endringer i tråd med NGAS og scripts
+3. Kjør `npm run preflight` og fix evt. feil
+4. Push branch og opprett PR
 
-### `knowledge/`
-Knowledge files directory:
-- Maximum 20 files
-- Supported formats: .md, .txt, .pdf, code files
-- Can include subdirectories
-- Auto-generated `index.md` for navigation
+Eksempel:
 
-## Continuous Integration
+```bash
+git checkout -b feat/docs-readme-badges
+git add -A
+git commit -m "docs: oppdater README med badges og struktur"
+git push -u origin feat/docs-readme-badges
+```
 
-GitHub Actions automatically validate GPTs on push/PR:
-- Structure validation
-- Knowledge file count checks
-- TypeScript type checking
+## Lisens
 
-## Future Development
-
-### Web Application (Planned)
-
-The `web/` directory will contain a Next.js/Vercel application featuring:
-
-- **Agent Builder**: Visual interface for creating and configuring GPTs
-- **Playground**: Interactive testing environment with ChatKit integration
-- **Evaluation**: Performance metrics, analytics, and A/B testing
-
-Technology stack:
-- Next.js 14+ (App Router)
-- Vercel deployment
-- ChatKit for conversations
-- OpenAI Responses/Agents API
-
-## Contributing
-
-1. Create a new branch for your changes
-2. Follow the existing code structure and conventions
-3. Ensure all validations pass: `npm run validate`
-4. Run linting: `npm run lint`
-5. Submit a pull request
-
-## License
-
-MIT License - see [LICENSE](LICENSE) file for details.
+MIT – se [`LICENSE`](LICENSE).
 
 ## Support
 
-For issues or questions, please open an issue on GitHub.
+Åpne en issue i repoet ved spørsmål eller feil.
+
