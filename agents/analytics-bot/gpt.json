@@ -1,0 +1,14 @@
+{
+  "name": "analytics-bot",
+  "version": "1.0.0",
+  "description": "Custom GPT: analytics-bot",
+  "created": "2025-11-17T18:03:50.625Z",
+  "author": "NORSAIN-AI",
+  "tags": [],
+  "maxKnowledgeFiles": 20,
+  "structure": {
+    "instructions": "instructions/main.md",
+    "actions": "actions/schema.json",
+    "knowledge": "knowledge/"
+  }
+}
