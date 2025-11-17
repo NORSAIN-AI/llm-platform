@@ -1,0 +1,35 @@
+{
+  "name": "norsain-gpt-platform",
+  "version": "0.1.0",
+  "description": "Platform for managing Custom GPT knowledge packs, agents, and tools",
+  "type": "module",
+  "scripts": {
+    "scaffold": "tsx scripts/scaffold-gpt.mts",
+    "validate": "tsx scripts/validate-gpt.mts",
+    "generate-index": "tsx scripts/generate-index.mts",
+    "lint": "eslint . --ext .ts,.mts",
+    "format": "prettier --write \"**/*.{ts,mts,json,md}\"",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "gpt",
+    "custom-gpt",
+    "ai",
+    "agents",
+    "knowledge-packs"
+  ],
+  "author": "NORSAIN-AI",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "eslint": "^8.55.0",
+    "prettier": "^3.1.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

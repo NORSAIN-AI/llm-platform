@@ -1,0 +1,49 @@
+name: Validate GPTs
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - 'agents/**'
+  pull_request:
+    branches: [main, develop]
+    paths:
+      - 'agents/**'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate GPT structures
+        run: npm run validate
+
+      - name: Check knowledge file limits
+        run: |
+          echo "Checking knowledge file counts..."
+          for gpt_dir in agents/*/; do
+            if [ -d "$gpt_dir" ] && [ "$(basename "$gpt_dir")" != "_template" ]; then
+              gpt_name=$(basename "$gpt_dir")
+              file_count=$(find "$gpt_dir/knowledge" -type f ! -name ".*" 2>/dev/null | wc -l)
+              echo "$gpt_name: $file_count files"
+              if [ "$file_count" -gt 20 ]; then
+                echo "❌ Error: $gpt_name exceeds 20 file limit"
+                exit 1
+              fi
+            fi
+          done
+          echo "✓ All GPTs within file limits"
