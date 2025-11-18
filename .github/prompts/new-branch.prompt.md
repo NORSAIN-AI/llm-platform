@@ -1,13 +1,15 @@
 ---
 agent: agent
-description: "Generer konsistente og presise branch-navn for NORSAIN GPT Platform."
+description: 'Generer konsistente og presise branch-navn for NORSAIN GPT Platform.'
 ---
+
 Når du foreslår branch-navn:
 
 Format:
 <type>/<short-scope>-<short-description>
 
 Regler:
+
 - bruk små bokstaver
 - bruk kebab-case i beskrivelse
 - maks 5–6 ord
@@ -21,6 +23,7 @@ Regler:
   - chore
 
 Eksempler:
+
 - feat/custom-gpt-instruction-upgrade
 - docs/add-ngas-output-standards
 - fix/template-knowledge-index

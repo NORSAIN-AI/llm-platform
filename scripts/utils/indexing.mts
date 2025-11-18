@@ -11,9 +11,7 @@ export interface KnowledgeFile {
 /**
  * Generate an index of knowledge files
  */
-export async function generateKnowledgeIndex(
-  knowledgePath: string
-): Promise<KnowledgeFile[]> {
+export async function generateKnowledgeIndex(knowledgePath: string): Promise<KnowledgeFile[]> {
   const files: KnowledgeFile[] = [];
 
   async function scanDirectory(dirPath: string) {

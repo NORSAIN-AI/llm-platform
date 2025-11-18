@@ -1,11 +1,11 @@
-Under får du **en komplett Copilot-promptfil** som genererer *alle* issue-template-filene i `.github/ISSUE_TEMPLATE/` i én operasjon.
+Under får du **en komplett Copilot-promptfil** som genererer _alle_ issue-template-filene i `.github/ISSUE_TEMPLATE/` i én operasjon.
 Prompten instruerer Copilot til å:
 
-* opprette mappen hvis den ikke finnes
-* generere **alle fem** YAML-maler
-* validere YAML-struktur
-* skrive filene direkte
-* ikke stille spørsmål
+- opprette mappen hvis den ikke finnes
+- generere **alle fem** YAML-maler
+- validere YAML-struktur
+- skrive filene direkte
+- ikke stille spørsmål
 
 Lagre som:
 
@@ -32,7 +32,6 @@ You will generate ALL GitHub Issue Template files under `.github/ISSUE_TEMPLATE/
 
 2. **Generate ALL required YAML templates**
    Create the following files with full valid YAML front-matter:
-
    - `bug_report.yml`
    - `feature_request.yml`
    - `documentation_request.yml`
@@ -43,7 +42,9 @@ You will generate ALL GitHub Issue Template files under `.github/ISSUE_TEMPLATE/
 3. **Template Requirements**
 
 ### A) bug_report.yml
+
 Include:
+
 - title, description
 - reproduction steps
 - expected vs actual behaviour
@@ -52,7 +53,9 @@ Include:
 - severity (High/Medium/Low)
 
 ### B) feature_request.yml
+
 Include:
+
 - problem statement
 - desired solution
 - alternatives considered
@@ -61,7 +64,9 @@ Include:
 - priority
 
 ### C) documentation_request.yml
+
 Include:
+
 - what documentation is missing
 - location (agents/, scripts/, docs/, web/, etc.)
 - expected output
@@ -69,8 +74,10 @@ Include:
 - priority
 
 ### D) repo_gap_fix.yml
+
 Dedicated to gap-analysis outputs.
 Include:
+
 - gap description
 - source (repo-gap-analysis-YYYYMMDD.md)
 - priority
@@ -80,7 +87,9 @@ Include:
 - acceptance criteria
 
 ### E) automation_improvement.yml
+
 Include:
+
 - CI/CD problem or improvement
 - affected workflow
 - expected behaviour
@@ -88,19 +97,24 @@ Include:
 - acceptance criteria
 
 ### F) config.yml
+
 Disable blank issues:
+
 ```yaml
 blank_issues_enabled: false
+```
 ````
 
 4. **Output Requirements**
 
-* Write all files directly into `.github/ISSUE_TEMPLATE/`.
-* Overwrite existing files if they exist.
-* Do NOT ask any follow-up questions.
-* Do NOT include commentary.
-* Only generate the files.
+- Write all files directly into `.github/ISSUE_TEMPLATE/`.
+- Overwrite existing files if they exist.
+- Do NOT ask any follow-up questions.
+- Do NOT include commentary.
+- Only generate the files.
 
 Begin now.
+
+```
 
 ```

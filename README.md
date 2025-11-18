@@ -3,6 +3,7 @@
 Plattform for å utvikle og drifte Custom GPT-er med TypeScript-baserte verktøy for scaffolding, validering og indeksgenerering.
 
 <!-- Badges -->
+
 [![CI – Validate GPTs](https://github.com/NORSAIN-AI/norsain-gpt-platform/actions/workflows/validate-gpts.yml/badge.svg)](https://github.com/NORSAIN-AI/norsain-gpt-platform/actions/workflows/validate-gpts.yml)
 [![Auto PR](https://github.com/NORSAIN-AI/norsain-gpt-platform/actions/workflows/auto-pr.yml/badge.svg)](https://github.com/NORSAIN-AI/norsain-gpt-platform/actions/workflows/auto-pr.yml)
 [![License: MIT](https://img.shields.io/github/license/NORSAIN-AI/norsain-gpt-platform)](LICENSE)
@@ -145,4 +146,3 @@ MIT – se [`LICENSE`](LICENSE).
 ## Support
 
 Åpne en issue i repoet ved spørsmål eller feil.
-

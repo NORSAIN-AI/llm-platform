@@ -1,12 +1,14 @@
 ---
 agent: agent
 ---
+
 # Commit & PR Prompt for NORSAIN GPT Platform
 
 You are assisting with a commit and PR for the `norsain-gpt-platform` repository.
 Follow these strict requirements:
 
 ## Commit Message Rules
+
 - Use conventional commits: feat, fix, refactor, docs, chore, test, perf, build.
 - Keep the subject line ≤ 70 characters.
 - Write it in imperative form ("add", "update", "fix").
@@ -14,6 +16,7 @@ Follow these strict requirements:
 - No emojis. No fluff. No marketing language.
 
 ## PR Description Rules
+
 - Start with a crisp summary of the change.
 - State the purpose and impact.
 - If the change affects any GPT pack, describe:
@@ -26,6 +29,7 @@ Follow these strict requirements:
 - Add a checklist at the end.
 
 ## Your Task
+
 Given my staged changes (I will paste them next), generate:
 
 1. A clean commit message

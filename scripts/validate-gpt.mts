@@ -79,9 +79,7 @@ Example:
       console.log('\n✓ All validations passed');
     }
   } catch (error) {
-    console.error(
-      `✗ Validation failed: ${error instanceof Error ? error.message : String(error)}`
-    );
+    console.error(`✗ Validation failed: ${error instanceof Error ? error.message : String(error)}`);
     process.exit(1);
   }
 }

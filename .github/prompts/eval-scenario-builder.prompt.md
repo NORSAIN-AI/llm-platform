@@ -1,7 +1,8 @@
 ---
 agent: agent
-description: "Bygg evaluerings- og testscenarier for NORSAIN Custom GPT-er."
+description: 'Bygg evaluerings- og testscenarier for NORSAIN Custom GPT-er.'
 ---
+
 Eval-filer skal:
 
 - Ha klare scenarioer for bruk, risiko og edge-cases.

@@ -8,11 +8,11 @@ Dette dokumentet definerer hvordan GitHub Copilot skal arbeide i `norsain-gpt-pl
 
 `norsain-gpt-platform` er et TypeScript-basert rammeverk for å utvikle og administrere Custom GPT-er. Plattformen brukes til:
 
-* å scaffold’e nye GPT-er
-* vedlikeholde standardiserte kunnskapsfiler
-* validere GPT-strukturer
-* generere kunnskapsindekser
-* forberede integrasjon med en fremtidig agent-builder webapp
+- å scaffold’e nye GPT-er
+- vedlikeholde standardiserte kunnskapsfiler
+- validere GPT-strukturer
+- generere kunnskapsindekser
+- forberede integrasjon med en fremtidig agent-builder webapp
 
 Repoet følger en fast NGAS-arkitektur i kjerneområdene, med fleksibilitet for støtte- og frontend-mapper.
 
@@ -60,15 +60,15 @@ I **disse** mappene skal Copilot ikke foreslå alternative strukturer eller flyt
 
 Copilot skal vite at følgende er **tillatt og fleksibelt**:
 
-* `docs/` – ekstra dokumentasjon, ADR-er, arkitekturnotater
-* `web/` – fremtidig Next.js/Vercel-app, UI, API-routes, etc.
-* `infra/`, `.vscode/`, `config/` og lignende støtte-mapper
+- `docs/` – ekstra dokumentasjon, ADR-er, arkitekturnotater
+- `web/` – fremtidig Next.js/Vercel-app, UI, API-routes, etc.
+- `infra/`, `.vscode/`, `config/` og lignende støtte-mapper
 
 I slike mapper kan Copilot:
 
-* foreslå nye filer
-* justere struktur etter vanlig beste praksis
-* bruke standard TypeScript/Next.js/Node-mønstre
+- foreslå nye filer
+- justere struktur etter vanlig beste praksis
+- bruke standard TypeScript/Next.js/Node-mønstre
 
 Så lenge det ikke bryter med NGAS-regler for `agents/` og `scripts/`.
 
@@ -86,12 +86,12 @@ NN.NN_snake_case.md
 
 Der:
 
-* 00.xx = Core NGAS
-* 01.xx = NGAS Architecture
-* 02.xx = Builder Methodology
-* 03.xx = Templates
-* 04.xx = Examples
-* 05.xx = References
+- 00.xx = Core NGAS
+- 01.xx = NGAS Architecture
+- 02.xx = Builder Methodology
+- 03.xx = Templates
+- 04.xx = Examples
+- 05.xx = References
 
 ### 4.2 Metadata (obligatorisk)
 
@@ -121,12 +121,12 @@ Hvis frontmatter mangler, skal Copilot legge det inn.
 
 Copilot skal:
 
-* følge metadata-reglene
-* bruke riktig filnavn
-* ha ett hovedtema per fil
-* bruke H1–H3
-* skrive profesjonelt, presist og uten emojis
-* følge chunking-standarder definert i `00.02_chunking_standards.md`
+- følge metadata-reglene
+- bruke riktig filnavn
+- ha ett hovedtema per fil
+- bruke H1–H3
+- skrive profesjonelt, presist og uten emojis
+- følge chunking-standarder definert i `00.02_chunking_standards.md`
 
 ### 5.2 Instruction-filer
 
@@ -146,10 +146,10 @@ Instruksjonen skal være systemorientert, presis og uten narrativ tekst.
 
 Filene i `actions/` eller `openapi.json` skal være:
 
-* gyldig JSON
-* OpenAPI 3.1
-* minimal og modellvennlig
-* inneholde paths, operationId, request/response og schemas
+- gyldig JSON
+- OpenAPI 3.1
+- minimal og modellvennlig
+- inneholde paths, operationId, request/response og schemas
 
 Custom actions skal alltid bruke OpenAPI 3.1-skjemaer.
 `openapi.json` og eventuelle `actions/*.json` fungerer som referanseeksempler.
@@ -158,11 +158,11 @@ Custom actions skal alltid bruke OpenAPI 3.1-skjemaer.
 
 Eval-filer skal inneholde:
 
-* scenario
-* user input
-* expected behaviour
-* NGAS rules
-* success/failure criteria
+- scenario
+- user input
+- expected behaviour
+- NGAS rules
+- success/failure criteria
 
 ---
 
@@ -187,10 +187,10 @@ Skript brukes som en del av utviklingsflyten og skal ikke erstattes.
 
 Copilot skal:
 
-* bruke samme språk som filen (standard: norsk)
-* skrive profesjonelt, objektivt og teknisk
-* unngå emojis og uformelt språk
-* bruke korte, klare setninger og tydelig struktur
+- bruke samme språk som filen (standard: norsk)
+- skrive profesjonelt, objektivt og teknisk
+- unngå emojis og uformelt språk
+- bruke korte, klare setninger og tydelig struktur
 
 ---
 
@@ -198,11 +198,11 @@ Copilot skal:
 
 I `agents/` og `scripts/` skal Copilot ikke:
 
-* generere mer enn 20 kunnskapsfiler for en GPT
-* endre NGAS-kjernefiler uten eksplisitt instruksjon
-* foreslå nye undermapper i `knowledge/`
-* blande kunnskapsinnhold inn i instruksjonsfiler
-* skrive kreativ eller narrativ tekst
+- generere mer enn 20 kunnskapsfiler for en GPT
+- endre NGAS-kjernefiler uten eksplisitt instruksjon
+- foreslå nye undermapper i `knowledge/`
+- blande kunnskapsinnhold inn i instruksjonsfiler
+- skrive kreativ eller narrativ tekst
 
 ---
 
@@ -210,11 +210,11 @@ I `agents/` og `scripts/` skal Copilot ikke:
 
 Copilot kan bruke disse som base for struktur og stil:
 
-* `00.01_norsain_language_tone_guide.md`
-* `00.02_chunking_standards.md`
-* `00.03_output_standards.md`
-* `02.01_builder_method.md`
-* `03.01_templates.md`
+- `00.01_norsain_language_tone_guide.md`
+- `00.02_chunking_standards.md`
+- `00.03_output_standards.md`
+- `02.01_builder_method.md`
+- `03.01_templates.md`
 
 ---
 
@@ -224,11 +224,11 @@ Custom actions skal bruke OpenAPI 3.1-skjemaer. Se våre malfiler i `agents/_tem
 
 Når Copilot genererer eller redigerer en action-fil skal den:
 
-* sikre gyldig JSON
-* sikre at formatet følger OpenAPI 3.1
-* inkludere minst: `paths`, `operationId`, `requestBody` eller `parameters`, `responses`, og relevante `schemas`
-* angi hvilke verktøy eller API-kall som er relevante for agenten
-* flagge brudd på OpenAPI eller interne standarder
+- sikre gyldig JSON
+- sikre at formatet følger OpenAPI 3.1
+- inkludere minst: `paths`, `operationId`, `requestBody` eller `parameters`, `responses`, og relevante `schemas`
+- angi hvilke verktøy eller API-kall som er relevante for agenten
+- flagge brudd på OpenAPI eller interne standarder
 
 ---
 
@@ -238,9 +238,9 @@ Copilot bør aktivt støtte følgende praksiser:
 
 ### Følg kjerne-struktur
 
-* `agents/` skal inneholde GPT-pakker
-* `scripts/` skal inneholde CLI-verktøy
-* Struktur skal ikke endres uten eksplisitt instruksjon
+- `agents/` skal inneholde GPT-pakker
+- `scripts/` skal inneholde CLI-verktøy
+- Struktur skal ikke endres uten eksplisitt instruksjon
 
 ### Bruk eksisterende scripts
 
@@ -271,10 +271,10 @@ npm run knowledge:validate
 
 Ved nye GPT-mapper eller strukturelle endringer skal Copilot minne om å oppdatere:
 
-* `agents/<gpt>/README.md`
-* `.github/prompts/`
-* `docs/`
-* andre relevante konfigurasjonsfiler
+- `agents/<gpt>/README.md`
+- `.github/prompts/`
+- `docs/`
+- andre relevante konfigurasjonsfiler
 
 ---
 
@@ -282,10 +282,10 @@ Ved nye GPT-mapper eller strukturelle endringer skal Copilot minne om å oppdate
 
 Copilot skal bidra til:
 
-* korrekt struktur i kjerneområdene (`agents/`, `scripts/`)
-* fleksibel, men ryddig struktur i støtteområder (`docs/`, `web/`, etc.)
-* konsistente kunnskapsfiler etter NGAS-standard
-* kvalitetssikrede GPT-er klare for produksjon
-* høy standard i alle filer og mapper
+- korrekt struktur i kjerneområdene (`agents/`, `scripts/`)
+- fleksibel, men ryddig struktur i støtteområder (`docs/`, `web/`, etc.)
+- konsistente kunnskapsfiler etter NGAS-standard
+- kvalitetssikrede GPT-er klare for produksjon
+- høy standard i alle filer og mapper
 
 ---

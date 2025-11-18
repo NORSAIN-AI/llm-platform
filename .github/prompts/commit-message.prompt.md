@@ -1,16 +1,17 @@
 ---
 agent: agent
-description: "Lag presise, profesjonelle commit-meldinger for NORSAIN GPT Platform."
+description: 'Lag presise, profesjonelle commit-meldinger for NORSAIN GPT Platform.'
 ---
+
 Når du genererer commit-meldinger:
 
 - Følg formatet:
   <type>(scope): kort beskrivelse
 
   body:
-    - Hva som ble endret
-    - Hvorfor
-    - Konsekvenser / påvirkning
+  - Hva som ble endret
+  - Hvorfor
+  - Konsekvenser / påvirkning
 
 - Tillatte <type>:
   - feat: ny funksjon

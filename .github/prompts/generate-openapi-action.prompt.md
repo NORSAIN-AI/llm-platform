@@ -1,7 +1,8 @@
 ---
 agent: agent
-description: "Lag gyldige OpenAPI 3.x JSON-skjemaer for GPT Actions."
+description: 'Lag gyldige OpenAPI 3.x JSON-skjemaer for GPT Actions.'
 ---
+
 Når du genererer eller endrer en action-fil:
 
 - kun gyldig JSON

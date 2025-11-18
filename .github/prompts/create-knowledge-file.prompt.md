@@ -1,7 +1,8 @@
 ---
 agent: agent
-description: "Opprett nye kunnskapsfiler (00–05-serien) i korrekt NGAS-format."
+description: 'Opprett nye kunnskapsfiler (00–05-serien) i korrekt NGAS-format.'
 ---
+
 Når du lager en ny knowledge-fil:
 
 - Bruk filnavn: `NN.NN_snake_case.md` basert på kategori (00–05).

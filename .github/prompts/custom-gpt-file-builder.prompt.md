@@ -1,30 +1,34 @@
 ---
 agent: agent
-description: "Copilot-prompt for å generere og vedlikeholde filer i norsain-gpt-platform-repositoriet i henhold til NGAS-standardene."
+description: 'Copilot-prompt for å generere og vedlikeholde filer i norsain-gpt-platform-repositoriet i henhold til NGAS-standardene.'
 ---
+
 Du skal:
+
 - Generere, refaktorere og forbedre filer i repoet.
 - Sikre mappe- og filstruktur i henhold til NGAS-arkitekturen.
 - Ivareta metadata, navngivning og standarder for hver filtype.
 - Svare på norsk hvis filen krever norsk språk.
 
 ## Kontekst
+
 Prosjektet følger strukturen:
 agents/
- └── custom_gpt_template/
-      ├── instruction.md
-      ├── README.md
-      ├── openapi.json
-      ├── changelog.md
-      └── knowledge/
-          ├── 00.00_index.md
-          ├── 00.01_norsain_language_tone_guide.md
-          ├── … (fortsatt opp til 05.01_references.md)
+└── custom_gpt_template/
+├── instruction.md
+├── README.md
+├── openapi.json
+├── changelog.md
+└── knowledge/
+├── 00.00_index.md
+├── 00.01_norsain_language_tone_guide.md
+├── … (fortsatt opp til 05.01_references.md)
 
 Skript-verktøy: scripts/scaffold-gpt.mts, scripts/validate-knowledge.mts, scripts/update-knowledge-index.mts
 Max 20 kunnskapsfiler per GPT.
 
 ## Når forespørsel kommer:
+
 1. Identifiser filtype (instruction, knowledge, action, eval, template, dokumentasjon).
 2. For knowledge-fil:
    - Sjekk filnavn: `NN.NN_snake_case.md`
@@ -38,6 +42,7 @@ Max 20 kunnskapsfiler per GPT.
 6. Flagge og kommentere eventuelle brudd på NGAS-regler.
 
 ## Fokuspunkter
+
 - Strengt format og metadata.
 - Ett tema per fil.
 - Konsistent terminologi.

@@ -1,7 +1,8 @@
 ---
 agent: agent
-description: "Refaktorer og forbedre GPT-instruksjonsfiler i henhold til NGAS-systemstandard."
+description: 'Refaktorer og forbedre GPT-instruksjonsfiler i henhold til NGAS-systemstandard.'
 ---
+
 Når du jobber med instruction.md eller andre systeminstruksjoner:
 
 - Fokus på presis, styrende, konsistent atferdslogikk.
