@@ -130,5 +130,3 @@ You will now:
 - Generate the complete report file with the structure above.
 
 ```
-
-```
