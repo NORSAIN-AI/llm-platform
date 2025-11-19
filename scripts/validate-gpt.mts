@@ -39,7 +39,7 @@ Example:
       // Validate all GPTs
       const entries = await readdir(agentsDir, { withFileTypes: true });
       gptsToValidate = entries
-        .filter((entry) => entry.isDirectory() && !entry.name.startsWith('_'))
+        .filter((entry) => entry.isDirectory() && !entry.name.startsWith('_') && !entry.name.startsWith('test_') && entry.name !== 'templates')
         .map((entry) => entry.name);
     }
 
