@@ -1,4 +1,4 @@
-import { mkdir, cp, readFile, writeFile, stat } from 'fs/promises';
+import { mkdir, cp, readFile, writeFile, stat, readdir } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -16,8 +16,8 @@ export interface ScaffoldOptions {
  * Get the root directory of the project
  */
 export function getProjectRoot(): string {
-  // From scripts/utils/scaffolding.mts, go up 2 levels
-  return join(__dirname, '..', '..');
+  // Use process.cwd() so tests can stub the project root
+  return process.cwd();
 }
 
 /**
@@ -60,18 +60,37 @@ export async function scaffoldGPT(options: ScaffoldOptions): Promise<string> {
     );
   }
 
-  // Copy template files
+  // Copy template files: copy contents of templatePath into the new GPT folder
   try {
-    await cp(templatePath, gptPath, { recursive: true });
+    const entries = await readdir(templatePath, { withFileTypes: true });
+    for (const entry of entries) {
+      const src = join(templatePath, entry.name);
+      const dest = join(gptPath, entry.name);
+      await cp(src, dest, { recursive: true });
+    }
   } catch (error) {
     throw new Error(
-      `Failed to copy template from ${templatePath}: ${error instanceof Error ? error.message : String(error)}`
+      `Failed to copy template contents from ${templatePath}: ${error instanceof Error ? error.message : String(error)}`
     );
   }
 
-  // Update gpt.json with custom values
+  // Update gpt.json with custom values (create default if template didn't provide one)
   const gptJsonPath = join(gptPath, 'gpt.json');
   try {
+    try {
+      await stat(gptJsonPath);
+    } catch {
+      // gpt.json missing in copied template — create a minimal one so we can update it
+      const defaultConfig = {
+        name: options.name,
+        description: options.description || `Custom GPT: ${options.name}`,
+        created: new Date().toISOString(),
+        author: options.author || 'NORSAIN-AI',
+        tags: options.tags || [],
+      };
+      await writeFile(gptJsonPath, JSON.stringify(defaultConfig, null, 2) + '\n', 'utf-8');
+    }
+
     const gptJsonContent = await readFile(gptJsonPath, 'utf-8');
     const gptConfig = JSON.parse(gptJsonContent);
 

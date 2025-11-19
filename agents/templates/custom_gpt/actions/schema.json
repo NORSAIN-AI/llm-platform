@@ -1,0 +1,12 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "GPT Actions API",
+    "description": "Custom actions for the GPT",
+    "version": "1.0.0"
+  },
+  "paths": {},
+  "components": {
+    "schemas": {}
+  }
+}
