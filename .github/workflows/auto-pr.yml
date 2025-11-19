@@ -22,18 +22,27 @@ jobs:
 
       - name: Create or update pull request
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Use a fine-grained PAT stored in secrets.GH_PERSONAL_TOKEN for gh CLI
+          GITHUB_TOKEN: ${{ secrets.GH_PERSONAL_TOKEN }}
           BASE_BRANCH: main
         run: |
           BRANCH="${GITHUB_REF_NAME}"
 
           echo "Creating or updating PR from $BRANCH -> $BASE_BRANCH"
 
+          # Ensure the PAT secret is present and non-empty
+          if [ -z "$GITHUB_TOKEN" ]; then
+            echo "ERROR: secrets.GH_PERSONAL_TOKEN is empty or not set. Add a personal access token 'GH_PERSONAL_TOKEN' with 'repo' and 'pull_request' permissions to repository secrets."
+            exit 1
+          fi
+
           # Check if an open PR already exists for this branch
           EXISTING_PR=$(gh pr list \
             --head "$BRANCH" \
             --base "$BASE_BRANCH" \
             --state open \
+            --repo "$GITHUB_REPOSITORY" \
+            --token "$GITHUB_TOKEN" \
             --json number \
             --jq '.[0].number // empty')
 
@@ -49,4 +58,6 @@ jobs:
             --head "$BRANCH" \
             --base "$BASE_BRANCH" \
             --title "$TITLE" \
-            --body "$BODY"
+            --body "$BODY" \
+            --repo "$GITHUB_REPOSITORY" \
+            --token "$GITHUB_TOKEN"
