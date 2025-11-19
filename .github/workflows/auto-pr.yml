@@ -22,7 +22,7 @@ jobs:
 
       - name: Create or update pull request
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_PERSONAL_TOKEN }}
           BASE_BRANCH: main
         run: |
           BRANCH="${GITHUB_REF_NAME}"
