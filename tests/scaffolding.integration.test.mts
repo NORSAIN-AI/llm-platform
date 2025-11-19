@@ -10,7 +10,7 @@ import { validateGPTStructure } from '../scripts/utils/validation.mts';
 async function createTempRepoWithTemplates() {
   const root = mkdtempSync(join(tmpdir(), 'norsain-gpt-platform-'));
 
-  const base = join(root, 'agents', 'templates', 'custom_gpt');
+  const base = join(root, 'gpt-packages', 'templates', 'custom_gpt');
 
   // Minimal template structure
   await mkdir(join(base, 'instructions'), { recursive: true });
