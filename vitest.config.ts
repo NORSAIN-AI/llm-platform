@@ -19,7 +19,17 @@ export default defineConfig({
     ],
     reporters: ['default'],
     coverage: {
-      enabled: false,
+      enabled: true,
+      reporter: ['text', 'json', 'html'],
+      exclude: [
+        'node_modules',
+        'dist',
+        '.git',
+        '.github',
+        'tests/**',
+        'scripts/**/*.test.*',
+        'vitest.config.ts'
+      ],
     },
   },
 
