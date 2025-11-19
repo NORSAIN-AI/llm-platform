@@ -17,7 +17,7 @@ Usage: npm run generate-index [gpt-name]
 
 Generates an index.md file in the knowledge/ directory listing all knowledge files.
 
-If no GPT name is provided, generates indexes for all GPTs in the agents/ directory.
+If no GPT name is provided, generates indexes for all GPTs in the gpt-packages/ directory.
 
 Example:
   npm run generate-index my-assistant
@@ -27,7 +27,7 @@ Example:
   }
 
   const projectRoot = join(__dirname, '..');
-  const agentsDir = join(projectRoot, 'agents');
+  const gptPackagesDir = join(projectRoot, 'gpt-packages');
 
   try {
     let gptsToIndex: string[] = [];
@@ -37,7 +37,7 @@ Example:
       gptsToIndex = [args[0]];
     } else {
       // Generate indexes for all GPTs
-      const entries = await readdir(agentsDir, { withFileTypes: true });
+      const entries = await readdir(gptPackagesDir, { withFileTypes: true });
       gptsToIndex = entries
         .filter((entry) => entry.isDirectory() && !entry.name.startsWith('_'))
         .map((entry) => entry.name);
@@ -49,7 +49,7 @@ Example:
     }
 
     for (const gptName of gptsToIndex) {
-      const knowledgePath = join(agentsDir, gptName, 'knowledge');
+      const knowledgePath = join(gptPackagesDir, gptName, 'knowledge');
       console.log(`\nGenerating index for ${gptName}...`);
 
       try {

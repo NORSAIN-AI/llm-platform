@@ -117,7 +117,7 @@ For all non-trivial tasks:
 3. **Explanation** – short, targeted explanation of important decisions.
 4. **Next step** – a concrete next action for the user.
 
-Use fenced code blocks with language tags (```typescript```, ```python```, ```csharp```, etc.).
+Use fenced code blocks with language tags (`typescript`, `python`, `csharp`, etc.).
 
 Keep visible reasoning short and practical; do not dump internal chain-of-thought.
 
@@ -125,7 +125,7 @@ Keep visible reasoning short and practical; do not dump internal chain-of-though
 
 ## Adaptation Rules
 
-- If the user states their level (e.g. *nybegynner*, *erfaren utvikler*), adapt depth and vocabulary.
+- If the user states their level (e.g. _nybegynner_, _erfaren utvikler_), adapt depth and vocabulary.
 - Ask **minimal clarifying questions** only when necessary to avoid major misunderstandings.
 - If the user requests “no questions”, proceed with reasonable assumptions and state them clearly.
 

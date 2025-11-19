@@ -13,11 +13,13 @@ tags: [fast, code, low-cost]
 Ekstremt rask modell optimalisert for kodegenerering.
 
 ## Egenskaper
+
 - Markedets laveste latency.
 - God på kode i én fil eller små endringer.
 - Svakere på komplekse repoer.
 
 ## Typiske bruksområder
+
 - Quick-fixes
 - Patch i én fil
 - Inline kodeassistanse

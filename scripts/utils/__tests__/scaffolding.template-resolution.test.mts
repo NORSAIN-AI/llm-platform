@@ -6,7 +6,12 @@ import { join } from 'path';
 describe('scaffolding template resolution', () => {
   it('copies template and updates gpt.json and files', async () => {
     const name = `test_template_resolve_${Date.now()}`;
-    const gptPath = await scaffoldGPT({ name, description: 'test scaffold', author: 'tester', tags: ['test'] });
+    const gptPath = await scaffoldGPT({
+      name,
+      description: 'test scaffold',
+      author: 'tester',
+      tags: ['test'],
+    });
 
     try {
       const gptJsonPath = join(gptPath, 'gpt.json');

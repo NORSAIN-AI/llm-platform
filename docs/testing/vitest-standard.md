@@ -9,7 +9,7 @@ Denne standarden beskriver hvordan vi bruker Vitest i `norsain-gpt-platform`:
 
 - Teste TypeScript-verktøy (scaffolding, validering, index-generering).
 - Verifisere GPT-pack-struktur og regler (NGAS, max 20 filer, index, osv.).
-- Sikre at endringer i `agents/` og `templates/` oppdages gjennom tester.
+- Sikre at endringer i `gpt-packages/` og `templates/` oppdages gjennom tester.
 - Gi en fast ramme for lokale tester og CI.
 
 Denne repo-spesifikke standarden bygger på NORSAIN sin generelle Vitest-standard, men er tilpasset:
@@ -26,17 +26,17 @@ I `norsain-gpt-platform` er hovedmålet å beskytte:
 
 1. **Kjernefunksjoner i TypeScript-koden**
    - Moduler som:
-     - leser og analyserer `agents/`-struktur
+     - leser og analyserer `gpt-packages/`-struktur
      - genererer `_index`-filer og metadata
      - validerer kunnskapsfiler, actions og instructions opp mot NGAS-regler.
 
-2. **CLI-/scripts-atferd**
+1. **CLI-/scripts-atferd**
    - Scripts som:
      - scaffold’er nye GPT-er fra templates
      - validerer GPT-konfig (`gpt.json`, `knowledge/`, `actions/`, osv.)
      - genererer index-filer og eventuelle hjelpefiler.
 
-3. **Regressjonstester mot fixtures**
+1. **Regressjonstester mot fixtures**
    - Under `tests/fixtures/`:
      - ett eller flere “gyldige” GPT-sett (skal passere validering)
      - ett eller flere “ugyldige” GPT-sett (skal feile med forutsigbare feil).
@@ -66,11 +66,11 @@ norsain-gpt-platform/
     __tests__/
       scaffold-gpt.test.ts
       validate-gpt.test.ts
-  agents/
+  gpt-packages/
     templates/             # GPT-template(r) brukt som grunnlag
   tests/
     fixtures/
-      agents/
+      gpt-packages/
         valid_custom_gpt/
         invalid_custom_gpt_missing_index/
         invalid_custom_gpt_too_many_knowledge_files/

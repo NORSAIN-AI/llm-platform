@@ -13,13 +13,14 @@ tags: [architecture, analysis, reasoning, qms]
 Beste allround-modellen for arkitektur, resonnement og systemanalyse.
 
 ## Egenskaper
+
 - Sterk på komplekse systemdesign.
 - Ekstremt god kontekst- og årsak/virkning-forståelse.
 - God balanse mellom teknisk presisjon og språkproduksjon.
 - Optimal for MAS-/MCP-arkitektur.
 
 ## Typiske bruksområder
+
 - Arkitektur og design
 - QMS-, IMS- og dokumentanalyser
 - MCP- og MAS-modellteori
-

@@ -14,9 +14,9 @@ for each top-level folder and important files.
 ├── .github/                         # GitHub config: agents, prompts, chat instructions
 │   ├── agents/                      # Agent definitions for Copilot/VS Code agents
 │   ├── prompts/                     # Prompt templates used by agents and maintainers
-│   └── instructions/                # Scope-specific chat instructions for areas (agents/, scripts/, global)
+│   └── instructions/                # Scope-specific chat instructions for areas (gpt-packages/, scripts/, global)
 │
-├── agents/                          # Main GPT packages and templates
+├── gpt-packages/                    # Main GPT packages and templates
 │   ├── analytics-bot/               # Example GPT package (instructions, knowledge, actions)
 │   ├── backend_core_architect/      # Custom GPT: backend architecture-focused package
 │   │   ├── gpt.json                 # GPT metadata and structure pointer
@@ -57,16 +57,17 @@ for each top-level folder and important files.
 Folder explanations
 
 - `.github/`: Contains agent definitions, prompt files, and chat-instruction files that scope
-  Copilot/agent behavior to repository areas (e.g., `agents/**`, `scripts/**`).
+  Copilot/agent behavior to repository areas (e.g., `gpt-packages/**`, `scripts/**`).
   Use these when building or validating GPT packages and automations.
 
-- `agents/`: The core area where each Custom GPT is stored. Each GPT folder follows the NGAS conventions and typically contains:
+- `gpt-packages/`: The core area where each Custom GPT is stored. Each GPT folder follows the
+  NGAS conventions and typically contains:
   - `gpt.json`: metadata and pointers to `instructions`, `actions`, and `knowledge` locations.
   - `instructions/`: system-role instruction files (the system prompt for the GPT).
   - `knowledge/`: domain knowledge files (numbered `NN.NN_snake_case.md` per NGAS conventions).
   - `actions/`: OpenAPI 3.1 JSON schemas for any custom actions the GPT can use.
 
-  The `agents/templates/` subtree holds canonical templates used by the scaffold tools
+  The `gpt-packages/templates/` subtree holds canonical templates used by the scaffold tools
   and by human maintainers to create new GPT packages in a consistent way
   (instruction templates, knowledge templates, action templates, eval templates, etc.).
 

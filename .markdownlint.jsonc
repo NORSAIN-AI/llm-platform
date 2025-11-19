@@ -10,7 +10,7 @@
   // --------------------------------------------------------------
   "MD040": true, // fenced-code-language
   "MD046": {
-    "style": "fenced"
+    "style": "fenced",
   },
 
   // --------------------------------------------------------------
@@ -18,14 +18,14 @@
   // --------------------------------------------------------------
   "MD041": {
     "level": 1,
-    "front_matter_title": "title"
+    "front_matter_title": "title",
   },
   "MD025": {
     "level": 1,
-    "front_matter_title": "title"
+    "front_matter_title": "title",
   },
   "MD002": {
-    "level": 1
+    "level": 1,
   },
   "MD001": true, // no heading-level jumps
 
@@ -39,7 +39,7 @@
     "line_length": 120,
     "code_blocks": false,
     "tables": false,
-    "headings": false
+    "headings": false,
   },
 
   // --------------------------------------------------------------
@@ -47,13 +47,13 @@
   // --------------------------------------------------------------
   "MD032": true, // blanks-around-lists
   "MD007": {
-    "indent": 2
+    "indent": 2,
   },
   "MD030": {
     "ol_single": 1,
     "ol_multi": 1,
     "ul_single": 1,
-    "ul_multi": 1
+    "ul_multi": 1,
   },
 
   // --------------------------------------------------------------
@@ -67,7 +67,7 @@
   // --------------------------------------------------------------
   "MD026": {
     // Allow parentheses in headings like "Kvalitetsregler (NGAS)"
-    "punctuation": ".,:;!?"
+    "punctuation": ".,:;!?",
   },
 
   // --------------------------------------------------------------
@@ -84,5 +84,5 @@
   // Blank lines & file termination (important in GPT packs)
   // --------------------------------------------------------------
   "MD012": true, // no multiple consecutive blank lines
-  "MD047": true // single newline at end of file
+  "MD047": true, // single newline at end of file
 }

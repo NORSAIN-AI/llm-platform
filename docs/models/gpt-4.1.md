@@ -13,11 +13,13 @@ tags: [predictable, stable, mid-tier]
 Stabil, forutsigbar modell for enkle utvikleroppgaver.
 
 ## Egenskaper
+
 - Ryddig og presis språkbruk.
 - Ikke optimal for store refaktoreringer.
 - Passer til lette tekniske beskrivelser.
 
 ## Typiske bruksområder
+
 - Lettere dokumentasjon
 - Enkle kodeoppgaver
 - QA og korte analyser

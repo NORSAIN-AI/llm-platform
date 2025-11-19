@@ -13,11 +13,13 @@ tags: [speed, drafts, low-cost]
 Høy hastighet for små tekst- og kodeutkast.
 
 ## Egenskaper
+
 - Svært rask.
 - Lav presisjon ved komplekse oppgaver.
 - Flink til korte drafts.
 
 ## Typiske bruksområder
+
 - Hurtigskriving
 - Enkle kodeutkast
 - Tekstdrafting

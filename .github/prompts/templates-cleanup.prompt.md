@@ -1,44 +1,44 @@
 ---
 agent: norsain-repo-builder-agent
 ---
-description: Rydd opp og standardiser agents/templates for NORSAIN GPT Platform.
----
 
-# Oppdrag – Rydding og standardisering av `agents/templates/`
+## description: Rydd opp og standardiser gpt-packages/templates for NORSAIN GPT Platform.
+
+# Oppdrag – Rydding og standardisering av `gpt-packages/templates/`
 
 Du jobber i repoet `norsain-gpt-platform`.
 
-Målet er å bygge en REN og LOGISK templates-struktur for Custom GPT-er slik at `scaffold-gpt` kan brukes trygt. Du skal IKKE endre NORSAIN GPT Architect sin egen agent-mappe nå, bare selve malverket under `agents/templates/`.
+Målet er å bygge en REN og LOGISK templates-struktur for Custom GPT-er slik at `scaffold-gpt` kan brukes trygt. Du skal IKKE endre NORSAIN GPT Architect sin egen agent-mappe nå, bare selve malverket under `gpt-packages/templates/`.
 
 ## Overordnet mål
 
 1. **Kun én gyldig template-mappe:**
-   Bruk kun `agents/templates/custom_gpt/` som kilde for scaffolding av nye GPT-er.
+   Bruk kun `gpt-packages/templates/custom_gpt/` som kilde for scaffolding av nye GPT-er.
 
 2. **Tydelig instructions-mal:**
-   `agents/templates/custom_gpt/instructions/` skal inneholde én fil
+   `gpt-packages/templates/custom_gpt/instructions/` skal inneholde én fil
    `instructions.template.md` som er en mal for fremtidige `instructions.md` for nye GPT-er.
 
 3. **Minimalt, nyttig knowledge-malverk i templates:**
-   `agents/templates/custom_gpt/knowledge/` skal kun inneholde det som trengs for nye GPT-er, typisk én enkel index-mal.
+   `gpt-packages/templates/custom_gpt/knowledge/` skal kun inneholde det som trengs for nye GPT-er, typisk én enkel index-mal.
 
 4. **Ingen duplikater på toppnivå:**
-   Det skal ikke ligge parallelle `instructions/`, `knowledge/` eller `actions/` rett under `agents/templates/` som konkurrerer med `custom_gpt/`.
+   Det skal ikke ligge parallelle `instructions/`, `knowledge/` eller `actions/` rett under `gpt-packages/templates/` som konkurrerer med `custom_gpt/`.
 
 ---
 
 ## Konkrete oppgaver
 
-### 1. Normaliser mappe-strukturen under `agents/templates/`
+### 1. Normaliser mappe-strukturen under `gpt-packages/templates/`
 
-1. Inspiser `agents/templates/`:
-   - Finn ut hvilke mapper/filer som ligger direkte under `agents/templates/`.
-   - Finn ut hva som ligger under `agents/templates/custom_gpt/`.
+1. Inspiser `gpt-packages/templates/`:
+   - Finn ut hvilke mapper/filer som ligger direkte under `gpt-packages/templates/`.
+   - Finn ut hva som ligger under `gpt-packages/templates/custom_gpt/`.
 
 2. End state skal være:
 
 ```text
-agents/
+gpt-packages/
   templates/
     custom_gpt/
       gpt.json                 # template for GPT-konfig
@@ -50,14 +50,14 @@ agents/
         openapi.template.json   # evt. enkel placeholder for Actions (kan være svært enkel)
 ```
 
-3. Hvis det finnes mapper/filer direkte under `agents/templates/` som dupliserer dette (f.eks. `agents/templates/instructions/`, `knowledge/`, `actions/`):
+3. Hvis det finnes mapper/filer direkte under `gpt-packages/templates/` som dupliserer dette (f.eks. `gpt-packages/templates/instructions/`, `knowledge/`, `actions/`):
    - Flytt INN eventuelle relevante maler til riktig sted under `custom_gpt/` (hvis de faktisk har nyttig innhold).
    - Hvis de er tomme eller meningsløse:
      - Fjern dem (git rm) eller marker dem som deprecated i en README og rydd de faktiske filene.
 
 ### 2. Bygg `instructions.template.md` riktig
 
-Under `agents/templates/custom_gpt/instructions/` skal du:
+Under `gpt-packages/templates/custom_gpt/instructions/` skal du:
 
 1. Sørge for at det finnes én fil: `instructions.template.md`.
 2. Hvis det ligger en `main.md` eller tilsvarende, skal du:
@@ -150,17 +150,20 @@ Språk, format, struktur, lengde, bruk av kodeblokker osv.
 # 07 – Interaction rules
 
 Hvordan GPT-en skal samhandle med brukeren:
+
 - spørre, bekrefte, forklare, håndtere usikkerhet.
 
 # 08 – Ask vs infer
 
 Når GPT-en skal:
+
 - spørre eksplisitt
 - anta (med tydelig merking av antakelser).
 
 # 09 – End rules
 
 Hvordan svaret skal avsluttes:
+
 - f.eks. alltid med neste anbefalte steg og ev. påminnelse om human review der det er relevant.
 ```
 
@@ -168,7 +171,7 @@ Du skal implementere en versjon av dette som passer repoet, men logikken over sk
 
 ### 3. Minimal `knowledge/`-mal i templates
 
-Under `agents/templates/custom_gpt/knowledge/`:
+Under `gpt-packages/templates/custom_gpt/knowledge/`:
 
 1. Fjern alle tomme eller innholdsløse malfiler.
 2. Opprett én enkel index-mal: `00.01_knowledge_index.template.md` med innhold som f.eks.:
@@ -179,6 +182,7 @@ Under `agents/templates/custom_gpt/knowledge/`:
 List the knowledge files used by this GPT.
 
 For each file, specify:
+
 - file_name
 - source system (repo, Notion, database, etc.)
 - short description
@@ -192,7 +196,7 @@ Ingen andre knowledge-maler er nødvendig her – NORSAIN GPT Architect vil fore
 
 ### 4. Actions-template
 
-Under `agents/templates/custom_gpt/actions/`:
+Under `gpt-packages/templates/custom_gpt/actions/`:
 
 1. Sørg for at det finnes en enkel `openapi.template.json` (navn kan tilpasses repo-standard).
 2. Innholdet kan være en minimal skeleton som menneskelige utviklere fyller ut senere, f.eks.:
@@ -226,8 +230,9 @@ Ikke fyll inn ekte URL-er eller auth; det er kun en placeholder.
   - `feat: add instructions.template for custom GPTs`
   - `chore: prune empty knowledge templates`
 - Oppdater ev. README/REPO_STRUCTURE hvis det refererer til gammel templates-struktur.
-- Ikke rør andre agents/mapper enn det som er nødvendig for å fullføre denne oppgaven.
+- Ikke rør andre gpt-packages/mapper enn det som er nødvendig for å fullføre denne oppgaven.
 
 Når du er ferdig:
+
 - Oppsummer hva som er endret.
 - Foreslå hvordan `scaffold-gpt` nå bør brukes for å opprette nye GPT-er.

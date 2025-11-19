@@ -1,6 +1,6 @@
 ---
 agent: norsain-repo-builder-agent
-description: "Start en strukturert repo- og GAP-gjennomgang for norsain-gpt-platform."
+description: 'Start en strukturert repo- og GAP-gjennomgang for norsain-gpt-platform.'
 ---
 
 # NORSAIN Repo Builder – Struktur- og GAP-økt
@@ -20,12 +20,12 @@ Når denne prompten kjøres, skal du:
 1. **Forstå kontekst**
    - Anta at dette er NORSAIN sin primære plattform for å bygge og vedlikeholde Custom GPT-pakker.
    - Fokuser på mappene:
-     - `agents/`
-     - `scripts/`
-     - `.github/agents/`
-     - `.github/chat/`
-     - `.github/workflows/`
-     - `docs/`
+   - `gpt-packages/`
+   - `scripts/`
+   - `.github/agents/`
+   - `.github/chat/`
+   - `.github/workflows/`
+   - `docs/`
 
 2. **Gjennomføre en lett GAP-analyse**
    - Beskriv kort:

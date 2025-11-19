@@ -14,7 +14,7 @@
 ├── README.md
 ├── package.json
 ├── tsconfig.json
-├── agents/
+├── gpt-packages/
 │   ├── _template/
 │   ├── analytics-bot/
 │   └── my-assistant/
@@ -29,7 +29,7 @@
 ```
 
 - **Key Areas**:
-  - `agents/`: Contains GPT templates and instances.
+  - `gpt-packages/`: Contains GPT templates and instances.
   - `scripts/`: Includes CLI tools for scaffolding, validation, and indexing.
   - `.github/`: Holds workflows and prompts.
   - `web/`: Placeholder for future web app.

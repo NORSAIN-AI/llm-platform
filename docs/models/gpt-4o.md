@@ -13,11 +13,13 @@ tags: [balanced, multimodal, documentation, code]
 Balansert kvalitet, hastighet og pris – god allround-modell.
 
 ## Egenskaper
+
 - Sterk multimodal kapasitet.
 - God kodeforståelse, men ikke på nivå med Codex.
 - Meget god språkføring.
 
 ## Typiske bruksområder
+
 - Arkitekturdrøftelser
 - Rask kode + dokumentkombinasjon
 - Multimodal innsikt

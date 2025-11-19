@@ -17,7 +17,7 @@ Usage: npm run validate [gpt-name]
 
 Validates GPT directory structure and configuration.
 
-If no GPT name is provided, validates all GPTs in the agents/ directory.
+If no GPT name is provided, validates all GPTs in the gpt-packages/ directory.
 
 Example:
   npm run validate my-assistant
@@ -27,7 +27,7 @@ Example:
   }
 
   const projectRoot = join(__dirname, '..');
-  const agentsDir = join(projectRoot, 'agents');
+  const gptPackagesDir = join(projectRoot, 'gpt-packages');
 
   try {
     let gptsToValidate: string[] = [];
@@ -37,9 +37,15 @@ Example:
       gptsToValidate = [args[0]];
     } else {
       // Validate all GPTs
-      const entries = await readdir(agentsDir, { withFileTypes: true });
+      const entries = await readdir(gptPackagesDir, { withFileTypes: true });
       gptsToValidate = entries
-        .filter((entry) => entry.isDirectory() && !entry.name.startsWith('_') && !entry.name.startsWith('test_') && entry.name !== 'templates')
+        .filter(
+          (entry) =>
+            entry.isDirectory() &&
+            !entry.name.startsWith('_') &&
+            !entry.name.startsWith('test_') &&
+            entry.name !== 'templates'
+        )
         .map((entry) => entry.name);
     }
 
@@ -50,7 +56,7 @@ Example:
 
     let hasErrors = false;
     for (const gptName of gptsToValidate) {
-      const gptPath = join(agentsDir, gptName);
+      const gptPath = join(gptPackagesDir, gptName);
       console.log(`\nValidating ${gptName}...`);
 
       const result = await validateGPTStructure(gptPath);

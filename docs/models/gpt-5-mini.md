@@ -13,11 +13,13 @@ tags: [speed, low-cost, small-tasks]
 Rimelig, rask og godt egnet til enkle utvikleroppgaver.
 
 ## Egenskaper
+
 - 0x kost (gratisnivå).
 - Svært responsiv.
 - Beste mini-modellen for kode i GPT-serien.
 
 ## Typiske bruksområder
+
 - Små kodeendringer
 - README, korte beskrivelser
 - Enkle UML-/API-skisser

@@ -13,11 +13,13 @@ tags: [architecture, documentation, reasoning]
 Allround-modell for tekst, kode og design.
 
 ## Egenskaper
+
 - Sterk på systemtenkning og språk.
 - Balansert ytelse for dokument + kode i samme forespørsel.
 - Stabil kontekstforståelse.
 
 ## Typiske bruksområder
+
 - Overordnet systemskisser
 - Dokumentstrukturering
 - PM-arbeid

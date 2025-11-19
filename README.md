@@ -21,7 +21,7 @@ Strukturert plattform for å bygge og vedlikeholde Custom GPT-er med:
 
 ```text
 norsain-gpt-platform/
-├── agents/                 # GPT-pakker (template + instanser)
+├── gpt-packages/           # GPT-pakker (template + instanser)
 │   ├── _template/          # Basemal for nye GPT-er
 │   │   ├── instructions/   # System-/rolle-instruksjon
 │   │   ├── actions/        # OpenAPI 3.1-skjemaer
@@ -72,7 +72,7 @@ npm run generate-index my-assistant
 
 ## CLI-skript
 
-- `npm run scaffold <navn>`: Oppretter ny GPT fra `agents/_template`
+- `npm run scaffold <navn>`: Oppretter ny GPT fra `gpt-packages/templates/custom_gpt`
 - `npm run validate [navn]`: Validerer en spesifikk eller alle GPT-er
 - `npm run generate-index [navn]`: Lager `knowledge/index.md`
 - `npm run lint`: ESLint-kjøring for `.ts/.mts`
@@ -82,8 +82,8 @@ npm run generate-index my-assistant
 
 ## Kvalitetsregler (NGAS)
 
-- Streng struktur i `agents/` og `scripts/` – ikke fravik uten eksplisitt behov
-- Kunnskapsfiler i `agents/<gpt>/knowledge/`:
+- Streng struktur i `gpt-packages/` og `scripts/` – ikke fravik uten eksplisitt behov
+- Kunnskapsfiler i `gpt-packages/<gpt>/knowledge/`:
   - Maks 20 filer pr. GPT
   - Filnavn: `NN.NN_snake_case.md`
   - YAML-frontmatter er påkrevd

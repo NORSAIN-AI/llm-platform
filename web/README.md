@@ -44,7 +44,7 @@ npm run dev
 
 The web app will integrate with:
 
-- `agents/` directory for GPT configurations
+- `gpt-packages/` directory for GPT configurations
 - `scripts/` for CLI operations
 - GitHub API for version control integration
 - OpenAI APIs for agent execution

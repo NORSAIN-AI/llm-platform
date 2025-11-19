@@ -21,10 +21,10 @@ export function getProjectRoot(): string {
  */
 export async function scaffoldGPT(options: ScaffoldOptions): Promise<string> {
   const projectRoot = getProjectRoot();
-  // Use templates in `agents/templates` (prefer `custom_gpt`) — legacy `agents/_template` removed
+  // Use templates in `gpt-packages/templates` (prefer `custom_gpt`) — legacy `gpt-packages/_template` removed
   const templateCandidates = [
-    join(projectRoot, 'agents', 'templates', 'custom_gpt'),
-    join(projectRoot, 'agents', 'templates'),
+    join(projectRoot, 'gpt-packages', 'templates', 'custom_gpt'),
+    join(projectRoot, 'gpt-packages', 'templates'),
   ];
 
   let templatePath: string | undefined;
@@ -42,10 +42,10 @@ export async function scaffoldGPT(options: ScaffoldOptions): Promise<string> {
 
   if (!templatePath) {
     throw new Error(
-      `No template found. Checked: ${templateCandidates.join(', ')}. Add an agents/templates/custom_gpt or agents/templates directory.`
+      `No template found. Checked: ${templateCandidates.join(', ')}. Add a gpt-packages/templates/custom_gpt or gpt-packages/templates directory.`
     );
   }
-  const gptPath = join(projectRoot, 'agents', options.name);
+  const gptPath = join(projectRoot, 'gpt-packages', options.name);
 
   // Create the new GPT directory structure
   try {

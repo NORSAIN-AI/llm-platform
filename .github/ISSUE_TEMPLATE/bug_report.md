@@ -1,14 +1,15 @@
 ---
 name: Bug Report
 about: Rapportér en feil som påvirker funksjonalitet, scripts, GPT-pakker eller dokumentasjon
-title: "[BUG] "
-labels: ["bug"]
+title: '[BUG] '
+labels: ['bug']
 assignees: []
 ---
 
 # Bug Report
 
 ## 1. Sammendrag
+
 En kort og presis beskrivelse av feilen.
 
 **Eksempel:**
@@ -17,11 +18,13 @@ En kort og presis beskrivelse av feilen.
 ---
 
 ## 2. Forventet oppførsel
+
 Hva forventet du skulle skje?
 
 ---
 
 ## 3. Faktisk oppførsel
+
 Hva skjedde i stedet?
 
 - Feilmeldinger / stacktraces
@@ -31,6 +34,7 @@ Hva skjedde i stedet?
 ---
 
 ## 4. Reproduksjon
+
 Beskriv tydelige steg for å gjenskape feilen:
 
 1. …
@@ -39,7 +43,7 @@ Beskriv tydelige steg for å gjenskape feilen:
 4. …
 
 > Inkluder **presise paths** der det er relevant
-> (f.eks. `agents/<gpt>/knowledge/01.foundation/...` eller `scripts/…`)
+> (f.eks. `gpt-packages/<gpt>/knowledge/01.foundation/...` eller `scripts/…`)
 
 ---
 
@@ -66,10 +70,10 @@ Beskriv tydelige steg for å gjenskape feilen:
 ## 6. Påvirkningsområde (velg det som gjelder)
 
 - [ ] Scripts (`scripts/**`)
-- [ ] GPT-pakker (`agents/**`)
-- [ ] Actions (`agents/**/actions`)
-- [ ] Knowledge (`agents/**/knowledge`)
-- [ ] Instruction.md (`agents/**/instructions`)
+- [ ] GPT-pakker (`gpt-packages/**`)
+- [ ] Actions (`gpt-packages/**/actions`)
+- [ ] Knowledge (`gpt-packages/**/knowledge`)
+- [ ] Instruction.md (`gpt-packages/**/instructions`)
 - [ ] CI (`.github/workflows/**`)
 - [ ] Dokumentasjon (`docs/**`)
 - [ ] Repo-struktur / templates
@@ -99,3 +103,4 @@ Legg ved:
 
 ```text
 <lim log-output her>
+```

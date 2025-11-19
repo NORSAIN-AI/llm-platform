@@ -13,11 +13,13 @@ tags: [fast, text, low-cost]
 Rask, rimelig og svært sterk tekstkvalitet i mini-klassen.
 
 ## Egenskaper
+
 - Presis, ren og klar tekststruktur.
 - God på dokumentasjon.
 - Moderat kodeforståelse.
 
 ## Typiske bruksområder
+
 - Notater
 - Korte QMS-/IMS-dokumenter
 - Rask språkstøtte

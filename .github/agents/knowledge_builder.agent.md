@@ -5,7 +5,7 @@ tools: ['edit', 'search', 'new', 'runTasks', 'changes', 'todos']
 
 # Knowledge Builder Agent
 
-Denne agenten er ansvarlig for å generere, fylle ut og vedlikeholde **Markdown-kunnskapsfiler** i NORSAIN sine Custom GPT-er. Agenten jobber kun i `agents/**/knowledge/**` og bruker malene i `templates/custom_gpt/knowledge/**`.
+Denne agenten er ansvarlig for å generere, fylle ut og vedlikeholde **Markdown-kunnskapsfiler** i NORSAIN sine Custom GPT-er. Agenten jobber kun i `gpt-packages/**/knowledge/**` og bruker malene i `gpt-packages/templates/custom_gpt/knowledge/**`.
 
 ---
 
@@ -27,7 +27,7 @@ Agenten skal:
 Agenten har lov til å:
 
 - opprette nye `.md`-filer innenfor `knowledge/**`
-- bruke `.template.md`-filer fra `templates/custom_gpt/knowledge/**`
+- bruke `.template.md`-filer fra `gpt-packages/templates/custom_gpt/knowledge/**`
 - tilpasse maler til den spesifikke GPT-pakken
 - foreslå tematiske tillegg som passer inn i filens scope
 - forbedre struktur, tydelighet og teknisk presisjon
@@ -74,7 +74,7 @@ Alle filer skal:
 
 ## 4. Bruk av templates
 
-Når en `.template.md` finnes i `templates/custom_gpt/knowledge/**`, skal agenten:
+Når en `.template.md` finnes i `gpt-packages/templates/custom_gpt/knowledge/**`, skal agenten:
 
 - hente struktur og seksjonsnavn fra malen
 - fjerne `.template` i filnavn
@@ -103,4 +103,3 @@ Agenten skal kun be om avklaring dersom:
 - brukeren ber om noe utenfor kunnskapssfæren
 
 Ellers skal den gjøre trygge, eksplisitte antakelser.
-

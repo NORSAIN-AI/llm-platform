@@ -13,6 +13,7 @@ tags: [code, refactoring, analysis, backend-core]
 Høy-presisjons kodemodell for komplekse systemer, store repoer og avansert refaktorering.
 
 ## Egenskaper
+
 - Beste kodeforståelse i 2025.
 - Forstår store codebases i TypeScript, Python, Java, Go.
 - Sterk på multistep-debugging og store endringer.
@@ -20,6 +21,7 @@ Høy-presisjons kodemodell for komplekse systemer, store repoer og avansert refa
 - Svært god ved MCP-, MAS- og backend-core-relatert arbeid.
 
 ## Typiske bruksområder
+
 - Tverrmodulær refaktorering
 - Kompleks buganalyse
 - MCP-serverkode

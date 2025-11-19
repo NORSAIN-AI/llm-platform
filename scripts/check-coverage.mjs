@@ -11,14 +11,27 @@ if (fs.existsSync(summaryPath)) {
   // Vitest may emit an Istanbul "coverage-final.json". Convert to summary-like structure.
   const final = JSON.parse(fs.readFileSync(finalPath, 'utf-8'));
   // final has file keys with metrics under 'lines', 'branches', etc. We'll map to a summary object.
-  data = { total: {}, };
+  data = { total: {} };
   for (const [file, metrics] of Object.entries(final)) {
     if (file === 'total') continue;
     const entry = {};
-    if (metrics.lines) entry.lines = { total: metrics.lines.total || 0, covered: metrics.lines.covered || 0 };
-    if (metrics.branches) entry.branches = { total: metrics.branches.total || 0, covered: metrics.branches.covered || 0 };
-    if (metrics.functions) entry.functions = { total: metrics.functions.total || 0, covered: metrics.functions.covered || 0 };
-    if (metrics.statements) entry.statements = { total: metrics.statements.total || 0, covered: metrics.statements.covered || 0 };
+    if (metrics.lines)
+      entry.lines = { total: metrics.lines.total || 0, covered: metrics.lines.covered || 0 };
+    if (metrics.branches)
+      entry.branches = {
+        total: metrics.branches.total || 0,
+        covered: metrics.branches.covered || 0,
+      };
+    if (metrics.functions)
+      entry.functions = {
+        total: metrics.functions.total || 0,
+        covered: metrics.functions.covered || 0,
+      };
+    if (metrics.statements)
+      entry.statements = {
+        total: metrics.statements.total || 0,
+        covered: metrics.statements.covered || 0,
+      };
     data[file] = entry;
   }
 } else {
@@ -27,8 +40,10 @@ if (fs.existsSync(summaryPath)) {
 }
 
 function aggregateForPrefix(prefix) {
-  let linesTotal = 0, linesCovered = 0;
-  let branchesTotal = 0, branchesCovered = 0;
+  let linesTotal = 0,
+    linesCovered = 0;
+  let branchesTotal = 0,
+    branchesCovered = 0;
 
   for (const [file, metrics] of Object.entries(data)) {
     if (file === 'total') continue;
@@ -83,17 +98,25 @@ for (const target of targets) {
 
   const { lines: linesThreshold, branches: branchesThreshold } = target.thresholds;
   if (result.linesPct < linesThreshold) {
-    console.error(`Coverage threshold failed for ${target.label}: lines ${result.linesPct.toFixed(1)}% < ${linesThreshold}%`);
+    console.error(
+      `Coverage threshold failed for ${target.label}: lines ${result.linesPct.toFixed(1)}% < ${linesThreshold}%`
+    );
     failed = true;
   } else {
-    console.log(`Coverage OK for ${target.label}: lines ${result.linesPct.toFixed(1)}% >= ${linesThreshold}%`);
+    console.log(
+      `Coverage OK for ${target.label}: lines ${result.linesPct.toFixed(1)}% >= ${linesThreshold}%`
+    );
   }
 
   if (result.branchesPct < branchesThreshold) {
-    console.error(`Coverage threshold failed for ${target.label}: branches ${result.branchesPct.toFixed(1)}% < ${branchesThreshold}%`);
+    console.error(
+      `Coverage threshold failed for ${target.label}: branches ${result.branchesPct.toFixed(1)}% < ${branchesThreshold}%`
+    );
     failed = true;
   } else {
-    console.log(`Coverage OK for ${target.label}: branches ${result.branchesPct.toFixed(1)}% >= ${branchesThreshold}%`);
+    console.log(
+      `Coverage OK for ${target.label}: branches ${result.branchesPct.toFixed(1)}% >= ${branchesThreshold}%`
+    );
   }
 }
 

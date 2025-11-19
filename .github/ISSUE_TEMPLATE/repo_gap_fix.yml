@@ -1,7 +1,7 @@
 name: Repo Gap Fix
 about: Propose a fix for identified gaps in the repository
 
-title: "[Repo Gap Fix]: "
+title: '[Repo Gap Fix]: '
 labels: enhancement, gap-fix
 assignees: ''
 
@@ -39,7 +39,7 @@ body:
     id: affected-areas
     attributes:
       label: Affected Areas
-      placeholder: Specify the areas of the repository that are affected by this gap (e.g., agents/, scripts/, documentation).
+      placeholder: Specify the areas of the repository that are affected by this gap (e.g., gpt-packages/, scripts/, documentation).
     validations:
       required: true
 

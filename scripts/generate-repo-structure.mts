@@ -5,18 +5,9 @@ import { fileURLToPath } from 'url';
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const projectRoot = join(__dirname, '..');
 
-const IGNORED = new Set([
-  'node_modules',
-  '.git',
-  '.github',
-  'dist',
-  '.DS_Store'
-]);
+const IGNORED = new Set(['node_modules', '.git', '.github', 'dist', '.DS_Store']);
 
-async function generateTree(
-  dir: string,
-  prefix = ''
-): Promise<string[]> {
+async function generateTree(dir: string, prefix = ''): Promise<string[]> {
   const entries = await readdir(dir, { withFileTypes: true });
 
   // Sorter: mapper først, filer etterpå
@@ -65,7 +56,7 @@ async function main() {
     relative(projectRoot, projectRoot) + '/',
     ...tree,
     '```',
-    ''
+    '',
   ].join('\n');
 
   await writeFile(join(projectRoot, 'REPO_STRUCTURE.md'), md, 'utf8');

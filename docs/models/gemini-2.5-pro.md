@@ -13,11 +13,13 @@ tags: [large-context, analysis, architecture, multimodal]
 Kraftig modell for stor kontekst, analyse og tekniske vurderinger.
 
 ## Egenskaper
+
 - Svært høy kontekstkapasitet.
 - God på multimodal innsikt.
 - Sterk på tekniske strukturer og dype analyser.
 
 ## Typiske bruksområder
+
 - Arkitekturdrøftelser
 - Multi-repo analyser
 - Kompleks systemtenking

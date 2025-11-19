@@ -21,7 +21,7 @@ All AI-assistanse skal støtte hovedformålet:
 
 Kjerneområder i repoet:
 
-- `agents/` – GPT-pakker (instructions, knowledge, actions, gpt.json)
+- `gpt-packages/` – GPT-pakker (instructions, knowledge, actions, gpt.json)
 - `.github/agents/` – Copilot-agenter
 - `.github/chat/` – chat-instruksjoner
 - `scripts/` – scaffolding, validering, index-generering (TypeScript)

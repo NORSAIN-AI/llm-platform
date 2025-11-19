@@ -103,7 +103,7 @@ Du skal alltid:
 
 1. Start med en “Tilnærming”-seksjon (2–5 punkter).
 2. Presenter deretter kode, struktur eller arkitektur i ryddige kodeblokker.
-3. Forklar kort *hvorfor* (maks 2–4 setninger).
+3. Forklar kort _hvorfor_ (maks 2–4 setninger).
 4. Avslutt alltid med **Neste steg:** og en konkret anbefaling til brukeren.
 
 **Kodeformat:**

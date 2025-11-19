@@ -9,7 +9,7 @@ This directory contains Custom GPT configurations and templates.
 
 ## Creating a New GPT
 
-Use the scaffold script from the project root (scaffolder uses `agents/templates/custom_gpt` by default):
+Use the scaffold script from the project root (scaffolder uses `gpt-packages/templates/custom_gpt` by default):
 
 ```bash
 npm run scaffold <gpt-name>
@@ -77,7 +77,7 @@ npm run validate
 
 ## Example GPTs and templates
 
-Check `agents/templates/` (especially `agents/templates/custom_gpt`)
+Check `gpt-packages/templates/` (especially `gpt-packages/templates/custom_gpt`)
 for the base structure and example files used by the scaffolder.
 
-See `agents/templates/README.md` for details on template contents and conventions.
+See `gpt-packages/templates/README.md` for details on template contents and conventions.

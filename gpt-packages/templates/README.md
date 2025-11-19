@@ -1,7 +1,7 @@
 # Template Library for Custom GPTs
 
 Dette biblioteket inneholder maler som brukes av skriptene i `scripts/` for å scaffolde
-nye Custom GPT-pakker under `agents/`.
+nye Custom GPT-pakker under `gpt-packages/`.
 
 ## Innhold og hensikt
 
@@ -16,7 +16,7 @@ nye Custom GPT-pakker under `agents/`.
 ## Hvordan scaffolderen bruker malene
 
 - `scripts/scaffold-gpt.mts` (via `scripts/utils/scaffolding.mts`) kopierer malinnholdet fra
-  `agents/templates/custom_gpt` (eller `agents/templates`) til `agents/<gpt-name>/`.
+  `gpt-packages/templates/custom_gpt` (eller `gpt-packages/templates`) til `gpt-packages/<gpt-name>/`.
 - Etter kopiering gjøres enkle erstatninger:
   - `[GPT Name]` i `instructions/main.md` erstattes med navnet du oppgir
   - `actions/schema.json` får oppdatert `info.title` og `info.description`
@@ -32,7 +32,7 @@ nye Custom GPT-pakker under `agents/`.
 
 ## Hvordan tilpasse malene
 
-- Legg til nye templates under `agents/templates/custom_gpt` dersom du vil tilby flere
+- Legg til nye templates under `gpt-packages/templates/custom_gpt` dersom du vil tilby flere
   ferdige komponenter (f.eks. ekstra actions eller domain-knowledge).
 - Hvis du trenger andre erstatningsmønstre enn `[GPT Name]`, oppdater `scripts/utils/scaffolding.mts`
   og legg til dokumentasjon her.
@@ -52,9 +52,9 @@ npm run generate-index my-gpt
 
 ## Tips for repo-eiere
 
-- Hvis dere ønsker å bytte malstandard, oppdater `agents/templates/custom_gpt` —
+- Hvis dere ønsker å bytte malstandard, oppdater `gpt-packages/templates/custom_gpt` —
   scaffolderen bruker denne mappen som førsteprioritet.
-- Hold `agents/templates` synkron med eventuelle endringer i `scripts/utils/scaffolding.mts`.
+- Hold `gpt-packages/templates` synkron med eventuelle endringer i `scripts/utils/scaffolding.mts`.
 
 ## Lisens og ansvar
 

@@ -78,14 +78,19 @@ body:
       description: Select all areas affected by the bug.
       options:
         - label: Scripts (`scripts/**`)
-        - label: GPT packages (`agents/**`)
-        - label: Knowledge files (`agents/**/knowledge`)
-        - label: Instruction files (`agents/**/instructions`)
-        - label: Actions (`agents/**/actions`)
+        - label: GPT packages (`gpt-packages/**`)
+        - label: Knowledge files (`gpt-packages/**/knowledge`)
+        - label: Instruction files (`gpt-packages/**/instructions`)
+        - label: Actions (`gpt-packages/**/actions`)
         - label: CI workflows (`.github/workflows/**`)
         - label: Docs (`docs/**`)
-        - label: Templates (`agents/templates/**`)
+        - label: Templates (`gpt-packages/templates/**`)
         - label: Other (describe below)
+          - label: GPT packages (`gpt-packages/**`)
+          - label: Knowledge files (`gpt-packages/**/knowledge`)
+          - label: Instruction files (`gpt-packages/**/instructions`)
+          - label: Actions (`gpt-packages/**/actions`)
+          - label: Templates (`gpt-packages/templates/**`)
 
   - type: textarea
     id: environment

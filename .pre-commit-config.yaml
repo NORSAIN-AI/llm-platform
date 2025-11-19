@@ -22,8 +22,8 @@ repos:
 
       - id: markdownlint
         name: Markdownlint CLI
-        description: Run markdownlint-cli2 against repository markdown files
-        entry: npx --no-install markdownlint-cli2 "**/*.md" --ignore-path .markdownlintignore
+        description: Run markdownlint-cli2 against repository markdown files (ignores node_modules/ and reports/)
+        entry: npx --no-install markdownlint-cli2 "**/*.md" "#node_modules" "#reports"
         language: system
         files: "\\.md$"
 
@@ -34,7 +34,6 @@ repos:
         language: system
         pass_filenames: false
         files: "\\.(ts|mts|js|json|md)$"
-
 # Notes:
 # - These local hooks call Node tooling via npx which requires Node.js and the project's
 #   devDependencies to be installed (run `pnpm install` or `npm ci`).
