@@ -55,7 +55,6 @@ jobs:
             --base "$BASE_BRANCH" \
             --state open \
             --repo "$GITHUB_REPOSITORY" \
-            --token "$TOKEN" \
             --json number \
             --jq '.[0].number // empty')
 
@@ -72,5 +71,4 @@ jobs:
             --base "$BASE_BRANCH" \
             --title "$TITLE" \
             --body "$BODY" \
-            --repo "$GITHUB_REPOSITORY" \
-            --token "$TOKEN"
+            --repo "$GITHUB_REPOSITORY"
