@@ -1,0 +1,64 @@
+{
+  "template_id": "custom_gpt",
+  "template_version": "1.0.0",
+  "description": "Base NGAS-compliant template for new NORSAIN Custom GPT packages.",
+
+  "target_layout": {
+    "config_file": "gpt.json",
+    "instructions_dir": "instructions",
+    "actions_dir": "actions",
+    "knowledge_dir": "knowledge",
+    "metadata_dir": "gpt_metadata"
+  },
+
+  "placeholders": {
+    "{{GPT_NAME}}": "Human-readable GPT name, used in gpt.json and documentation.",
+    "{{GPT_SLUG}}": "Folder-safe slug for the GPT package (used as directory name and identifier).",
+    "{{GPT_DESCRIPTION}}": "Short UI description explaining the GPT's purpose.",
+    "{{OWNER}}": "Owner or team responsible for the GPT (e.g. 'NORSAIN Engineering')."
+  },
+
+  "ngas_profile": {
+    "model": "NGAS-01-09",
+    "required_sections": [
+      "01_identity",
+      "02_purpose",
+      "03_core_behaviour",
+      "04_constraints",
+      "05_safety",
+      "06_output_rules",
+      "07_interaction_rules",
+      "08_ask_vs_infer",
+      "09_end_rules"
+    ],
+    "instructions_dir": "instructions",
+    "file_pattern": "{section}.md"
+  },
+
+  "library_includes": {
+    "knowledge": [
+      "_library/knowledge/ngas_output_standards_v1.2.template.md",
+      "_library/knowledge/norsain_language_tone_guide.template.md"
+    ],
+    "evals": [
+      "_library/evals/eval_matrix.template.md"
+    ]
+    ,"prompts": [
+      "_library/prompts/build_custom_gpt.prompt.md"
+    ]
+  },
+
+  "constraints": {
+    "max_knowledge_files": 20,
+    "require_all_ngas_sections": true,
+    "allow_custom_actions": true,
+    "require_gpt_metadata": false
+  },
+
+  "scaffolding": {
+    "rename_template_files": true,
+    "template_infix": ".template",
+    "supports_sandbox": true,
+    "default_output_root": "gpt-packages"
+  }
+}

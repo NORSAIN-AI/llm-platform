@@ -14,24 +14,37 @@ jobs:
       contents: read
       pull-requests: write
 
+    env:
+      GH_PERSONAL_TOKEN: ${{ secrets.GH_PERSONAL_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GH_PERSONAL_TOKEN }}
+      GH_TOKEN: ${{ secrets.GH_PERSONAL_TOKEN }}
+      BASE_BRANCH: main
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
+      - name: Debug token env
+        run: |
+          echo "[debug] token env summary (presence only, values are not printed)"
+          echo "[debug] GITHUB_TOKEN set: ${GITHUB_TOKEN:+yes}"
+          echo "[debug] GH_TOKEN set: ${GH_TOKEN:+yes}"
+          echo "[debug] GH_PERSONAL_TOKEN set: ${GH_PERSONAL_TOKEN:+yes}"
+          echo "[debug] GITHUB_REPOSITORY: ${GITHUB_REPOSITORY:-<not set>}"
+          echo "[debug] GITHUB_REF_NAME: ${GITHUB_REF_NAME:-<not set>}"
+
       - name: Create or update pull request
-        env:
-          # Use a fine-grained PAT stored in secrets.GH_PERSONAL_TOKEN for gh CLI
-          GITHUB_TOKEN: ${{ secrets.GH_PERSONAL_TOKEN }}
-          BASE_BRANCH: main
         run: |
           BRANCH="${GITHUB_REF_NAME}"
 
           echo "Creating or updating PR from $BRANCH -> $BASE_BRANCH"
 
-          # Ensure the PAT secret is present and non-empty
-          if [ -z "$GITHUB_TOKEN" ]; then
+          # Choose the first available token (fallback order)
+          TOKEN="${GITHUB_TOKEN:-${GH_TOKEN:-${GH_PERSONAL_TOKEN:-}}}"
+
+          if [ -z "$TOKEN" ]; then
             echo "ERROR: secrets.GH_PERSONAL_TOKEN is empty or not set. Add a personal access token 'GH_PERSONAL_TOKEN' with 'repo' and 'pull_request' permissions to repository secrets."
             exit 1
           fi
@@ -42,7 +55,6 @@ jobs:
             --base "$BASE_BRANCH" \
             --state open \
             --repo "$GITHUB_REPOSITORY" \
-            --token "$GITHUB_TOKEN" \
             --json number \
             --jq '.[0].number // empty')
 
@@ -59,5 +71,4 @@ jobs:
             --base "$BASE_BRANCH" \
             --title "$TITLE" \
             --body "$BODY" \
-            --repo "$GITHUB_REPOSITORY" \
-            --token "$GITHUB_TOKEN"
+            --repo "$GITHUB_REPOSITORY"
