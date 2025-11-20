@@ -158,3 +158,15 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Local docs build outputs (ignore generated site artifacts)
+docs/_site/
+docs/_book/
+docs/.vuepress/
+docs/.vuepress/dist/
+docs/.vitepress/
+docs/.vitepress/dist/
+docs/.vitepress/cache/
+docs/.docusaurus/
+docs/.cache/
+docs/.sass-cache/
