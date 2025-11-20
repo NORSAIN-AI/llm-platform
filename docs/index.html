@@ -3,26 +3,263 @@
   <head>
     <meta charset="UTF-8" />
     <title>NORSAIN GPT Platform – Docs</title>
+    <meta
+      name="description"
+      content="NORSAIN GPT Platform – dokumentasjon for modellvalg, governance, GPT-pakker og verktøy."
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Optional theme, kan justeres senere -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-defaults.css">
+
+    <!-- NORSAIN fontprofil: Montserrat (primær), Roboto (sekundær) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon / logo (forutsatt at q_logo_512x512.svg ligger i docs/) -->
+    <link rel="icon" href="q_logo_512x512.svg" type="image/svg+xml" />
+
+    <!-- Basis-theme (docsify-themeable) -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-defaults.css"
+    />
+
+    <!-- NORSAIN – farger, typografi og layout -->
+    <style>
+      :root {
+        /* Primærfarge – Teal (#009688) */
+        --theme-color: #009688;
+
+        /* Sekundærfarger */
+        --color-bg: #f5f5f5; /* Lys grå bakgrunn */
+        --color-surface: #ffffff; /* Hvit innholdsoverflate */
+        --color-text-main: #212121; /* Mørk grå tekst */
+        --color-border: #e0e0e0; /* Lys grå kantlinjer */
+
+        /* Typografi */
+        --base-font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        --heading-font-family: "Montserrat", system-ui, -apple-system,
+          BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+        /* Layout */
+        --sidebar-width: 260px;
+        --content-max-width: 980px;
+      }
+
+      body {
+        margin: 0;
+        background: var(--color-bg);
+        font-family: var(--base-font-family);
+        color: var(--color-text-main);
+      }
+
+      #app {
+        min-height: 100vh;
+      }
+
+      /* Top-nav (docsify .app-nav) */
+      .app-nav {
+        background: #009688;
+        border-bottom: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .app-nav a,
+      .app-nav .app-name,
+      .app-nav .app-name-link {
+        color: #ffffff !important;
+        font-family: var(--heading-font-family);
+      }
+
+      .app-name {
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+      }
+
+      /* Logo foran nav-tekst via ::before */
+      .app-name-link::before {
+        content: "";
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+        vertical-align: middle;
+        background-image: url("q_logo_512x512.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      /* Sidebar */
+      .sidebar {
+        background: #ffffff;
+        border-right: 1px solid var(--color-border);
+      }
+
+      .sidebar-nav {
+        font-size: 0.9rem;
+      }
+
+      .sidebar-nav a {
+        color: #424242;
+      }
+
+      .sidebar-nav a:hover {
+        color: #009688;
+      }
+
+      .sidebar-nav .active > a {
+        font-weight: 600;
+        color: #009688;
+      }
+
+      /* Innholdsområde */
+      .markdown-section {
+        max-width: var(--content-max-width);
+        margin: 2.5rem auto 3rem auto;
+        padding: 2.25rem 2.5rem;
+        border-radius: 16px;
+        background: var(--color-surface);
+        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
+        border: 1px solid var(--color-border);
+      }
+
+      .markdown-section h1,
+      .markdown-section h2,
+      .markdown-section h3,
+      .markdown-section h4 {
+        font-family: var(--heading-font-family);
+        color: #212121;
+      }
+
+      .markdown-section h1 {
+        font-size: 2.1rem;
+        margin-top: 0;
+        border-bottom: 2px solid rgba(0, 150, 136, 0.15);
+        padding-bottom: 0.75rem;
+      }
+
+      .markdown-section h2 {
+        font-size: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .markdown-section h3 {
+        font-size: 1.15rem;
+        margin-top: 1.5rem;
+      }
+
+      .markdown-section p,
+      .markdown-section li {
+        font-family: var(--base-font-family);
+        font-size: 0.97rem;
+        line-height: 1.6;
+      }
+
+      .markdown-section a {
+        color: #009688;
+        text-decoration: none;
+        border-bottom: 1px dashed rgba(0, 150, 136, 0.5);
+        padding-bottom: 1px;
+      }
+
+      .markdown-section a:hover {
+        border-bottom-style: solid;
+      }
+
+      /* Kode og blokker */
+      .markdown-section code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace;
+        background: #f1f1f1;
+        border-radius: 4px;
+        padding: 0.1rem 0.3rem;
+      }
+
+      .markdown-section pre {
+        background: #212121;
+        color: #f5f5f5;
+        border-radius: 10px;
+        border: 1px solid #424242;
+      }
+
+      .markdown-section pre code {
+        background: transparent;
+      }
+
+      /* Tabeller – diskret teal header */
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 0.9rem;
+      }
+
+      table th,
+      table td {
+        border: 1px solid #e0e0e0;
+        padding: 0.55rem 0.65rem;
+      }
+
+      table thead th {
+        background: rgba(0, 150, 136, 0.12);
+        font-weight: 600;
+      }
+
+      /* Søkefelt (docsify search plugin) */
+      .search input {
+        font-family: var(--base-font-family);
+        border-radius: 999px;
+        border: 1px solid var(--color-border);
+        padding: 0.4rem 0.9rem;
+      }
+
+      .search input:focus {
+        outline: none;
+        border-color: #009688;
+        box-shadow: 0 0 0 1px rgba(0, 150, 136, 0.2);
+      }
+
+      /* Responsiv tilpasning */
+      @media (max-width: 768px) {
+        .markdown-section {
+          margin: 1.5rem 0 2rem 0;
+          border-radius: 0;
+          box-shadow: none;
+          border-left: none;
+          border-right: none;
+        }
+      }
+    </style>
   </head>
   <body>
     <div id="app"></div>
 
     <script>
       window.$docsify = {
-        name: 'NORSAIN GPT Platform',
-        repo: 'NORSAIN-AI/norsain-gpt-platform',
+        name: "NORSAIN GPT Platform",
+        repo: "NORSAIN-AI/norsain-gpt-platform",
         loadSidebar: true,
         subMaxLevel: 2,
-        homepage: 'index.md'
+        homepage: "index.md",
+        auto2top: true,
+        themeColor: "#009688",
+
+        search: {
+          paths: "auto",
+          placeholder: "Søk i dokumentasjon",
+          noData: "Ingen treff",
+        },
       };
     </script>
 
     <!-- Docsify core -->
     <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
-    <!-- Optional: docsify-themeable -->
+    <!-- Search plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+    <!-- Themeable engine -->
     <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0"></script>
   </body>
 </html>
