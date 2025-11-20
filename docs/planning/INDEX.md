@@ -29,9 +29,9 @@ Når du lager en ny planfil i `docs/planning/`:
 
 ## Planer
 
-| ID   | Fil                           | Domene           | Status       | Opprettet   | Sist oppdatert | Branch(er)                                       |
-|------|-------------------------------|------------------|--------------|-------------|----------------|--------------------------------------------------|
-| PL-1 | TODOs-gpt-packages.md         | GPT-plattform    | open         | 2025-11-20  | 2025-11-20     | refactor/gpt-packages-structure-v1; feat/templates-library-v1; refactor/scaffold-and-validate-gpt; docs/gpt-templates-usage-and-ci |
+| ID   | Fil                   | Domene        | Status | Opprettet  | Sist oppdatert | Branch(er)                                                                                                                         |
+| ---- | --------------------- | ------------- | ------ | ---------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| PL-1 | TODOs-gpt-packages.md | GPT-plattform | open   | 2025-11-20 | 2025-11-20     | refactor/gpt-packages-structure-v1; feat/templates-library-v1; refactor/scaffold-and-validate-gpt; docs/gpt-templates-usage-and-ci |
 
 Legg til flere rader etter hvert som nye TODO-filer opprettes.
 
@@ -45,7 +45,7 @@ Bruk denne malen i toppen av hver `docs/planning/TODOs-*.md`:
 ---
 id: PL-X
 title: <kort beskrivelse>
-status: open           # open | in-progress | done | archived
+status: open # open | in-progress | done | archived
 owner: NORSAIN Engineering
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
@@ -54,4 +54,3 @@ branches:
   - <branch-navn-2>
 ---
 ```
-

@@ -106,7 +106,7 @@ Agenten fungerer best når brukeren gir:
 - type endring:
   - “scaffold ny GPT-pakke (sandbox)”
   - “standardiser eksisterende GPT-pakke”
-  - “rydd opp i templates/_library”
+  - “rydd opp i templates/\_library”
   - “juster scripts for å bruke manifest”
 - scope:
   - gjelder dette `templates/`?
@@ -182,11 +182,11 @@ Repo Builder Agent skal ikke:
   - `knowledge/**` (domeneinnhold)
   - → dette overlates til Instruction/Knowledge Builder-agenter
 - endre strukturen i:
-
   - `gpt-packages/templates/custom_gpt/`
   - `gpt-packages/templates/_library/`
 
   uten eksplisitt beskjed om at det er en arkitekturendring som ønskes
+
 - foreslå nye **toppnivåmapper** som ikke følger gjeldende arkitektur:
   - ingen vilkårlig `src/`, `lib/`, etc. i dette repoet uten eksplisitt mandat
 - bygge fullskala applikasjoner (frontend/backend) i dette repoet
@@ -196,7 +196,7 @@ Repo Builder Agent skal ikke:
   - branch-navn
   - commit-struktur
   - TODO-filer under `docs/planning/`
-  → dette ligger hos Dev TODO & Branch Planner-agenten.
+    → dette ligger hos Dev TODO & Branch Planner-agenten.
 
 ---
 
@@ -216,6 +216,7 @@ Repo Builder Agent skal alltid:
   - ikke foreslå destruktive scripts (sletting, reset, osv.) uten eksplisitt bestilling
 
 Når `runCommands` eller `runTasks` brukes skal det primært være til **trygge operasjoner**:
+
 - lint, test, build, validering
 - aldri deploy eller irreversible operasjoner uten veldig tydelig bestilling.
 
@@ -231,7 +232,6 @@ Repo Builder Agent skal:
   - ev. `gpt-packages/templates/_system/*.json` (schema)
 - justere forslag hvis disse filene sier noe annet enn antakelsene
 - eksplisitt foreslå bruk av andre agenter der det er riktig:
-
   - Dev TODO & Branch Planner:
     - branch-planer
     - commit-grupper

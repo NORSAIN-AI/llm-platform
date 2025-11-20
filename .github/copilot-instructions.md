@@ -1,363 +1,315 @@
-Kort sagt: nei, du _må_ ikke ha den detaljerte filstrukturen der. Den var kun for å “fryse” én veldig spesifikk mal. Hvis du vil ha mer fleksibilitet i hvilke enkeltfiler som finnes, bør vi heller beskrive **konsepter og mapper**, ikke hele treet.
-
-Jeg har derfor tatt ut hele den lange `custom_gpt_template`-lista og erstattet den med en mer generell kjerne-struktur. Resten av dokumentet er beholdt så langt som mulig.
-
-Under er en **oppdatert versjon** av `copilot-instructions.md` der kun §2 er ryddet opp, og resten er justert minimalt for å være konsistent.
-
----
-
-````markdown
 # Copilot Workspace Instructions for NORSAIN GPT Platform
 
-Dette dokumentet definerer hvordan GitHub Copilot skal arbeide i `norsain-gpt-platform`. Instruksjonene gjelder for hele kodebasen og styrer hvordan Copilot genererer, endrer og verifiserer filer.
+Dette dokumentet definerer hvordan GitHub Copilot skal arbeide i `norsain-gpt-platform`.
+Det er en **global arbeidsinstruks** for Copilot i dette repoet, og styrer hvordan Copilot
+leser, foreslår og endrer filer.
+
+Målet er å:
+
+- bevare en **konsistent, NGAS-kompatibel** GPT-plattform
+- bruke **templatesystemet** riktig
+- unngå “frihåndsarkitektur” og utilsiktet rot.
 
 ---
 
-## 1. Prosjektoversikt
+## 1. Mandat og scope
 
-`norsain-gpt-platform` er et TypeScript-basert rammeverk for å utvikle og administrere Custom GPT-er. Plattformen brukes til:
+Copilot skal i dette repoet primært hjelpe med:
 
-- å scaffold’e nye GPT-er
-- vedlikeholde standardiserte kunnskapsfiler
-- validere GPT-strukturer
-- generere kunnskapsindekser
-- forberede integrasjon med en fremtidig agent-builder webapp
+- TypeScript / ESM-kode i `scripts/**`
+- GPT-pakkestruktur i `gpt-packages/**`
+- dokumentasjon i `docs/**` og `reports/**`
+- agenter, prompts og workflows under `.github/**`
 
-Repoet følger en fast NGAS-arkitektur i kjerneområdene, med fleksibilitet for støtte- og frontend-mapper.
+Copilot skal **ikke**:
+
+- introdusere nye toppnivåmapper eller fundamentalt endre arkitekturen
+- skrive inn secrets, tokens eller nøkler noen steder
+- gjøre destruktive endringer uten svært tydelig instruks (sletting, flytting av mange filer osv.).
 
 ---
 
-## 2. Repoarkitektur (kjerneområder)
+## 2. Repoarkitektur (for Copilot)
 
-Copilot skal være **streng** på struktur i disse delene av repoet:
+For Copilot er disse områdene viktigst:
+
+- `.github/`
+  - `agents/` – agent-spesifikasjoner for Copilot/VS Code-agenter
+  - `prompts/` – prompt-maler og hjelpeprompts
+  - øvrige mapper for chat-/instruksjonsfiler som beskrevet i `REPO_STRUCTURE.md`
+- `gpt-packages/`
+  - `<gpt_name>/` – konkrete GPT-pakker
+  - `templates/`
+    - `custom_gpt/` – kanonisk mal for nye GPT-pakker
+    - `_library/` – delte maler (instructions/knowledge/evals/logs/prompts) når etablert
+- `scripts/`
+  - `scaffold-gpt.mts` – scaffold-logikk
+  - `validate-gpt.mts` – valideringslogikk
+  - `generate-index.mts` – generering av knowledge-indekser
+- `docs/` – dokumentasjon, inkl. planfiler under `docs/planning/`
+- `reports/` – analyser og rapporter (bl.a. `REPO_STRUCTURE.md`)
+
+Copilot skal alltid forholde seg til **faktisk struktur** i `REPO_STRUCTURE.md` og
+`gpt-packages/templates/README.md` før den foreslår nye filer/mapper.
+
+---
+
+## 3. Generelle regler for Copilot i dette repoet
+
+1. **Les før du skriver**
+   - Les relevante filer (README, templates/README, scripts, agent-filer) før du foreslår endringer.
+2. **Ikke finn på nye strukturer**
+   - Bruk eksisterende mønstre: mapper, filnavn, YAML-frontmatter, NGAS-konvensjoner.
+3. **Ikke endre arkitektur uten mandat**
+   - Ingen nye toppnivåmapper.
+   - Ingen flytting av mange filer uten eksplisitt beskjed.
+4. **Ingen secrets**
+   - Aldri foreslå å sjekke inn tokens, nøkler eller hemmelig konfig.
+5. **Hold forslag PR-vennlige**
+   - Små, fokuserte endringer som kan ligge i én PR med tydelig scope.
+
+---
+
+## 4. GPT-pakker under `gpt-packages/`
+
+### 4.1 Prod-pakker
+
+En **prod-GPT-pakke** under `gpt-packages/<slug>/` skal som hovedregel ha:
 
 ```text
-gpt-packages/
-  _template/            # base-mal for nye GPT-pakker (navn kan variere)
-    instructions/
-    knowledge/
-    actions/
-    gpt.json
-  <gpt_name>/           # konkrete GPT-pakker
-    instructions/
-    knowledge/
-    actions/
-    gpt.json
-
-scripts/
-  scaffold-gpt.mts
-  validate-*.mts
-  update-*.mts
-  generate-*.mts
-  utils/
+gpt-packages/<slug>/
+  gpt.json
+  gpt_metadata/
+  actions/
+  instructions/
+    01_identity.md
+    02_purpose.md
+    03_core_behaviour.md
+    04_constraints.md
+    05_safety.md
+    06_output_rules.md
+    07_interaction_rules.md
+    08_ask_vs_infer.md
+    09_end_rules.md
+  knowledge/
+    00.01_knowledge_index.md
+    (øvrige knowledge-filer, maks totalt 20)
 ```
-````
-
-Regler for disse områdene:
-
-- Copilot skal ikke foreslå helt nye toppnivå-mapper her.
-- Copilot skal ikke flytte filtyper ut av sine områder (instructions → instructions/, knowledge → knowledge/, osv.).
-- Strukturen i `gpt-packages/_template/` (eller tilsvarende malmappe) skal behandles som **fasit** for hvordan nye GPT-pakker bygges, men uten å låse hvilke konkrete knowledge-filer som må finnes.
-
----
-
-## 3. Fleksible områder i repoet
-
-Copilot skal vite at følgende er **tillatt og fleksibelt**:
-
-- `docs/` – ekstra dokumentasjon, ADR-er, arkitekturnotater
-- `web/` – fremtidig Next.js/Vercel-app, UI, API-routes, etc.
-- `infra/`, `.vscode/`, `config/` og lignende støtte-mapper
-
-I slike mapper kan Copilot:
-
-- foreslå nye filer
-- justere struktur etter vanlig beste praksis
-- bruke standard TypeScript/Next.js/Node-mønstre
-
-Så lenge det ikke bryter med NGAS-regler for `gpt-packages/` og `scripts/`.
-
----
-
-## 4. Konvensjoner Copilot må følge i knowledge
-
-### 4.1 Filnavn for kunnskapsfiler
-
-Alle filer i `gpt-packages/<gpt>/knowledge/` skal ha navnet:
-
-```text
-NN.NN_snake_case.md
-```
-
-Der:
-
-- 00.xx = Core NGAS
-- 01.xx = NGAS Architecture
-- 02.xx = Builder Methodology
-- 03.xx = Templates
-- 04.xx = Examples
-- 05.xx = References
-
-### 4.2 Metadata (obligatorisk)
-
-Alle kunnskapsfiler skal ha YAML-frontmatter:
-
-```yaml
----
-document_id: NGAS-XXX-IDENTIFIER
-title: <Human readable title>
-version: 1.0
-status: draft | approved | deprecated
-owner: ROLE-XXX – <rolle>
-category: <kategori>
-last_reviewed: YYYY-MM-DD
-next_review: YYYY-MM-DD
-tags: [tag1, tag2]
----
-```
-
-Hvis frontmatter mangler, skal Copilot legge det inn.
-
----
-
-## 5. Regler per filtype
-
-### 5.1 Knowledge-filer (00–05)
 
 Copilot skal:
 
-- følge metadata-reglene
-- bruke riktig filnavn
-- ha ett hovedtema per fil
-- bruke H1–H3
-- skrive profesjonelt, presist og uten emojis
-- følge chunking-standarder definert i `00.02_chunking_standards.md`
+- foreslå strukturer som speiler **`templates/custom_gpt`** og NGAS 01–09
+- ikke fjerne disse mappene/filene uten svært tydelig instruks.
 
-### 5.2 Instruction-filer
+### 4.2 Sandbox-pakker
 
-Strukturen skal være:
+- **Sandbox/test-GPT-er** skal ligge under:
+  `gpt-packages/.sandbox/<slug>/`
+- Copilot skal **standard** legge eksperimentelle forslag hit, ikke rett i prod-områdene,
+  med mindre brukeren eksplisitt ber om en prod-pakke.
 
-1. Identity & Purpose
-2. Scope
-3. Behaviour Rules
-4. Constraints
-5. Safety Rules
-6. Signal–Response Patterns
-7. Output Requirements
+---
 
-Instruksjonen skal være systemorientert, presis og uten narrativ tekst.
+## 5. Knowledge-filer (NGAS)
 
-### 5.3 Action-filer
+Knowledge-filer ligger i `knowledge/`-treet til en GPT-pakke.
 
-Filene i `actions/` eller `openapi.json` skal være:
+Regler:
 
-- gyldig JSON
-- OpenAPI 3.1
-- minimal og modellvennlig
-- inneholde paths, operationId, request/response og schemas
+- **Maks 20 knowledge-filer** per GPT-pakke (totalt, uavhengig av undermapper).
+- Filnavn skal følge mønsteret:
 
-Custom actions skal alltid bruke OpenAPI 3.1-skjemaer.
-`openapi.json` og eventuelle `actions/*.json` fungerer som referanseeksempler.
+  ```text
+  NN.NN_snake_case.md
+  ```
 
-### 5.4 Eval-filer
+  Eksempel: `00.01_language_tone_guide.md`, `02.03_backend_architecture.md`.
 
-Eval-filer skal inneholde:
+- Det er **tillatt med undermapper** i `knowledge/` (f.eks. `01.foundation/`, `02.architecture/`),
+  så lenge totalen er ≤ 20 filer.
+
+- Alle knowledge-filer skal ha **YAML-frontmatter** øverst (minst id/title/version/status),
+  og innhold i ren, faktabasert prosa. Ingen system-instruksjoner i `knowledge/`.
+
+Copilot skal aldri:
+
+- foreslå å gå over 20 knowledge-filer
+- blande system-instruksjoner, rolle-beskrivelser og slikt inn i knowledge-filer
+  (det hører hjemme i `instructions/`).
+
+---
+
+## 6. Instruction-filer (NGAS 01–09)
+
+Instruction-filer er GPT-ens systemprompt og skal ligge i `instructions/` som
+separate filer:
+
+- `01_identity.md`
+- `02_purpose.md`
+- `03_core_behaviour.md`
+- `04_constraints.md`
+- `05_safety.md`
+- `06_output_rules.md`
+- `07_interaction_rules.md`
+- `08_ask_vs_infer.md`
+- `09_end_rules.md`
+
+Copilot skal:
+
+- holde disse **korte, presise og systemorienterte**
+- unngå narrative historier, eksempler og lange forklaringer her
+- ikke blande inn domain-knowledge (det hører i `knowledge/`).
+
+Ved endringer i disse filene:
+
+- Copilot skal være ekstra konservativ
+- helst foreslå små, målrettede endringer, ikke full omskriving, med mindre brukeren ber om det.
+
+---
+
+## 7. Actions / OpenAPI og eval-filer
+
+### 7.1 Actions / OpenAPI
+
+Filer i `actions/` og eventuelle `openapi.json`-filer skal:
+
+- være **gyldig JSON**
+- følge **OpenAPI 3.1**
+- ha rene, modellvennlige schemaer (ingen kommentarer inni JSON).
+
+Copilot skal:
+
+- ikke endre eksisterende actions uten at brukeren peker på hva som skal endres
+- holde nye actions små og tydelige (paths, operationId, request/response, schemas)
+- unngå business-logikk i beskrivelser (hold det kort og funksjonelt).
+
+### 7.2 Eval-filer
+
+Eval-filer skal typisk inneholde:
 
 - scenario
-- user input
-- expected behaviour
-- NGAS rules
-- success/failure criteria
+- input (prompt / samtale)
+- forventet oppførsel/resultat
+- referanse til NGAS-regler der relevant
+
+Copilot kan hjelpe med å:
+
+- strukturere eval-scenarier
+- holde eval-filer konsistente og lett maskinlesbare.
 
 ---
 
-## 6. Scriptforståelse
+## 8. Templatesystemet (`gpt-packages/templates/`)
 
-Copilot skal kjenne til og foreslå bruk av:
+Copilot skal være lojal mot templatesystemet:
 
-```text
-npm run scaffold <name>
-npm run knowledge:validate
-npm run knowledge:index
+- `gpt-packages/templates/custom_gpt/`
+  - base-mal for nye GPT-pakker
+  - styres av `template.manifest.json`
+- `gpt-packages/templates/_library/` (når etablert)
+  - felles maler for instructions, knowledge, evals, logs, prompts
+- ev. `_system/`-filer (schema osv.) som beskriver manifest-format og valideringsregler
+
+Regler:
+
+- Nye GPT-pakker skal så langt mulig opprettes ved hjelp av **scaffolding** basert på `custom_gpt`,
+  ikke ved håndbygging av struktur.
+- Copilot skal lese `gpt-packages/templates/README.md` og `template.manifest.json`
+  før den foreslår endringer i templates eller ny struktur.
+
+Copilot skal ikke:
+
+- endre strukturen i `templates/custom_gpt` eller `_library`
+  uten eksplisitt beskjed om at det er en arkitekturendring.
+
+---
+
+## 9. Scripts og kommandoer Copilot skal foreslå
+
+Copilot skal bruke og foreslå eksisterende scripts når det gir mening.
+
+Standard-kommandoer:
+
+```bash
+# Scaffold ny GPT basert på templates/custom_gpt
+npm run scaffold <gpt-name>
+
+# Valider én GPT-pakke
+npm run validate <gpt-name>
+
+# Valider alle GPT-pakker
+npm run validate
+
+# Generer knowledge-indekser (hvis definert i package.json)
+npm run generate-index
+npm run generate-index <gpt-name>
+
+# Kvalitetssjekk
 npm run lint
 npm run format
 npm run typecheck
+
+# Full preflight (hvis definert)
+npm run preflight
 ```
-
-Skript brukes som en del av utviklingsflyten og skal ikke erstattes.
-
----
-
-## 7. Språk og tone
 
 Copilot skal:
 
-- bruke samme språk som filen (standard: norsk)
-- skrive profesjonelt, objektivt og teknisk
-- unngå emojis og uformelt språk
-- bruke korte, klare setninger og tydelig struktur
+- foreslå disse når brukeren jobber med `gpt-packages/**` eller `scripts/**`
+- ikke finne opp nye script-navn; bruk det som faktisk finnes i `package.json`
+  - bruke `tsx scripts/<navn>.mts` kun ved behov for direkte script-kjøring
+    (f.eks. feilsøking).
 
 ---
 
-## 8. Forbudte mønstre i kjerneområder
+## 10. Hva Copilot aldri skal gjøre her
 
-I `gpt-packages/` og `scripts/` skal Copilot ikke:
+Copilot skal **ikke**:
 
-- generere mer enn 20 kunnskapsfiler for en GPT
-- endre NGAS-kjernefiler uten eksplisitt instruksjon
-- foreslå nye undermapper i `knowledge/`
-- blande kunnskapsinnhold inn i instruksjonsfiler
-- skrive kreativ eller narrativ tekst
-
----
-
-## 9. Godkjente referansefiler
-
-Copilot kan bruke disse som base for struktur og stil (dersom de finnes i knowledge-mappen):
-
-- `00.01_norsain_language_tone_guide.md`
-- `00.02_chunking_standards.md`
-- `00.03_output_standards.md`
-- `02.01_builder_method.md`
-- `03.01_templates.md`
+- lage flere enn 20 knowledge-filer for en GPT-pakke
+- skrive secrets, tilgangsnøkler eller passord
+- introdusere nye toppnivåmapper (`src/`, `lib/`, osv.) uten klart mandat
+- flette sammen flere GPT-pakker i én uten eksplisitt oppdrag
+- endre kritiske NGAS-kjernefiler eller templates-strukturen på eget initiativ
+- lage store “mega-commits” med blandet scope; forslag skal være små og tematisk rene.
 
 ---
 
-## 10. Developer Workflows
+## 11. Samspill med agenter og lokale instruksjoner
 
-### Build and Test
+Dette dokumentet er **global baseline** for Copilot i repoet.
 
-- Use `npm run preflight` for full validation: linting, type checking, and GPT validation.
-- Run `npm run lint` for ESLint checks on .ts/.mts files.
-- Run `npm run typecheck` for TypeScript compilation without emit.
-- Run `npm run format` to format code with Prettier (includes .ts, .mts, .json, .md).
-- Run `npx -y markdownlint-cli2 "**/*.md"` for markdown linting (ignores node_modules/, reports/, etc. via .markdownlintignore).
+I tillegg finnes:
 
-### GPT Development
+- **Agent-filer** under `.github/agents/`
+  - f.eks. Repo Builder Agent, Dev TODO & Branch Planner, Instruction/Knowledge Builders
+- **Prompts** under `.github/prompts/`
+- Eventuelle spesifikke instruksjons-/chat-filer omtalt i `REPO_STRUCTURE.md`
 
-- Scaffold new GPTs: `npm run scaffold <gpt-name>` (e.g., `npm run scaffold my-new-gpt`).
-- Validate GPT structures: `npm run validate`.
-- Generate knowledge indexes: `npm run generate-index`.
+Når Copilot jobber innenfor en spesifikk agent-kontekst:
 
-### Debugging
+1. Følg **agent-mandatet** i den aktuelle `.agent.md`-filen.
+2. Følg **denne** `copilot-instructions.md` for:
+   - NGAS-regler
+   - struktur og scripts
+   - sikkerhet.
+3. Der det er konflikt gjelder:
+   - sikkerhet og NGAS-begrensninger først,
+   - deretter agent-mandatet,
+   - deretter lokale prompts.
 
-- Use `tsx` for running TypeScript scripts directly (e.g., `tsx scripts/scaffold-gpt.mts`).
-- Check GPT validation errors in terminal output; refer to `scripts/validate-gpt.mts` for logic.
+For branch-navn, commit-struktur og TODO-planer:
 
----
-
-## 11. Dependencies and Tools
-
-- **TypeScript**: Core language, configured in `tsconfig.json` with strict settings.
-- **Node.js**: >=18.0.0, uses ES modules (`"type": "module"` in package.json).
-- **Prettier**: For code formatting; config in `.prettierrc`.
-- **ESLint**: For linting; config in `.eslintrc.json` with TypeScript rules.
-- **markdownlint-cli2**: For markdown standards; config in `.markdownlint.jsonc`, ignore in `.markdownlintignore`.
-- **tsx**: For running TypeScript files directly in development.
-- **Husky**: For git hooks (pre-commit setup in `.husky/_/pre-commit`).
-
-External integrations: Future webapp in `web/` using Next.js/Vercel; OpenAI APIs for GPT interactions.
+- Copilot skal henvise til og/eller følge **Dev TODO & Branch Planner-agenten**,
+  ikke finne opp egne, ustrukturerte oppsett.
 
 ---
 
-## 12. OpenAPI og Action-konvensjoner
+## 12. Filosofi
 
-Custom actions skal bruke OpenAPI 3.1-skjemaer. Se malfiler i GPT-malen under `actions/` eller `openapi.json` for referanse.
+Copilot skal i dette repoet være:
 
-Når Copilot genererer eller redigerer en action-fil skal den:
-
-- sikre gyldig JSON
-- sikre at formatet følger OpenAPI 3.1
-- inkludere minst: `paths`, `operationId`, `requestBody` eller `parameters`, `responses`, og relevante `schemas`
-- angi hvilke verktøy eller API-kall som er relevante for agenten
-- flagge brudd på OpenAPI eller interne standarder
-
----
-
-## 13. Arbeidsflytforbedringer og beste praksis for AI-agenter
-
-Copilot bør aktivt støtte følgende praksiser:
-
-### Følg kjerne-struktur
-
-- `gpt-packages/` skal inneholde GPT-pakker
-- `scripts/` skal inneholde CLI-verktøy
-- Struktur skal ikke endres uten eksplisitt instruksjon
-
-### Bruk eksisterende scripts
-
-Copilot skal foreslå bruk av:
-
-```bash
-npm run scaffold <name>
-npm run knowledge:validate
-npm run knowledge:index
-npm run lint
-npm run format
-npm run typecheck
-```
-
-Dersom skriptnavn avviker, skal Copilot foreslå aliaser for konsistens.
-
-### Valider før commit
-
-Copilot bør foreslå validering ved endringer i `gpt-packages/knowledge/` eller `scripts/`.
-
-Eksempel:
-
-```bash
-npm run knowledge:validate
-```
-
-### Dokumenter endringer
-
-Ved nye GPT-mapper eller strukturelle endringer skal Copilot minne om å oppdatere:
-
-- `gpt-packages/<gpt>/README.md`
-- `.github/prompts/`
-- `docs/`
-- andre relevante konfigurasjonsfiler
-
----
-
-## 14. Mål
-
-Copilot skal bidra til:
-
-- korrekt struktur i kjerneområdene (`gpt-packages/`, `scripts/`)
-- fleksibel, men ryddig struktur i støtteområder (`docs/`, `web/`, etc.)
-- konsistente kunnskapsfiler etter NGAS-standard
-- kvalitetssikrede GPT-er klare for produksjon
-- høy standard i alle filer og mapper
-
----
-
-## 15. Samspill med Copilot Agents og Chat Instructions
-
-Dette repoet bruker tre lag med AI-styring:
-
-1. **Global Copilot-instruks (denne filen)**
-   - Gjelder hele repoet.
-   - Definerer NGAS-regler, struktur, konvensjoner og workflows.
-
-2. **Chat Instructions (`.github/chat/*.chat.md`)**
-
-- Gjelder spesifikke områder via `applyTo` (f.eks. `gpt-packages/**`, `scripts/**`).
-- Overstyrer global oppførsel i chat for det området.
-- Brukes til å definere hvordan svar skal struktureres, når AI skal be om avklaring, og hvilke konvensjoner som gjelder lokalt.
-
-3. **Copilot Agents (`.github/agents/*.agent.md`)**
-   - Definerer spesialiserte agenter (f.eks. Repo Builder Agent) med eget mandat, verktøy og forventet output.
-   - Når en agent brukes, skal Copilot følge både:
-     - mandatet i agent-filen, og
-     - reglene i denne filen for struktur, NGAS og sikkerhet.
-
-Copilot skal alltid:
-
-- følge denne globale instruksjonen som baseline
-- respektere Chat Instructions der de matcher `applyTo`
-- følge agent-mandatet når en spesifikk agent er aktiv
-
-```
-
-```
+- **strukturforsterker** – ikke arkitekt på egen hånd
+- **NGAS-lojalt verktøy** – ikke improviserende GPT-designer
+- en hjelp til å gjøre arbeidet raskere og renere, uten å kompromisse
+  på struktur, kvalitet og sikkerhet.

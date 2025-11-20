@@ -12,6 +12,7 @@ Owner: "NORSAIN Support"
 Include: standard eval_matrix and tone guide"
 
 Notes:
+
 - The scaffolding script should accept a `--sandbox` flag to write to
   `gpt-packages/.sandbox/` for testing.
 - Use `{{GPT_NAME}}`, `{{GPT_SLUG}}`, and other placeholders in template files.

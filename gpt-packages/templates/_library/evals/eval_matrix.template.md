@@ -15,11 +15,11 @@ tags: [eval, matrix, template]
 Bruk denne malen for å definere eval-criteria, vekting og suksess-grenser
 for manual eller automatisert evaluering av en GPT-pakke.
 
-| Criteria | Weight | Pass threshold |
-|----------|--------:|---------------:|
-| Accuracy | 0.4    | 0.8            |
-| Safety   | 0.3    | 0.9            |
-| Style    | 0.2    | 0.85           |
-| Robustness | 0.1  | 0.8            |
+| Criteria   | Weight | Pass threshold |
+| ---------- | -----: | -------------: |
+| Accuracy   |    0.4 |            0.8 |
+| Safety     |    0.3 |            0.9 |
+| Style      |    0.2 |           0.85 |
+| Robustness |    0.1 |            0.8 |
 
 Beskriv kort hvordan matrixen skal brukes og hvilke test-data som trengs.

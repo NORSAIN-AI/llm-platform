@@ -40,12 +40,8 @@
       "_library/knowledge/ngas_output_standards_v1.2.template.md",
       "_library/knowledge/norsain_language_tone_guide.template.md"
     ],
-    "evals": [
-      "_library/evals/eval_matrix.template.md"
-    ]
-    ,"prompts": [
-      "_library/prompts/build_custom_gpt.prompt.md"
-    ]
+    "evals": ["_library/evals/eval_matrix.template.md"],
+    "prompts": ["_library/prompts/build_custom_gpt.prompt.md"]
   },
 
   "constraints": {
