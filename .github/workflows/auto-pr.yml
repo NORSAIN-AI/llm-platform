@@ -26,6 +26,15 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Debug token env
+        run: |
+          echo "[debug] token env summary (presence only, values are not printed)"
+          echo "[debug] GITHUB_TOKEN set: ${GITHUB_TOKEN:+yes}"
+          echo "[debug] GH_TOKEN set: ${GH_TOKEN:+yes}"
+          echo "[debug] GH_PERSONAL_TOKEN set: ${GH_PERSONAL_TOKEN:+yes}"
+          echo "[debug] GITHUB_REPOSITORY: ${GITHUB_REPOSITORY:-<not set>}"
+          echo "[debug] GITHUB_REF_NAME: ${GITHUB_REF_NAME:-<not set>}"
+
       - name: Create or update pull request
         run: |
           BRANCH="${GITHUB_REF_NAME}"
