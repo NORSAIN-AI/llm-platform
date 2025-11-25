@@ -97,6 +97,41 @@ Følg disse trinn for lokal utvikling og testing:
 - Kjør `npm run preflight` for lint, typecheck og tester før PR
 - Kjør `npm run test` for enhetstester og `npm run lint` for statisk sjekk
 
+## Makefile
+
+For praktisk kjøring av repoets ofte brukte scripts tilbyr vi en `Makefile` i repo-root.
+Den wrapper `npm`-scripts og små hjelpeskript slik at du enkelt kan kjøre felles arbeidsflyter.
+
+Vanlige kommandoer:
+
+```bash
+# Vis hjelp for tilgjengelige targets
+make help
+
+# Lint, typecheck eller test
+make lint
+make typecheck
+make test
+
+# Full preflight (lint + typecheck + test)
+make preflight
+
+# Scaffold en ny GPT (bruk NAME=slug)
+make scaffold NAME=my-new-gpt
+
+# Oppdater repo-structure snapshot
+make gen-repo-structure
+
+# Serve docs (hurtig hjelp)
+make docs-serve
+```
+
+Tips:
+
+- Makefile bruker `npm run` hvor det er relevant, så kjør `npm install` før du bruker den.
+- Make fungerer fint på Unix-lignende systemer; Windows-brukere kan bruke WSL eller kjøre `npm run` direkte.
+- Makefile er lagt til i branch `chore/add-makefile` og finnes i `Makefile` i repo-roten.
+
 ## Kvalitetsregler (NGAS)
 
 Kortversjon av viktige konvensjoner enforced av repoet:
