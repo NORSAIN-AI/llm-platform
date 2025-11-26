@@ -5,53 +5,331 @@ for each top-level folder and important files.
 
 ```text
 (repo root)
+├── .eslintrc.json
+├── .github
+│   ├── ISSUE_TEMPLATE
+│   │   ├── automation_improvement.yml
+│   │   ├── bug_report.md
+│   │   ├── bug_report.yml
+│   │   ├── documentation_request.yml
+│   │   ├── feature_request.md
+│   │   ├── feature_request.yml
+│   │   └── repo_gap_fix.yml
+│   ├── agents
+│   │   ├── bugfix.agent.md
+│   │   ├── dev_todo_planner.agent.md
+│   │   ├── instruction_builder.agent.md
+│   │   ├── knowledge_builder.agent.md
+│   │   ├── my-agent.agent.md
+│   │   └── repo_builder.agent.md
+│   ├── copilot-instructions.md
+│   ├── instructions
+│   │   └── global.chat.instructions.md
+│   ├── prompts
+│   │   ├── .gitkeep
+│   │   ├── gpt-packages-refactor.md
+│   │   ├── post-round-commit-pr.prompt.md
+│   │   ├── repo-builder-session.prompt.md
+│   │   └── templates-cleanup.prompt.md
+│   ├── pull_request_template.md
+│   └── workflows
+│       ├── auto-pr.yml
+│       ├── ci.yml
+│       └── test-vitest.yml
+├── .gitignore
+├── .gitmessage
+├── .husky
+│   └── pre-commit
+├── .markdownlint.jsonc
+├── .markdownlintignore
+├── .pre-commit-config.yaml
+├── .prettierrc
 ├── LICENSE
-├── package.json
-├── package-lock.json
 ├── README.md
 ├── SECURITY.md
-├── tsconfig.json
-├── .github/                         # GitHub config: agents, prompts, chat instructions
-│   ├── agents/                      # Agent definitions for Copilot/VS Code agents
-│   ├── prompts/                     # Prompt templates used by agents and maintainers
-│   └── instructions/                # Scope-specific chat instructions for areas (gpt-packages/, scripts/, global)
-│
-├── gpt-packages/                    # Main GPT packages and templates
-│   ├── analytics-bot/               # Example GPT package (instructions, knowledge, actions)
-│   ├── backend_core_architect/      # Custom GPT: backend architecture-focused package
-│   │   ├── gpt.json                 # GPT metadata and structure pointer
-│   │   ├── instructions/            # System instruction for this GPT
-│   │   └── knowledge/               # Knowledge files (00.* series)
-│   ├── fullstack_code_architect/    # Another GPT package (instructions, knowledge, actions)
-│   ├── my-assistant/                # Example GPT package
-│   └── templates/                   # Repository-wide templates for scaffolding new GPTs
-│       ├── actions/                 # OpenAPI / actions templates (JSON)
-│       ├── instructions/            # Instruction templates for Custom GPTs
-│       ├── knowledge/               # Domain-structured knowledge templates (multi-language / stacks)
-│       ├── evals/                   # Standard evaluation templates (matrix, scenarios, logs)
-│       ├── logs/                    # Log templates (optional)
-│       └── prompts/                 # Prompts for building/regenerating GPT instructions
-│
-├── reports/                         # Analysis & reports
-│   ├── repo-gap-analysis-20251117.md
-│   └── REPO_STRUCTURE.md            # (this file) repository tree + explanations
-│
-├── scripts/                         # Tooling scripts: scaffold, validate, generate index, utils
-│   ├── scaffold-gpt.mts
-│   ├── validate-gpt.mts
+├── docs
+│   ├── _sidebar.md
+│   ├── governance
+│   │   └── model-governance-dashboard.md
+│   ├── index.html
+│   ├── index.md
+│   ├── model-selection-strategy.md
+│   ├── models
+│   │   ├── _index.md
+│   │   ├── claude-haiku-4.5.md
+│   │   ├── claude-sonnet-4.5.md
+│   │   ├── gemini-2.5-pro.md
+│   │   ├── gpt-4.1.md
+│   │   ├── gpt-4o.md
+│   │   ├── gpt-5-codex.md
+│   │   ├── gpt-5-mini.md
+│   │   ├── gpt-5.1-codex.md
+│   │   ├── gpt-5.1.md
+│   │   ├── gpt-5.md
+│   │   ├── grok-code-fast-1.md
+│   │   └── raptor-mini.md
+│   ├── planning
+│   │   ├── CHECKLIST.md
+│   │   ├── INDEX.md
+│   │   ├── README.md
+│   │   └── TODOs-gpt-packages.md
+│   ├── q_logo_512x512.svg
+│   └── testing
+│       └── vitest-standard.md
+├── gpt-packages
+│   ├── README.md
+│   ├── analytics-bot
+│   │   ├── README.md
+│   │   ├── actions
+│   │   │   └── schema.json
+│   │   ├── gpt.json
+│   │   ├── instructions
+│   │   │   └── main.md
+│   │   └── knowledge
+│   │       ├── README.md
+│   │       └── index.md
+│   ├── backend_core_architect
+│   │   ├── README.md
+│   │   ├── actions
+│   │   │   └── schema.json
+│   │   ├── gpt.json
+│   │   ├── instructions
+│   │   │   └── main.md
+│   │   └── knowledge
+│   │       ├── 00.01_backend_architecture_principles.md
+│   │       ├── 00.02_database_design_patterns.md
+│   │       ├── 00.03_api_design_best_practices.md
+│   │       ├── README.md
+│   │       └── index.md
+│   ├── fullstack_code_architect
+│   │   ├── README.md
+│   │   ├── actions
+│   │   │   └── schema.json
+│   │   ├── gpt.json
+│   │   ├── instructions
+│   │   │   ├── instruction.md
+│   │   │   └── main.md
+│   │   └── knowledge
+│   │       ├── 01.01_role_scope_boundaries.md
+│   │       ├── README.md
+│   │       └── index.md
+│   ├── my-assistant
+│   │   ├── README.md
+│   │   ├── actions
+│   │   │   └── schema.json
+│   │   ├── gpt.json
+│   │   ├── instructions
+│   │   │   └── main.md
+│   │   └── knowledge
+│   │       ├── README.md
+│   │       └── index.md
+│   ├── templates
+│   │   ├── README.md
+│   │   ├── _library
+│   │   │   ├── evals
+│   │   │   │   └── eval_matrix.template.md
+│   │   │   ├── knowledge
+│   │   │   │   ├── ngas_output_standards_v1.2.template.md
+│   │   │   │   └── norsain_language_tone_guide.template.md
+│   │   │   └── prompts
+│   │   │       └── build_custom_gpt.prompt.md
+│   │   ├── actions
+│   │   │   └── schema.json
+│   │   ├── custom_gpt
+│   │   │   ├── actions
+│   │   │   │   ├── basic_action.template.json
+│   │   │   │   ├── list_items_action.template.json
+│   │   │   │   ├── schema.json
+│   │   │   │   └── write_items_action.template.json
+│   │   │   ├── gpt.json
+│   │   │   ├── gpt_metadata
+│   │   │   │   ├── conversation_starters.template.md
+│   │   │   │   └── metadata_header.template.json
+│   │   │   ├── instructions
+│   │   │   │   ├── 01_identity.template.md
+│   │   │   │   ├── 02_purpose.template.md
+│   │   │   │   ├── 03_core_behaviour.template.md
+│   │   │   │   ├── 04_constraints.template.md
+│   │   │   │   ├── 05_safety.template.md
+│   │   │   │   ├── 06_output_rules.template.md
+│   │   │   │   ├── 07_interaction_rules.template.md
+│   │   │   │   ├── 08_ask_vs_infer.template.md
+│   │   │   │   ├── 09_end_rules.template.md
+│   │   │   │   └── main.md
+│   │   │   ├── knowledge
+│   │   │   │   ├── 01.foundation
+│   │   │   │   │   ├── eval_and_test_prompts.template.md
+│   │   │   │   │   ├── language_tone_output.template.md
+│   │   │   │   │   ├── norsain_dev_principles.template.md
+│   │   │   │   │   ├── role_scope.template.md
+│   │   │   │   │   └── safety_and_ethics.template.md
+│   │   │   │   ├── 02.architecture
+│   │   │   │   │   ├── api_contracts.template.md
+│   │   │   │   │   └── webapp_patterns.template.md
+│   │   │   │   ├── 03.typescript
+│   │   │   │   │   ├── backend_guidelines.template.md
+│   │   │   │   │   ├── frontend_guidelines.template.md
+│   │   │   │   │   └── ts_utilities_examples.template.md
+│   │   │   │   ├── 04.java
+│   │   │   │   │   ├── java_error_testing.template.md
+│   │   │   │   │   └── spring_patterns.template.md
+│   │   │   │   ├── 05.python
+│   │   │   │   │   ├── python_ai_integration.template.md
+│   │   │   │   │   └── python_api_patterns.template.md
+│   │   │   │   ├── 06.databases_sql
+│   │   │   │   │   ├── relational_modelling.template.md
+│   │   │   │   │   └── sql_performance_migrations.template.md
+│   │   │   │   ├── 07.auth_security
+│   │   │   │   │   ├── oauth2_oidc_jwt.template.md
+│   │   │   │   │   └── securing_flows.template.md
+│   │   │   │   └── 08.ai_mcp
+│   │   │   │       ├── ai_mcp_concepts.template.md
+│   │   │   │       └── issue_providers_ai_features.template.md
+│   │   │   └── template.manifest.json
+│   │   ├── evals
+│   │   │   ├── eval_log.template.md
+│   │   │   ├── eval_matrix.template.md
+│   │   │   └── eval_scenarios.template.md
+│   │   ├── instructions
+│   │   │   ├── 01_identity.template.md
+│   │   │   ├── 02_purpose.template.md
+│   │   │   ├── 03_core_behaviour.template.md
+│   │   │   ├── 04_constraints.template.md
+│   │   │   ├── 05_safety.template.md
+│   │   │   ├── 06_output_rules.template.md
+│   │   │   ├── 07_interaction_rules.template.md
+│   │   │   ├── 08_ask_vs_infer.template.md
+│   │   │   ├── 09_end_rules.template.md
+│   │   │   └── custom_gpt_instructions.md
+│   │   ├── knowledge
+│   │   │   └── README.md
+│   │   └── prompts
+│   │       ├── build_custom_gpt.prompt.md
+│   │       ├── extend_custom_gpt.prompt.md
+│   │       └── regenerate_instruction.prompt.md
+│   ├── test_gpt
+│   │   ├── actions
+│   │   │   ├── basic_action.template.json
+│   │   │   ├── list_items_action.template.json
+│   │   │   └── write_items_action.template.json
+│   │   ├── gpt_metadata
+│   │   │   ├── conversation_starters.template.md
+│   │   │   └── metadata_header.template.json
+│   │   ├── instructions
+│   │   │   ├── 01_identity.template.md
+│   │   │   ├── 02_purpose.template.md
+│   │   │   ├── 03_core_behaviour.template.md
+│   │   │   ├── 04_constraints.template.md
+│   │   │   ├── 05_safety.template.md
+│   │   │   ├── 06_output_rules.template.md
+│   │   │   ├── 07_interaction_rules.template.md
+│   │   │   ├── 08_ask_vs_infer.template.md
+│   │   │   └── 09_end_rules.template.md
+│   │   └── knowledge
+│   │       ├── 01.foundation
+│   │       │   ├── eval_and_test_prompts.template.md
+│   │       │   ├── language_tone_output.template.md
+│   │       │   ├── norsain_dev_principles.template.md
+│   │       │   ├── role_scope.template.md
+│   │       │   └── safety_and_ethics.template.md
+│   │       ├── 02.architecture
+│   │       │   ├── api_contracts.template.md
+│   │       │   └── webapp_patterns.template.md
+│   │       ├── 03.typescript
+│   │       │   ├── backend_guidelines.template.md
+│   │       │   ├── frontend_guidelines.template.md
+│   │       │   └── ts_utilities_examples.template.md
+│   │       ├── 04.java
+│   │       │   ├── java_error_testing.template.md
+│   │       │   └── spring_patterns.template.md
+│   │       ├── 05.python
+│   │       │   ├── python_ai_integration.template.md
+│   │       │   └── python_api_patterns.template.md
+│   │       ├── 06.databases_sql
+│   │       │   ├── relational_modelling.template.md
+│   │       │   └── sql_performance_migrations.template.md
+│   │       ├── 07.auth_security
+│   │       │   ├── oauth2_oidc_jwt.template.md
+│   │       │   └── securing_flows.template.md
+│   │       └── 08.ai_mcp
+│   │           ├── ai_mcp_concepts.template.md
+│   │           └── issue_providers_ai_features.template.md
+│   └── test_template_resolve_1763549613860
+│       ├── actions
+│       │   ├── basic_action.template.json
+│       │   ├── list_items_action.template.json
+│       │   └── write_items_action.template.json
+│       ├── gpt_metadata
+│       │   ├── conversation_starters.template.md
+│       │   └── metadata_header.template.json
+│       ├── instructions
+│       │   ├── 01_identity.template.md
+│       │   ├── 02_purpose.template.md
+│       │   ├── 03_core_behaviour.template.md
+│       │   ├── 04_constraints.template.md
+│       │   ├── 05_safety.template.md
+│       │   ├── 06_output_rules.template.md
+│       │   ├── 07_interaction_rules.template.md
+│       │   ├── 08_ask_vs_infer.template.md
+│       │   └── 09_end_rules.template.md
+│       └── knowledge
+│           ├── 01.foundation
+│           │   ├── eval_and_test_prompts.template.md
+│           │   ├── language_tone_output.template.md
+│           │   ├── norsain_dev_principles.template.md
+│           │   ├── role_scope.template.md
+│           │   └── safety_and_ethics.template.md
+│           ├── 02.architecture
+│           │   ├── api_contracts.template.md
+│           │   └── webapp_patterns.template.md
+│           ├── 03.typescript
+│           │   ├── backend_guidelines.template.md
+│           │   ├── frontend_guidelines.template.md
+│           │   └── ts_utilities_examples.template.md
+│           ├── 04.java
+│           │   ├── java_error_testing.template.md
+│           │   └── spring_patterns.template.md
+│           ├── 05.python
+│           │   ├── python_ai_integration.template.md
+│           │   └── python_api_patterns.template.md
+│           ├── 06.databases_sql
+│           │   ├── relational_modelling.template.md
+│           │   └── sql_performance_migrations.template.md
+│           ├── 07.auth_security
+│           │   ├── oauth2_oidc_jwt.template.md
+│           │   └── securing_flows.template.md
+│           └── 08.ai_mcp
+│               ├── ai_mcp_concepts.template.md
+│               └── issue_providers_ai_features.template.md
+├── package-lock.json
+├── package.json
+├── reports
+│   ├── REPO_STRUCTURE.md
+│   └── repo-gap-analysis-20251117.md
+├── scripts
+│   ├── README.md
+│   ├── check-coverage.mjs
 │   ├── generate-index.mts
-│   └── utils/
-│       ├── indexing.mts
-│       ├── scaffolding.mts
-│       └── validation.mts
-│
-├── web/                             # Placeholder for any web UI (e.g., future Next.js app)
-│   └── README.md
+│   ├── generate-repo-structure.mjs
+│   ├── generate-repo-structure.mts
+│   ├── scaffold-gpt.mts
+│   ├── utils
+│   │   ├── __tests__
+│   │   │   └── scaffolding.template-resolution.test.mts
+│   │   ├── indexing.mts
+│   │   ├── scaffolding.mts
+│   │   └── validation.mts
+│   └── validate-gpt.mts
+├── tests
+│   ├── README.md
+│   └── scaffolding.integration.test.mts
+├── tsconfig.json
+├── vitest.config.ts
+└── web
+    ├── .gitkeep
+    └── README.md
 
-└── other configs
-    ├── .eslintrc.json
-    ├── .prettierrc
-    └── .markdownlint.jsonc
+Generated: 2025-11-25
 ```
 
 Folder explanations
