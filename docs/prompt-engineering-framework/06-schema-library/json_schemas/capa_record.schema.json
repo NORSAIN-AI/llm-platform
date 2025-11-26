@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://norsain.ai/schemas/capa_record.schema.json",
+  "title": "CapaRecord",
+  "description": "Standard CAPA-record structure for QMS/IMS workflows.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Stable identifier of the CAPA record."
+    },
+    "issue": {
+      "type": "string",
+      "description": "Short description of the issue or deviation."
+    },
+    "root_cause": {
+      "type": "string",
+      "description": "Identified root cause of the issue."
+    },
+    "corrective_action": {
+      "type": "string",
+      "description": "Action(s) taken to correct the issue."
+    },
+    "preventive_action": {
+      "type": "string",
+      "description": "Action(s) to prevent recurrence."
+    },
+    "severity": {
+      "type": "string",
+      "description": "Severity classification of the issue.",
+      "enum": ["low", "medium", "high", "critical"]
+    },
+    "status": {
+      "type": "string",
+      "description": "Lifecycle status of the CAPA record.",
+      "enum": ["open", "in_progress", "implemented", "verified", "closed"]
+    },
+    "owner_role": {
+      "type": "string",
+      "description": "Role (not person) responsible for the CAPA."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Creation timestamp (ISO 8601)."
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last update timestamp (ISO 8601)."
+    }
+  },
+  "required": ["id", "issue", "root_cause", "severity", "status", "owner_role", "created_at"],
+  "additionalProperties": false
+}

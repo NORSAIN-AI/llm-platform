@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://norsain.ai/schemas/extraction_result.schema.json",
+  "title": "ExtractionResult",
+  "description": "Generic extraction result schema for LLM-based information extraction.",
+  "type": "object",
+  "properties": {
+    "source_id": {
+      "type": "string",
+      "description": "Optional identifier of the source document or record."
+    },
+    "items": {
+      "type": "array",
+      "description": "List of extracted key-value items.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string",
+            "description": "Logical field name."
+          },
+          "value": {
+            "type": ["string", "number", "boolean", "null"],
+            "description": "Extracted value."
+          },
+          "confidence": {
+            "type": "string",
+            "description": "Model confidence band.",
+            "enum": ["low", "medium", "high"]
+          },
+          "source_span": {
+            "type": "string",
+            "description": "Optional quote or snippet from the source text."
+          }
+        },
+        "required": ["field", "value"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["items"],
+  "additionalProperties": false
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://norsain.ai/schemas/risk_item.schema.json",
+  "title": "RiskItem",
+  "description": "Standard risk item structure aligned with ISO 31000-style registers.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Stable identifier of the risk item."
+    },
+    "title": {
+      "type": "string",
+      "description": "Short name of the risk."
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of the risk."
+    },
+    "likelihood": {
+      "type": "string",
+      "description": "Likelihood rating.",
+      "enum": ["low", "medium", "high"]
+    },
+    "impact": {
+      "type": "string",
+      "description": "Impact rating.",
+      "enum": ["low", "medium", "high", "critical"]
+    },
+    "risk_level": {
+      "type": "string",
+      "description": "Derived risk level (e.g. based on matrix)."
+    },
+    "controls": {
+      "type": "array",
+      "description": "Existing controls/mitigations.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "owner_role": {
+      "type": "string",
+      "description": "Role responsible for monitoring and actions."
+    },
+    "status": {
+      "type": "string",
+      "description": "Current status of the risk treatment.",
+      "enum": ["identified", "assessed", "treated", "accepted", "closed"]
+    }
+  },
+  "required": ["id", "title", "likelihood", "impact", "owner_role", "status"],
+  "additionalProperties": false
+}
