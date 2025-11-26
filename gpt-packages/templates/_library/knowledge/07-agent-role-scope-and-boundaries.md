@@ -1,17 +1,11 @@
 ---
-document_id: <AGENT_ID>-07-ROLE
-title: <AGENT_NAME> – Role, Scope and Boundaries
+document_id: agent-role-scope-and-boundaries
+title: Agent Role, Scope and Boundaries Template
 version: 0.1.0
-status: Draft
-owner: <OWNER/TEAM>
-last_reviewed:
-tags: [ngas, agent, role, scope, boundaries]
-related_documents:
-  - NGAS-00-INDEX
-  - NGAS-01-LANG-TONE
-  - NGAS-02-OUTPUT
-  - NGAS-03-SIGNAL
-  - NGAS-05-SAFETY
+status: draft
+owner: norsain-ai
+last_reviewed: 2025-11-20
+tags: [ngas, agent, role, scope, boundaries, template]
 ---
 
 # <AGENT_NAME> – Role, Scope and Boundaries

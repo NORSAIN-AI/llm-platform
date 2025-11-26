@@ -1,17 +1,11 @@
 ---
-document_id: NGAS-00-INDEX
+document_id: ngas-standards-index
 title: NGAS – Global Standards Index
 version: 1.0.0
-status: Draft
-owner: NORSAIN Engineering Governance
+status: stable
+owner: norsain-ai
 last_reviewed: 2025-11-20
 tags: [ngas, standards, index, llm, gpt]
-related_documents:
-  - NGAS-01-LANG-TONE
-  - NGAS-02-OUTPUT
-  - NGAS-03-SIGNAL
-  - NGAS-04-CHUNK
-  - NGAS-05-SAFETY
 ---
 
 # NGAS – Global Standards Index

@@ -1,15 +1,11 @@
 ---
-document_id: NGAS-02-OUTPUT
+document_id: output-standards-llm
 title: NGAS – Output Standards for LLM Agents
 version: 1.0.0
-status: Draft
-owner: NORSAIN Engineering Governance
+status: stable
+owner: norsain-ai
 last_reviewed: 2025-11-20
 tags: [output, format, structure, llm, gpt]
-related_documents:
-  - NGAS-01-LANG-TONE
-  - NGAS-03-SIGNAL
-  - NGAS-05-SAFETY
 ---
 
 # NGAS – Output Standards for LLM Agents

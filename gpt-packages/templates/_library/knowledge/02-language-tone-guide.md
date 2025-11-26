@@ -1,15 +1,11 @@
 ---
-document_id: NGAS-01-LANG-TONE
+document_id: language-tone-guide
 title: NGAS – Language and Tone Guide for LLM Agents
 version: 1.0.0
-status: Draft
-owner: NORSAIN Language & UX
+status: stable
+owner: norsain-ai
 last_reviewed: 2025-11-20
 tags: [language, tone, style, llm, gpt]
-related_documents:
-  - NGAS-02-OUTPUT
-  - NGAS-03-SIGNAL
-  - NGAS-05-SAFETY
 ---
 
 # NGAS – Language and Tone Guide for LLM Agents

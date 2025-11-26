@@ -1,18 +1,17 @@
-
+---
+document_id: domain-data-standards-and-definitions
+title: Domain Data Standards & Definitions
+status: stable
+version: 1.0.0
+layer: C
+owner: norsain-ai
+last_reviewed: 2025-11-20
+tags: [data, schema, standards]
 ---
 
 # 📂 **C-20 – Domain Data Standards & Definitions**
 
 ```markdown
----
-document_id: C-20-DATA
-title: Domain Data Standards & Definitions
-status: Approved
-version: 1.0.0
-layer: C
-owner: Domain Data Council
-last_reviewed: 2025-11-20
-tags: [data, schema, standards]
 ---
 
 # Domain Data Standards & Definitions

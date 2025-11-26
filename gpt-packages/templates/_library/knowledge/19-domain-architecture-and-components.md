@@ -1,10 +1,10 @@
 ---
-document_id: C-19-ARCH
+document_id: domain-architecture-and-components
 title: Domain Architecture & Components
-status: Approved
+status: stable
 version: 1.0.0
 layer: C
-owner: Domain Architecture
+owner: norsain-ai
 last_reviewed: 2025-11-20
 tags: [architecture, components]
 ---

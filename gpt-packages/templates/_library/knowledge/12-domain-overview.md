@@ -1,14 +1,11 @@
 ---
-document_id: <AGENT_ID>-12-QA
-title: <AGENT_NAME> – Canonical Q&A Examples
+document_id: domain-overview
+title: Domain Overview Template
 version: 0.1.0
-status: Draft
-owner: <OWNER/TEAM>
-last_reviewed:
-tags: [ngas, agent, examples, canonical, qa]
-related_documents:
-  - NGAS-02-OUTPUT
-  - NGAS-03-SIGNAL
+status: draft
+owner: norsain-ai
+last_reviewed: 2025-11-20
+tags: [ngas, domain, overview, template]
 ---
 
 # <AGENT_NAME> – Canonical Q&A Examples

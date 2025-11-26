@@ -1,10 +1,10 @@
 ---
-document_id: C-22-PATTERNS
+document_id: domain-patterns-and-best-practices
 title: Domain Patterns & Best Practices
-status: Approved
+status: stable
 version: 1.0.0
 layer: C
-owner: Domain Engineering
+owner: norsain-ai
 last_reviewed: 2025-11-20
 tags: [patterns, best-practices]
 ---

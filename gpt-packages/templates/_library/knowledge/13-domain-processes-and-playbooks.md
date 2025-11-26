@@ -1,16 +1,11 @@
 ---
-document_id: <AGENT_ID>-13-USAGE
-title: <AGENT_NAME> – Usage Guide and Prompt Library
+document_id: domain-processes-and-playbooks
+title: Domain Processes and Playbooks Template
 version: 0.1.0
-status: Draft
-owner: <OWNER/TEAM>
-last_reviewed:
-tags: [ngas, agent, usage, prompts, guide]
-related_documents:
-  - <AGENT_ID>-07-ROLE
-  - <AGENT_ID>-08-SIGNAL
-  - <AGENT_ID>-09-MODES
-  - <AGENT_ID>-12-QA
+status: draft
+owner: norsain-ai
+last_reviewed: 2025-11-20
+tags: [ngas, domain, processes, playbooks, template]
 ---
 
 # <AGENT_NAME> – Usage Guide and Prompt Library

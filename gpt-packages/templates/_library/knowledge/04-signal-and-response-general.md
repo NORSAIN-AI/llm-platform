@@ -1,15 +1,11 @@
 ---
-document_id: NGAS-03-SIGNAL
+document_id: signal-and-response-general
 title: NGAS – General Signal and Response Patterns for LLM Agents
 version: 1.0.0
-status: Draft
-owner: NORSAIN Engineering Governance
+status: stable
+owner: norsain-ai
 last_reviewed: 2025-11-20
 tags: [signals, instructions, behaviour, llm, gpt]
-related_documents:
-  - NGAS-01-LANG-TONE
-  - NGAS-02-OUTPUT
-  - NGAS-05-SAFETY
 ---
 
 # NGAS – General Signal and Response Patterns for LLM Agents

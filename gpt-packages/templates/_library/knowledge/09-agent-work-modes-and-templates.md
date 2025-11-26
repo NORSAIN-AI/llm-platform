@@ -1,14 +1,11 @@
 ---
-document_id: <AGENT_ID>-09-MODES
-title: <AGENT_NAME> – Work Modes and Templates
+document_id: agent-work-modes-and-templates
+title: Agent Work Modes and Templates
 version: 0.1.0
-status: Draft
-owner: <OWNER/TEAM>
-last_reviewed:
+status: draft
+owner: norsain-ai
+last_reviewed: 2025-11-20
 tags: [ngas, agent, modes, templates, workflows]
-related_documents:
-  - NGAS-02-OUTPUT
-  - NGAS-03-SIGNAL
 ---
 
 # <AGENT_NAME> – Work Modes and Templates

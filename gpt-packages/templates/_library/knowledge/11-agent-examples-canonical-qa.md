@@ -1,15 +1,11 @@
 ---
-document_id: <AGENT_ID>-11-EVAL
-title: <AGENT_NAME> – Evaluation Matrix
+document_id: agent-examples-canonical-qa
+title: Agent Evaluation Matrix Template
 version: 0.1.0
-status: Draft
-owner: <OWNER/TEAM>
-last_reviewed:
-tags: [ngas, agent, evaluation, matrix, quality]
-related_documents:
-  - NGAS-02-OUTPUT
-  - NGAS-03-SIGNAL
-  - NGAS-05-SAFETY
+status: draft
+owner: norsain-ai
+last_reviewed: 2025-11-20
+tags: [ngas, agent, evaluation, matrix, quality, template]
 ---
 
 # <AGENT_NAME> – Evaluation Matrix

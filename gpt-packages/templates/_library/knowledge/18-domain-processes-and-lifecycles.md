@@ -1,18 +1,17 @@
-
+---
+document_id: domain-processes-and-lifecycles
+title: Domain Processes & Lifecycles
+status: stable
+version: 1.0.0
+layer: C
+owner: norsain-ai
+last_reviewed: 2025-11-20
+tags: [domain, processes, lifecycle]
 ---
 
 # 📂 **C-18 – Domain Processes & Lifecycles**
 
 ```markdown
----
-document_id: C-18-PROCESSES
-title: Domain Processes & Lifecycles
-status: Approved
-version: 1.0.0
-layer: C
-owner: Domain Governance
-last_reviewed: 2025-11-20
-tags: [domain, processes, lifecycle]
 ---
 
 # Domain Processes & Lifecycles

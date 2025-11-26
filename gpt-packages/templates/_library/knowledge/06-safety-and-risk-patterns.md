@@ -1,14 +1,11 @@
 ---
-document_id: NGAS-05-SAFETY
+document_id: safety-and-risk-patterns
 title: NGAS – Safety and Risk Patterns for LLM Agents
 version: 1.0.0
-status: Draft
-owner: NORSAIN Safety & Compliance
+status: stable
+owner: norsain-ai
 last_reviewed: 2025-11-20
 tags: [safety, risk, compliance, llm]
-related_documents:
-  - NGAS-03-SIGNAL
-  - NGAS-02-OUTPUT
 ---
 
 # NGAS – Safety and Risk Patterns for LLM Agents

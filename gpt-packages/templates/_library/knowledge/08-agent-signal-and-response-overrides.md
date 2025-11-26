@@ -1,16 +1,11 @@
 ---
-document_id: <AGENT_ID>-08-SIGNAL
-title: <AGENT_NAME> – Signal and Response Overrides
+document_id: agent-signal-and-response-overrides
+title: Agent Signal and Response Overrides Template
 version: 0.1.0
-status: Draft
-owner: <OWNER/TEAM>
-last_reviewed:
-tags: [ngas, agent, signal, behaviour]
-related_documents:
-  - NGAS-03-SIGNAL
-  - NGAS-02-OUTPUT
-  - NGAS-01-LANG-TONE
-  - NGAS-05-SAFETY
+status: draft
+owner: norsain-ai
+last_reviewed: 2025-11-20
+tags: [ngas, agent, signal, behaviour, template]
 ---
 
 # <AGENT_NAME> – Signal and Response Overrides

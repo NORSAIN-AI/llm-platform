@@ -1,10 +1,10 @@
 ---
-document_id: C-23-RISK
+document_id: domain-risks-constraints-and-failure-modes
 title: Domain Risks, Constraints & Failure Modes
-status: Approved
+status: stable
 version: 1.0.0
 layer: C
-owner: Domain Risk Office
+owner: norsain-ai
 last_reviewed: 2025-11-20
 tags: [risk, constraints, failures]
 ---

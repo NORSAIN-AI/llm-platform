@@ -1,10 +1,10 @@
 ---
-document_id: C-17-OVERVIEW
+document_id: domain-overview-and-core-concepts
 title: Domain Overview & Core Concepts
-status: Approved
+status: stable
 version: 1.0.0
 layer: C
-owner: Domain Governance
+owner: norsain-ai
 last_reviewed: 2025-11-20
 tags: [domain, fundamentals, overview]
 ---

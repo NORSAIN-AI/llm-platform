@@ -1,14 +1,11 @@
 ---
-document_id: NGAS-04-CHUNK
+document_id: chunking-standards-ingest
 title: NGAS – Chunking Standards for Knowledge Ingestion
 version: 1.0.0
-status: Draft
-owner: NORSAIN Data & Platform
+status: stable
+owner: norsain-ai
 last_reviewed: 2025-11-20
 tags: [chunking, ingestion, rag, knowledge, llm]
-related_documents:
-  - NGAS-02-OUTPUT
-  - NGAS-03-SIGNAL
 ---
 
 # NGAS – Chunking Standards for Knowledge Ingestion

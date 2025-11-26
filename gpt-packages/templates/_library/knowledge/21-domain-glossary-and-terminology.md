@@ -1,10 +1,10 @@
 ---
-document_id: C-21-GLOSSARY
+document_id: domain-glossary-and-terminology
 title: Domain Glossary & Terminology
-status: Approved
+status: stable
 version: 1.0.0
 layer: C
-owner: Domain Governance
+owner: norsain-ai
 last_reviewed: 2025-11-20
 tags: [glossary, terminology]
 ---
