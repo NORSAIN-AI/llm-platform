@@ -43,12 +43,12 @@ gpt-packages/
 
     custom_gpt/                # Standard arketype for nye GPT-pakker
       template.manifest.json   # Maskin-lesbar kontrakt for scripts
-      gpt.json.template        # Base GPT-config (blir til gpt.json)
+      gpt.json.template        # Base GPT-config (blir til gpt.json). Merk: noen template-eksempler i repoet kan allerede ligge som `gpt.json` uten `.template`-suffix.
       gpt_metadata/            # Metadata-maler (UI og intern bruk)
         metadata_header.template.json
         (flere metadata-maler ved behov)
       actions/
-        schema.template.json   # eller openapi.template.json
+        schema.template.json   # eller `schema.json` / `openapi.template.json` (repoet kan inneholde konkrete schema-filer uten `.template`-suffix)
       instructions/            # NGAS 01–09-seksjoner
         01_identity.template.md
         02_purpose.template.md
@@ -94,16 +94,16 @@ Regler:
 
 ### 3.1. Template-filer
 
-Alle filer som skal **renames ved scaffolding** bruker `.template.` som infiks i filnavnet:
+Alle filer som normalt skal **renames ved scaffolding** bruker `.template.` som infiks i filnavnet:
 
 - `gpt.json.template` → `gpt.json`
 - `schema.template.json` → `schema.json`
 - `01_identity.template.md` → `01_identity.md`
 - `00.01_knowledge_index.template.md` → `00.01_knowledge_index.md`
 
-Scripts kan trygt bruke regelen:
+Merk: repoet kan inneholde eksempler hvor filene allerede er sjablonger uten `.template`-suffix (for eksempel `custom_gpt/gpt.json` eller `actions/schema.json`). Scaffolding-scripts bør derfor være robuste og akseptere begge varianter (først forsøk å bruke `*.template.*`, fall tilbake til `*` hvis ikke funnet).
 
-> «Fjern `.template` fra filnavn når du genererer en GPT-pakke.»
+Scripts kan trygt bruke regelen når `.template`-filene finnes; ellers bruk fallback-regelen over.
 
 ### 3.2. Placeholders inni filer
 
