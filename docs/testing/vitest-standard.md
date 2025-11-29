@@ -1,11 +1,11 @@
-# Vitest-standard for `norsain-gpt-platform`
+# Vitest-standard for `llm`
 
 Versjon: v0.1
 Status: Utkast – repo-spesifikk tilpasning
 
 ## 1. Formål og scope
 
-Denne standarden beskriver hvordan vi bruker Vitest i `norsain-gpt-platform`:
+Denne standarden beskriver hvordan vi bruker Vitest i `llm`:
 
 - Teste TypeScript-verktøy (scaffolding, validering, index-generering).
 - Verifisere GPT-pack-struktur og regler (NGAS, max 20 filer, index, osv.).
@@ -14,7 +14,7 @@ Denne standarden beskriver hvordan vi bruker Vitest i `norsain-gpt-platform`:
 
 Denne repo-spesifikke standarden bygger på NORSAIN sin generelle Vitest-standard, men er tilpasset:
 
-- mappestruktur og scripts i `norsain-gpt-platform`
+- mappestruktur og scripts i `llm`
 - kjernefunksjoner som påvirker Custom GPT-er (scaffold, validate, generate index)
 - bruk av fixtures for GPT-eksempler (gyldige/ugyldige).
 
@@ -22,7 +22,7 @@ Denne repo-spesifikke standarden bygger på NORSAIN sin generelle Vitest-standar
 
 ## 2. Hva vi tester i dette repoet
 
-I `norsain-gpt-platform` er hovedmålet å beskytte:
+I `llm` er hovedmålet å beskytte:
 
 1. **Kjernefunksjoner i TypeScript-koden**
    - Moduler som:
@@ -53,7 +53,7 @@ Målet er ikke 100 % dekning på alt, men høy dekning på:
 Anbefalt struktur i dette repoet:
 
 ```text
-norsain-gpt-platform/
+llm/
   src/                     # kjernebibliotek for GPT-plattformen
     core/
     utils/

@@ -1,4 +1,4 @@
-# Pre-commit configuration for norsain-gpt-platform
+# Pre-commit configuration for llm
 # - Lightweight repo-level checks from pre-commit-hooks
 # - Local hooks that run node-based linters/formatters via npx (requires Node.js installed)
 

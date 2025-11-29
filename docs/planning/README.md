@@ -1,7 +1,7 @@
 # Planning – Oversikt
 
 Denne mappen samler alle plan- og TODO-relaterte filer for
-`norsain-gpt-platform`. Målet er å ha ett konsistent system for:
+`llm`. Målet er å ha ett konsistent system for:
 
 - hvilke planer som finnes
 - hvordan arbeidspakker defineres og følges opp

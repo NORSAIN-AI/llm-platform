@@ -1,4 +1,4 @@
-# Copilot Workspace Instructions for NORSAIN GPT Platform
+# Copilot Workspace Instructions for llm
 
 ````text
 
@@ -15,7 +15,7 @@ Under er en **oppdatert versjon** av `copilot-instructions.md` der kun §2 er ry
 ```md
 # Copilot Workspace Instructions for NORSAIN GPT Platform
 
-Dette dokumentet definerer hvordan GitHub Copilot skal arbeide i `norsain-gpt-platform`.
+Dette dokumentet definerer hvordan GitHub Copilot skal arbeide i `llm`.
 Det er en **global arbeidsinstruks** for Copilot i dette repoet, og styrer hvordan Copilot
 leser, foreslår og endrer filer.
 

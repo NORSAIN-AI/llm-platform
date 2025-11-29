@@ -1,5 +1,5 @@
 {
-  "name": "norsain-gpt-platform",
+  "name": "llm",
   "version": "0.1.0",
   "description": "Platform for managing Custom GPT knowledge packs, agents, and tools",
   "type": "module",

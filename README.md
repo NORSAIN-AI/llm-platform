@@ -1,13 +1,13 @@
-# NORSAIN GPT Platform
+# llm
 
 Plattform for å scaffolde, validere og vedlikeholde Custom GPT-er med et TypeScript-basert verktøysett.
 
 <!-- Badges -->
 
-[![CI](https://github.com/NORSAIN-AI/norsain-gpt-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/NORSAIN-AI/norsain-gpt-platform/actions/workflows/ci.yml)
-[![Tests](https://github.com/NORSAIN-AI/norsain-gpt-platform/actions/workflows/test-vitest.yml/badge.svg)](https://github.com/NORSAIN-AI/norsain-gpt-platform/actions/workflows/test-vitest.yml)
-[![Auto PR](https://github.com/NORSAIN-AI/norsain-gpt-platform/actions/workflows/auto-pr.yml/badge.svg)](https://github.com/NORSAIN-AI/norsain-gpt-platform/actions/workflows/auto-pr.yml)
-[![License: MIT](https://img.shields.io/github/license/NORSAIN-AI/norsain-gpt-platform)](LICENSE)
+![CI](https://github.com/NORSAIN-AI/llm/actions/workflows/ci.yml/badge.svg)
+![Tests](https://github.com/NORSAIN-AI/llm/actions/workflows/test-vitest.yml/badge.svg)
+![Auto PR](https://github.com/NORSAIN-AI/llm/actions/workflows/auto-pr.yml/badge.svg)
+![License: MIT](https://img.shields.io/github/license/NORSAIN-AI/llm)](LICENSE)
 [![Node >=18](https://img.shields.io/badge/node-%3E=18.0.0-339933?logo=node.js)](package.json)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)](https://www.typescriptlang.org/)
 [![Prettier](https://img.shields.io/badge/code%20style-Prettier-ff69b4?logo=prettier)](https://prettier.io/)
@@ -16,7 +16,7 @@ Plattform for å scaffolde, validere og vedlikeholde Custom GPT-er med et TypeSc
 
 ## Kort oversikt
 
-NORSAIN GPT Platform gjør det enkelt å:
+llm gjør det enkelt å:
 
 - Scaffolde nye GPT-pakker fra en standard mal
 - Validere at en GPT-pakke følger NGAS-konvensjonene (struktur, metadata, maks antall knowledge-filer)
@@ -39,7 +39,7 @@ NORSAIN GPT Platform gjør det enkelt å:
 Hovedstruktur (forkortet):
 
 ```text
-norsain-gpt-platform/
+llm/
 ├── gpt-packages/           # GPT-pakker (templates + instanser)
 ├── scripts/                # CLI-skript (.mts, ESM)
 ├── .github/                # workflows, prompts, agent-definisjoner
@@ -54,8 +54,8 @@ norsain-gpt-platform/
 ## Rask installasjon
 
 ```bash
-git clone https://github.com/NORSAIN-AI/norsain-gpt-platform.git
-cd norsain-gpt-platform
+git clone https://github.com/NORSAIN-AI/llm.git
+cd llm
 npm install
 ```
 

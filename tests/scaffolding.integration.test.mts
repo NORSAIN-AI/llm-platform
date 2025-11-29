@@ -8,7 +8,7 @@ import { scaffoldGPT } from '../scripts/utils/scaffolding.mts';
 import { validateGPTStructure } from '../scripts/utils/validation.mts';
 
 async function createTempRepoWithTemplates() {
-  const root = mkdtempSync(join(tmpdir(), 'norsain-gpt-platform-'));
+  const root = mkdtempSync(join(tmpdir(), 'llm-'));
 
   const base = join(root, 'gpt-packages', 'templates', 'custom_gpt');
 
