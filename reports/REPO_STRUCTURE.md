@@ -30,6 +30,46 @@ for each top-level folder and important files.
 │   │   ├── gpt-packages-refactor.md
 │   │   ├── post-round-commit-pr.prompt.md
 │   │   ├── repo-builder-session.prompt.md
+│   ├── prompt-engineering-framework
+│   │   ├── README.md
+│   │   ├── INDEX.md
+│   │   ├── 00-frontpage
+│   │   │   └── README.md
+│   │   ├── 01-prompt-engineering-core
+│   │   │   ├── README.md
+│   │   │   ├── 12_automatic_prompt_engineering.md
+│   │   │   ├── 13_code_prompting.md
+│   │   │   ├── 14_multimodal.md
+│   │   │   ├── 15_best_practices.md
+│   │   │   ├── 16_json_repair.md
+│   │   │   └── 17_working_with_schemas.md
+│   │   ├── 02-examples
+│   │   │   ├── README.md
+│   │   │   └── practical_examples.md
+│   │   ├── 03-evaluation
+│   │   │   ├── README.md
+│   │   │   └── prompt_evaluation_framework.md
+│   │   ├── 04-version-control
+│   │   │   ├── README.md
+│   │   │   ├── change_history_templates.md
+│   │   │   └── prompt_diff_guidelines.md
+│   │   ├── 05-templates
+│   │   │   ├── README.md
+│   │   │   ├── analysis_template.md
+│   │   │   ├── classification_template.md
+│   │   │   ├── code_template.md
+│   │   │   ├── extraction_template.md
+│   │   │   ├── reasoning_template.md
+│   │   │   └── writing_template.md
+│   │   ├── 06-schema-library
+│   │   │   ├── README.md
+│   │   │   └── llm_structure_contracts.md
+│   │   ├── 07-troubleshooting
+│   │   │   └── README.md
+│   │   ├── 08-playbooks
+│   │   │   └── README.md
+│   │   └── Temp
+│   │       └── README.md
 │   │   └── templates-cleanup.prompt.md
 │   ├── pull_request_template.md
 │   └── workflows
@@ -337,6 +377,12 @@ Folder explanations
 - `.github/`: Contains agent definitions, prompt files, and chat-instruction files that scope
   Copilot/agent behavior to repository areas (e.g., `gpt-packages/**`, `scripts/**`).
   Use these when building or validating GPT packages and automations.
+
+- `docs/prompt-engineering-framework/`: The Prompt Engineering Framework documentation. This folder contains a structured set of markdown files, templates, and best practices for prompt engineering, including:
+  - `README.md` and `INDEX.md` for navigation and overview
+  - Subfolders for core concepts, examples, evaluation, version control, templates, schema library, troubleshooting, playbooks, and temporary drafts
+  - Each subfolder contains its own `README.md` and relevant topic files
+  Use this area for all documentation and resources related to prompt engineering workflows and standards in the project.
 
 - `gpt-packages/`: The core area where each Custom GPT is stored. Each GPT folder follows the
   NGAS conventions and typically contains:
