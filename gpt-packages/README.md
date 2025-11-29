@@ -1,15 +1,54 @@
+# Custom GPT Packages – llm
+
+Dette området inneholder alle GPT-pakker, maler og støttefiler for NORSAIN sitt `llm`-repo.
+
 # Custom GPT Agents
 
 This directory contains Custom GPT configurations and templates.
 
-## Directory Structure
+## Mappeoversikt
 
-- `templates/` - Template library used to create new Custom GPTs (preferred: `templates/custom_gpt`)
-- `[gpt-name]/` - Individual Custom GPT instances
+- `instances/` – Alle aktive/produksjonsklare GPT-pakker
+- `.sandbox/` – Midlertidige og eksperimentelle GPT-pakker
+- `.archive/` – Utfasede/legacy GPT-pakker (historikk, ikke i bruk)
+- `templates/` – Maler (arketyper), `_library` (felles byggeklosser), `_test` (testmaler)
 
-## Creating a New GPT
 
-Use the scaffold script from the project root (scaffolder uses `gpt-packages/templates/custom_gpt` by default):
+### Eksempelstruktur
+
+```text
+gpt-packages/
+  instances/
+    norsain_copilot_architect/
+      gpt.json
+      README.md
+      instructions/
+      knowledge/
+      actions/
+  .sandbox/
+    spike_gpt/
+  .archive/
+    2024-legacy-my-assistant/
+  templates/
+    custom_gpt/
+    _library/
+    _test/
+```
+## Hovedregler
+
+- Alle aktive GPT-pakker skal ligge under `instances/`.
+- Eksperimentelle/spike-GPT-er skal ligge under `.sandbox/`.
+- Utfasede/legacy-GPT-er skal ligge under `.archive/`.
+- Ingen ekte GPT-pakker skal ligge direkte i roten eller under `templates/`.
+- Maler og testmaler skal kun ligge under `templates/`, ikke blandes med prod eller eksperiment.
+
+Se README i hver undermappe for detaljerte regler og eksempler.
+## Se også
+
+- `instances/README.md` – regler for aktive GPT-pakker
+- `.sandbox/README.md` – regler for eksperimentelle GPT-er
+- `.archive/README.md` – regler for legacy/utfasede GPT-er
+- `templates/README.md` – regler for maler, _library og _test
 
 ```bash
 npm run scaffold <gpt-name>

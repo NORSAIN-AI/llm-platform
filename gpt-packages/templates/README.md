@@ -1,7 +1,9 @@
-# GPT Templates – NORSAIN GPT Platform
+# GPT Templates – llm
+
 
 Denne mappen inneholder **templatesystemet** for `gpt-packages/`.
 Templates er eneste kilde til sannhet for hvordan nye GPT-pakker blir generert og holdt NGAS-kompatible.
+Alle ekte GPT-pakker lever nå under `gpt-packages/instances/` (aktive), `.sandbox/` (eksperiment) eller `.archive/` (legacy).
 
 Mål med systemet:
 
@@ -11,82 +13,58 @@ Mål med systemet:
 
 ---
 
-## 1. Begreper
+## 1. Begreper og mappeinndeling
+
 
 - **GPT-pakke**
-  En konkret pakke under `gpt-packages/<slug>/` med minst:
-  - `gpt.json`
-  - `actions/`
-  - `instructions/`
-  - `knowledge/`
-  - eventuell `gpt_metadata/`, `README.md`, osv.
+  En konkret pakke under:
+    - `gpt-packages/instances/<slug>/` (aktiv)
+    - `gpt-packages/.sandbox/<slug>/` (eksperiment)
+    - `gpt-packages/.archive/<slug>/` (legacy)
+  med minst:
+    - `gpt.json`
+    - `actions/`
+    - `instructions/`
+    - `knowledge/`
+    - eventuell `gpt_metadata/`, `README.md`, osv.
+
 
 - **Template-root**
   En mappe under `gpt-packages/templates/` som representerer en **komplett GPT-pakke-mal**
   (en arketype som kan scaffoldes direkte). Eksempel: `custom_gpt/`.
+  Ekte GPT-pakker skal aldri ligge her.
+
 
 - **Library-templates**
   Gjenbrukbare byggeklosser (eval-matriser, felles knowledge, prompts, osv.) under
   `gpt-packages/templates/_library/`. Disse er **ikke** komplette pakker alene.
 
-- **Sandbox GPT-er**
-  Midlertidige / eksperimentelle GPT-pakker under `gpt-packages/.sandbox/` som scripts kan overskrive.
+
+- **Test-templates**
+  Under `gpt-packages/templates/_test/` ligger testmaler brukt av Vitest/scaffolding-tester. Disse er ikke ekte GPT-pakker og skal ikke brukes i produksjon.
 
 ---
 
-## 2. Målstruktur i `gpt-packages/templates/`
+## 2. Målstruktur i `gpt-packages/`
+
 
 ```text
 gpt-packages/
   templates/
     README.md                  # Denne filen
-
     custom_gpt/                # Standard arketype for nye GPT-pakker
-      template.manifest.json   # Maskin-lesbar kontrakt for scripts
-      gpt.json.template        # Base GPT-config (blir til gpt.json). Merk: noen template-eksempler i repoet kan allerede ligge som `gpt.json` uten `.template`-suffix.
-      gpt_metadata/            # Metadata-maler (UI og intern bruk)
-        metadata_header.template.json
-        (flere metadata-maler ved behov)
-      actions/
-        schema.template.json   # eller `schema.json` / `openapi.template.json` (repoet kan inneholde konkrete schema-filer uten `.template`-suffix)
-      instructions/            # NGAS 01–09-seksjoner
-        01_identity.template.md
-        02_purpose.template.md
-        03_core_behaviour.template.md
-        04_constraints.template.md
-        05_safety.template.md
-        06_output_rules.template.md
-        07_interaction_rules.template.md
-        08_ask_vs_infer.template.md
-        09_end_rules.template.md
-      knowledge/
-        00.01_knowledge_index.template.md
-        (opsjonelle ekstra base-knowledge-maler)
-
     _library/                  # Del-maler / byggeklosser
-      instructions/
-        generic_safety_block.template.md
-        norwegian_output_rules.template.md
-      knowledge/
-        ngas_output_standards_v1.2.template.md
-        norsain_language_tone_guide.template.md
-      evals/
-        eval_matrix.template.md
-        eval_scenarios.template.md
-        eval_log.template.md
-      logs/
-        gpt_generation_log.template.md
-      prompts/
-        build_custom_gpt.prompt.md
-        extend_custom_gpt.prompt.md
-        regenerate_instruction.prompt.md
+    _test/                     # Testmaler for Vitest/scaffolding
+  instances/                   # Aktive GPT-pakker (prod/bruk)
+  .sandbox/                    # Midlertidige/eksperimentelle GPT-pakker
+  .archive/                    # Parkerte/legacy GPT-pakker
 ```
 
 Regler:
 
 - En **template-root** (f.eks. `custom_gpt/`) skal alltid være en **komplett, scaffoldbar pakke-mal**.
 - `_library/` inneholder **fragmenter**, ikke komplette pakker.
-- Ingen ekte GPT-pakker eller sandbox-pakker skal ligge under `templates/`.
+- Ingen ekte GPT-pakker, sandbox-pakker eller legacy-pakker skal ligge under `templates/`.
 
 ---
 
@@ -191,7 +169,8 @@ Typisk løp for et TypeScript/mjs-scaffolding-script:
 
 ---
 
-## 7. Utvide templatesystemet
+## 7. Utvide templatesystemet og testmaler
+
 
 ### 7.1. Ny template-root
 
@@ -209,7 +188,12 @@ For å legge til en ny arketype (f.eks. `backend_core_architect`):
    - beskrivelse, constraints, påkrevde knowledge-filer, library_includes, osv.
 4. Legg inn en kort beskrivelse av den nye template-rooten i denne README-filen.
 
+
 ### 7.2. Nye library-byggesteiner
+
+### 7.3. Testmaler
+
+Testmaler for Vitest/scaffolding skal alltid ligge under `templates/_test/` og aldri blandes med prod-maler eller ekte GPT-pakker.
 
 For å legge til en gjenbrukbar snippet:
 
