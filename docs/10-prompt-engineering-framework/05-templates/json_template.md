@@ -15,6 +15,7 @@ tags:
 # Generic JSON Template
 
 ## 1. Purpose
+
 Denne malen brukes når det kreves **strukturert JSON-output** for enkle oppgaver, der et fullt JSON Schema (som `capa_record.schema.json`) er unødvendig. Malen sikrer fortsatt maskinlesbarhet og minimal formatdrift.
 
 ---
@@ -22,6 +23,7 @@ Denne malen brukes når det kreves **strukturert JSON-output** for enkle oppgave
 ## 2. Standard Structure
 
 ### **Task**
+
 Definer kort hva modellen skal ekstrahere eller klassifisere.
 
 ### **Instructions**

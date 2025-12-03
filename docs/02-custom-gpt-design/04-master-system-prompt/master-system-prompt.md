@@ -7,4 +7,5 @@ document-type: master-system-prompt-template
 ---
 
 # 10 – Master System Prompt Template  
+
 **Template for generating the final GPT UI Instructions (runtime prompt)**

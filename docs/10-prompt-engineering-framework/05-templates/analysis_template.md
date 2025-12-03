@@ -17,6 +17,7 @@ tags:
 # Analysis Prompt Template
 
 ## 1. Purpose
+
 Denne malen brukes når modellen skal **analysere**, **evaluere**, **vurdere**, eller **dekonstrere** en tekst, hendelse, rapport, kravspesifikasjon eller et datasett.  
 Målet er å produsere **konsistente, strukturerte og faglig presise analyser** som kan brukes i beslutningsstøtte, QMS, risikostyring eller engineering-arbeid.
 
@@ -25,12 +26,14 @@ Målet er å produsere **konsistente, strukturerte og faglig presise analyser** 
 ## 2. Standard Structure
 
 ### **Task**
+
 Beskriv klart hva analysen skal identifisere, evaluere eller bryte ned.
 
 Eksempel:  
 «Analyser teksten og identifiser nøkkelpunkter, risikoer og anbefalinger.»
 
 ### **Context (optional)**
+
 Gi nødvendig bakgrunn:
 
 - domenekontekst  
@@ -39,6 +42,7 @@ Gi nødvendig bakgrunn:
 - standarder som skal følges  
 
 ### **Instructions**
+
 - Oppsummer og identifiser hovedtemaer  
 - Fremhev viktige observasjoner  
 - Identifiser risikoer, utfordringer eller feil  

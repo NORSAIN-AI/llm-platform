@@ -16,6 +16,7 @@ tags:
 # Prompt Evaluation Framework (NPEF)
 
 ## 1. Purpose
+
 Dette rammeverket definerer en standardisert metode for å evaluere, kvalitetssikre og godkjenne alle prompts som brukes i NORSAIN-systemer, dokumentasjon, agenter, GPT-roller og automatiserte LLM-arbeidsflyter.  
 Målet er å sikre:
 
@@ -29,6 +30,7 @@ Dette er en obligatorisk standard for alle kritiske prompts i organisasjonen.
 ---
 
 ## 2. Scope
+
 Gjelder følgende prompttyper:
 
 - **Systemprompts** (GPT-roller, agenter, MCP)  
@@ -47,24 +49,31 @@ Hver prompt vurderes mot syv kjerne-dimensjoner på en 1–5 skala.
 Se scoring-guide i egen fil.
 
 ### 3.1 Clarity
+
 Hvor entydig og presist promptet uttrykker oppgaven.
 
 ### 3.2 Task Fit
+
 Hvor godt output samsvarer med ønsket resultat og bruksscenario.
 
 ### 3.3 Structure & Format
+
 Hvor konsistent modellen følger format, struktur, schema eller JSON-krav.
 
 ### 3.4 Stability
+
 Variasjon mellom kjøringer. Stabilitet er kritisk ved systemintegrasjon.
 
 ### 3.5 Accuracy & Fidelity
+
 Grad av korrekthet og relevans i generert svar.
 
 ### 3.6 Safety & Compliance
+
 Samsvar med interne NORSAIN-regler, IMS/QMS-krav og modellpolicyer.
 
 ### 3.7 Efficiency
+
 Tokenbruk, etterarbeid og ytelse måles samlet.
 
 ---
@@ -72,16 +81,19 @@ Tokenbruk, etterarbeid og ytelse måles samlet.
 ## 4. Evaluation Process (Lifecycle)
 
 ### Step 1 — Define Prompt Goal
+
 - Formål  
 - Bruksscenario  
 - Hvilken modell  
 - Mottakere / systemer
 
 ### Step 2 — Draft Prompt
+
 - Velg teknikk (zero-shot, few-shot, CoT, schema etc.)  
 - Strukturér (Task, Context, Rules, Examples, Output Format)
 
 ### Step 3 — Create Test Set
+
 Må inneholde:
 
 - positive cases (3–5)  
@@ -91,19 +103,23 @@ Må inneholde:
 Testcases lagres i `test_case_templates.md`.
 
 ### Step 4 — Execute Tests
+
 - Kjør testsettet på valgt modell/modellfamilie  
 - Loggfør resultater og output  
 
 ### Step 5 — Score Prompt
+
 - Evaluer basert på scoring-guide (1–5 per dimensjon)  
 - Registrer score i versjonslogg og evalueringsmatrise  
 
 ### Step 6 — Review & Improve
+
 - Identifiser svakheter  
 - Oppdater prompttekst, struktur eller teknikk  
 - Re-test til akseptkriterier møtes  
 
 ### Step 7 — Approve or Reject
+
 Prompts merkes:
 
 - **Approved**  
@@ -111,6 +127,7 @@ Prompts merkes:
 - **Deprecated**  
 
 ### Step 8 — Document & Version
+
 Logg endringer i `prompt_version_log.md`.
 
 ---
@@ -118,6 +135,7 @@ Logg endringer i `prompt_version_log.md`.
 ## 5. Acceptance Thresholds (Standard)
 
 ### Minimum
+
 Et prompt skal ha følgende minimumsverdier for produksjon:
 
 | Dimension            | Threshold |
@@ -131,6 +149,7 @@ Et prompt skal ha følgende minimumsverdier for produksjon:
 | Efficiency           | ≥ 3       |
 
 ### Domain-critical prompts (QMS/IMS/Compliance)
+
 Krav:
 
 - Alt ≥ 4  
@@ -160,14 +179,17 @@ Følgende *må* dokumenteres for hvert produksjonsprompt:
 ## 7. Roles & Responsibilities
 
 ### Prompt Owner
+
 - Oppretter, vedlikeholder og oppdaterer prompt  
 - Kjører evaluering og dokumenterer alt
 
 ### Evaluator
+
 - Uavhengig test og scoring  
 - Fag-/funksjonsansvarlig
 
 ### Approver
+
 - Godkjenner promps for produksjon  
 - Typisk: Tech Lead, QMS-ansvarlig, System Owner
 

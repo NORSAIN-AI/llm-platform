@@ -16,6 +16,7 @@ tags:
 # Classification Prompt Template
 
 ## 1. Purpose
+
 Denne malen brukes for prompts som skal **klassifisere tekst**, hendelser, kode, dokumenter eller annen input i en forhåndsdefinert kategori-liste.  
 Målet er konsistent kategorisering som kan automatiseres, logges og brukes direkte i pipeline, QMS-systemer eller dashboards.
 
@@ -24,18 +25,21 @@ Målet er konsistent kategorisering som kan automatiseres, logges og brukes dire
 ## 2. Standard Structure
 
 ### **Task**
+
 Beskriv tydelig hva som skal klassifiseres og hvorfor.
 
 Eksempel:  
 «Klassifiser teksten i én av de forhåndsdefinerte kategoriene.»
 
 ### **Context (optional)**
+
 Domene- eller prosesskontekst som hjelper modellen tolke input korrekt.
 
 Eksempel:  
 «Dette er en avvikstekst relatert til QMS 2025.»
 
 ### **Categories**
+
 Definer listen eksplisitt og ufravikelig:
 
 - CATEGORY_A  
@@ -44,6 +48,7 @@ Definer listen eksplisitt og ufravikelig:
 - OTHER (valgfritt, men anbefalt)
 
 ### **Instructions**
+
 - Velg kun én kategori.  
 - Bruk `OTHER` hvis ingen kategori passer.  
 - Ingen forklaringer i output med mindre eksplisitt bedt om.  
@@ -55,6 +60,7 @@ Definer listen eksplisitt og ufravikelig:
 ## 3. Output Formats
 
 ### **Option A — Plain Text**
+
 Kun kategorien:
 
 ```
@@ -64,6 +70,7 @@ CATEGORY_A
 ````
 
 ### **Option B — JSON Structure**
+
 Anbefalt for systemintegrasjoner:
 
 ```json

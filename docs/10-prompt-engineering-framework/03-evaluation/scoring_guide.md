@@ -16,6 +16,7 @@ tags:
 # Prompt Evaluation Scoring Guide
 
 ## 1. Purpose
+
 Denne guiden definerer scoringen (1–5) for de syv dimensjonene i **Prompt Evaluation Framework (NPEF)**. Den sikrer objektivitet, konsistens og sporbarhet i kvalitetssikringen av alle prompts.
 
 ---
@@ -47,6 +48,7 @@ Denne guiden definerer scoringen (1–5) for de syv dimensjonene i **Prompt Eval
 ---
 
 ## 4. Akseptkriterier
+
 | Kategori | Akseptkriterium |
 | :--- | :--- |
 | **Minimum** | Ingen 1-ere. Alle andre dimensjoner **≥ 4**. |

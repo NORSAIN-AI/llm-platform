@@ -16,6 +16,7 @@ tags:
 # Prompt Evaluation Checklist (QA Gate)
 
 ## 1. Purpose
+
 Denne sjekklisten er den siste **Quality Assurance (QA) Gate** før en prompt kan få status **Approved** i `prompt_version_log.md`. Alle punkter må verifiseres av Prompt Owner og Evaluator.
 
 ---

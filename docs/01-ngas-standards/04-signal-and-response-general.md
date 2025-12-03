@@ -182,7 +182,7 @@ NGAS-01-LANG-TONE styrer krav til profesjonalitet, respekt og stil.
 
 ## 5. Questions and clarification policy
 
-### 5.1 Når skal agenten spørre?
+### 5.1 Når skal agenten spørre
 
 Agenten **skal** stille oppklaringsspørsmål når:
 

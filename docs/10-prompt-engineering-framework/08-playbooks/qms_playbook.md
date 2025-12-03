@@ -16,6 +16,7 @@ tags:
 # QMS/IMS Prompting Playbook
 
 ## 1. Purpose
+
 Denne Playbooken definerer standarder for prompts brukt i Kvalitets- og Intern Styringssystem (QMS/IMS), inkludert CAPA-håndtering, avviksanalyse, og prosedyregenerering. Målet er å sikre **Safety = 5** og **Structure = 5** i samsvar med ISO-standarder.
 
 ---
@@ -23,14 +24,17 @@ Denne Playbooken definerer standarder for prompts brukt i Kvalitets- og Intern S
 ## 2. Obligatoriske Regler for QMS Prompts
 
 ### 2.1 Rolle & Kontekst
+
 * **Rolle:** Må settes til "QMS Manager," "Uavhengig Revisor," eller "Compliance Specialist".
 * **Tone:** Strengt **formell, objektiv og faktabasert**.
 
 ### 2.2 Strukturert Output (Kontrakt)
+
 * **CAPA-uttrekk:** MÅ bruke **`capa_record.schema.json`** for maskinlesbar output.
 * **Avviksklassifisering:** MÅ bruke **Classification Template** med kategorier fra QMS-dokumentasjonen (f.eks., PROCESS, SAFETY, TECHNICAL, ADMIN).
 
 ### 2.3 Resonnement og Nøyaktighet
+
 * **Rotårsak (Root Cause):** Bruk obligatorisk **Chain-of-Thought (CoT)** eller **Step-Back** for å utlede rotårsaker, for å unngå overfladiske svar.
 * **Temperatur:** Skal settes til **0.0–0.1** (maksimal determinisme).
 

@@ -16,7 +16,6 @@ superseded_by: ""
 
 Dette er en plassholder for markdown- og lint-regler for Custom GPT.
 
-
 ## 2. Omfang
 
 Gjelder for alle markdown-filer i docs/02-custom-gpt-design/.

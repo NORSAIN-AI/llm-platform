@@ -16,6 +16,7 @@ tags:
 # Code Review Prompting Playbook
 
 ## 1. Purpose
+
 Denne Playbooken sikrer at prompts for kodehåndtering (generering, refaktorering, debugging) oppfyller NORSAINs strenge krav til syntaks, kvalitet og sikkerhet.
 
 ---
@@ -23,15 +24,18 @@ Denne Playbooken sikrer at prompts for kodehåndtering (generering, refaktorerin
 ## 2. Obligatoriske Regler for Kode-prompts
 
 ### 2.1 Struktur og Format
+
 * **Mal:** MÅ bruke **Code Template**.
 * **Output:** Alltid be om **fenced code block** (```<language>...```). Ingen forklaringer skal blandes inn.
 * **Eksplisitt Språk:** MÅ spesifisere nøyaktig språk og stilstandard (f.eks., "Idiomatisk Python etter PEP8," "TypeScript med Prettier-konvensjoner").
 
 ### 2.2 Resonnement og Kontroll
+
 * **Temperatur:** Skal settes til **0.0–0.1** (Greedy Decoding) for å unngå kreative feil eller "pseudokode".
 * **CoT for Logikk:** Bruk intern **CoT** for å bryte ned funksjonell logikk og feilsøking før koden genereres ("Først: Analyser feilårsak. Deretter: Generer patch.").
 
 ### 2.3 Roller og Begrensninger
+
 * **Rolle:** Må settes til "Senior Developer," "Sikkerhetsanalytiker," eller "DevOps Engineer".
 * **Sikkerhetsbegrensning:** Inkluder alltid begrensninger som: "Ingen hardkodede credentials," "Sanitér input," "Bruk defensiv koding".
 

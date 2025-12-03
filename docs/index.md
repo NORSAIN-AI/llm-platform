@@ -5,10 +5,12 @@ status: "draft"
 date: "2025-11-30"
 authors: "platform-architecture"
 tags:
-  - documentation
-  - site-index
+
+- documentation
+- site-index
 supersedes: ""
 superseded_by: ""
+
 ---
 
 # LLM Platform – Dokumentasjon
@@ -39,7 +41,6 @@ Bruk denne siden som “golden path” når du skal velge modell til nye GPT-pak
 ## 2. Modellkatalog
 
 Oversikt over modeller vi bruker eller vurderer, med kort beskrivelse av styrker, svakheter og typiske use case.
-
 
 - [Modellkatalog – oversikt](08-models/_index.md)
 

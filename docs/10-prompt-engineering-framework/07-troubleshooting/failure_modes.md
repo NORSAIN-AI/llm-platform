@@ -16,6 +16,7 @@ tags:
 # Failure Modes & Diagnostics Catalogue
 
 ## 1. Purpose
+
 Denne katalogen identifiserer de vanligste feilmodiene LLM-er utviser i produksjon og gir en rask guide for årsaksanalyse og korrigerende tiltak. Dette sikrer at Prompt Director kan veilede brukeren gjennom feilsøking i henhold til beste praksis.
 
 ---

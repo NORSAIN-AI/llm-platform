@@ -12,9 +12,11 @@ tags: [risk, constraints, failures]
 # Domain Risks, Constraints & Failure Modes
 
 ## 1. Purpose
+
 Identify domain-specific risks that affect operations, decision-making, compliance or data integrity.
 
 ## 2. Risk Categories
+
 - Data corruption  
 - Incomplete lineage  
 - Invalid or partial input  
@@ -22,6 +24,7 @@ Identify domain-specific risks that affect operations, decision-making, complian
 - Version mismatch between artefacts  
 
 ## 3. Constraints
+
 - regulatory compliance  
 - quality gates  
 - performance budgets  
@@ -29,12 +32,14 @@ Identify domain-specific risks that affect operations, decision-making, complian
 - immutability of published artefacts  
 
 ## 4. Failure Modes
+
 - malformed schemas  
 - lifecycle step skipping  
 - incorrect version propagation  
 - silent data truncation  
 
 ## 5. Early Warning Signals
+
 - unexpected state transitions  
 - deviations in metadata completeness  
 - missing lineage items  

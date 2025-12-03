@@ -17,6 +17,7 @@ tags:
 # Writing Prompt Template
 
 ## 1. Purpose
+
 Denne malen brukes når modellen skal **skrive tekst**, uavhengig av sjanger: rapporter, e-poster, prosedyrer, beskrivelser, dokumentasjon, policyer, faginnhold, eller kommunikasjon.  
 Målet er å sikre **klar, konsistent, målrettet og strukturert tekstproduksjon** på tvers av NORSAIN sine systemer og domener.
 
@@ -25,14 +26,17 @@ Målet er å sikre **klar, konsistent, målrettet og strukturert tekstproduksjon
 ## 2. Standard Structure
 
 ### **Task**
+
 Definer nøyaktig hva som skal skrives.
 
 Eksempler:  
+
 - «Skriv en kort, formell e-post som svarer på forespørselen.»  
 - «Skriv en teknisk beskrivelse for et API-endepunkt.»  
 - «Generer en policy-introduksjon i formell tone.»
 
 ### **Context (optional)**
+
 Angi nødvendig bakgrunn:
 
 - formål  
@@ -42,6 +46,7 @@ Angi nødvendig bakgrunn:
 - forventet nivå (teknisk / ikke-teknisk)
 
 ### **Instructions**
+
 - Følg ønsket tone (formell, nøytral, teknisk, lettfattelig osv.)  
 - Følg ønsket lengde (kort, medium, lang)  
 - Følg ønsket sjanger (rapport, notat, e-post, dokumentasjon)  
@@ -68,6 +73,7 @@ Conclusion / Call to Action:
 ````
 
 Alternativer:  
+
 - Tabell-format  
 - Punktlister  
 - Nummererte steg  

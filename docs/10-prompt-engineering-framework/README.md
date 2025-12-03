@@ -6,6 +6,7 @@ This directory contains the Prompt Engineering Framework used by the project.
 See `INDEX.md` for a table of contents and navigation between sections.
 
 Structure highlights:
+
 - `00-frontpage` – overview and quick links
 - `01-prompt-engineering-core` – core guidance and patterns
 - `02-examples` – practical prompt examples

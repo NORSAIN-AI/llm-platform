@@ -16,6 +16,7 @@ tags:
 # Schema Prompt Template
 
 ## 1. Purpose
+
 Denne malen brukes for alle prompts som krever **den høyeste graden av strukturell presisjon** ved å tvinge modellen til å følge et forhåndsdefinert **JSON Schema** (som `capa_record.schema.json` eller `risk_item.schema.json`).
 
 ---
@@ -23,12 +24,15 @@ Denne malen brukes for alle prompts som krever **den høyeste graden av struktur
 ## 2. Standard Structure
 
 ### **Task**
+
 Beskriv oppgaven. Oppgaven skal være å **ekstrahere eller transformere data** for å fylle schemaet.
 
 ### **Context (optional)**
+
 Angi domenekontekst og hvilken standard schemaet følger (f.eks. QMS, ISO 31000).
 
 ### **Instructions**
+
 - Følg **SCHEMA** nøyaktig.
 - Fyll ut alle `required` felter. Hvis data mangler, skriv f.eks. "N/A" (men aldri hallusiner).
 - Returner **kun** gyldig JSON.

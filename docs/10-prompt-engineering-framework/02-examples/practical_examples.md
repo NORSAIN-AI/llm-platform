@@ -19,6 +19,7 @@ Dette dokumentet gir en praktisk og operativ oversikt over hvordan de sentrale t
 Eksemplene dekker alle hovedkategorier: prompting, reasoning, strukturert data, kode, dokumentasjon og multimodalitet.
 
 Eksemplene er laget for:
+
 - daglig bruk i engineering  
 - QMS/IMS-prosesser  
 - systemintegrasjoner  
@@ -32,6 +33,7 @@ Eksemplene er laget for:
 **Formål:** Løse en oppgave uten eksempler.
 
 **Prompt:**
+
 ```
 
 Summarize the following text in 3 bullet points.
@@ -40,6 +42,7 @@ TEXT: [insert]
 ```
 
 **Bruk når:**
+
 - Oppgaven er standardisert  
 - Formatkrav er enkle  
 - Du ønsker lav kompleksitet
@@ -48,7 +51,8 @@ TEXT: [insert]
 
 # 2. One-Shot / Few-Shot Examples
 
-## One-shot:
+## One-shot
+
 ```
 
 Rewrite the text in a formal tone.
@@ -61,7 +65,8 @@ Now rewrite:
 
 ```
 
-## Few-shot:
+## Few-shot
+
 ```
 
 Classify issue reports into: SAFETY, PROCESS, CUSTOMER.
@@ -79,6 +84,7 @@ Classify this:
 ```
 
 **Bruk når:**
+
 - Konsistens er viktig  
 - Du trenger mønsterlæring  
 - Oppgaven er tvetydig uten eksempler  
@@ -200,6 +206,7 @@ PROMPT:
 # 10. Code Prompting Examples
 
 ## A) Generate
+
 ```
 
 Write a TypeScript function that validates an email.
@@ -210,6 +217,7 @@ Return code only.
 ```
 
 ## B) Refactor
+
 ```
 
 Refactor the following code for readability.
@@ -221,6 +229,7 @@ CODE:
 ```
 
 ## C) Add Documentation
+
 ```
 
 Add JSDoc-style documentation to this function.

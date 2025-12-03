@@ -12,23 +12,29 @@ tags: [domain, fundamentals, overview]
 # Domain Overview & Core Concepts
 
 ## 1. Purpose
+
 This document establishes the conceptual foundation for the domain.  
 It defines the core knowledge structures, primitives, abstractions, and mental models that any consumer of this domain must understand before engaging with processes, architecture or data.
 
 ## 2. Scope
+
 Included:
+
 - high-level description of the domain  
 - conceptual landscape and relationships  
 - first-principles and underlying logic  
 - global constraints and systemic behaviours  
 
 Excluded:
+
 - process-level detail (see C-18)  
 - technical architecture (see C-19)  
 - data schemas (see C-20)
 
 ## 3. Domain Summary
+
 The domain consists of:
+
 - a clearly defined set of responsibilities  
 - a set of entities interacting according to stable invariants  
 - predictable lifecycle stages  
@@ -40,28 +46,35 @@ The system is designed to be deterministic, auditable, and reproducible.
 ## 4. Core Concepts
 
 ### 4.1 Domain Entities
+
 Entities represent stable conceptual building blocks.  
 Each entity must:
+
 - have a clear definition  
 - possess an authoritative source  
 - retain meaning across all lifecycle phases  
 
 ### 4.2 Domain Invariants
+
 Invariants represent behaviours that must never change regardless of implementation.
 
 Examples:
+
 - Inputs must be validated before processing  
 - All artefacts must be versioned  
 - Outputs must be reproducible from source inputs  
 
 ### 4.3 Domain Interfaces
+
 Interfaces define how components exchange information:
+
 - synchronous interfaces  
 - asynchronous events  
 - document-based handoffs  
 - API surfaces  
 
 ### 4.4 Domain Semantics
+
 Semantics determine how meaning is preserved when actions occur.  
 This includes naming, typing, classification and structural constraints.
 

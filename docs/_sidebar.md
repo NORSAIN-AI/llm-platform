@@ -4,6 +4,7 @@
 - [Dokumentasjon Hjem](README.md)
 
 ## 00–06: Kjerne
+
 - [00 Overblikk](00-overview/README.md)
 - [01 NGAS-standarder](01-ngas-standards/README.md)
 - [02 Custom GPT-design](02-custom-gpt-design/README.md)
@@ -13,6 +14,7 @@
 - [06 Integrasjoner](06-integrations/README.md)
 
 ## 07–11: Domene og rammeverk
+
 - [07 Governance](07-governance/model-governance-dashboard.md)
 - [08 Modellkatalog](08-models/_index.md)
   - [Model Selection Strategy](08-models/model-selection-strategy.md)
@@ -21,9 +23,11 @@
 - [11 Testing](11-testing/README.md)
 
 ## 99: Appendiks
+
 - [Appendiks](99-appendix/README.md)
 
 ## Maler (kun for forfattere)
+
 - [Dokumentmaler]( _templates/README.md )
 
 <!-- Kommentarer og gamle lenker under: -->

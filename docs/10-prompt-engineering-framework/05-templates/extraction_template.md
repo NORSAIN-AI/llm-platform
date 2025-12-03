@@ -16,9 +16,11 @@ tags:
 # Extraction Prompt Template
 
 ## 1. Purpose
+
 Denne malen brukes for alle prompts som skal **ekstrahere strukturerte data** fra ustrukturert tekst, som rapporter, transkripsjoner, e-poster, avviksmeldinger, kodekommentarer eller dokumenter.
 
 Målet er å oppnå:
+
 - presis identifikasjon av verdier  
 - 100 % strukturert output  
 - konsistente feltnavn  
@@ -29,12 +31,14 @@ Målet er å oppnå:
 ## 2. Standard Structure
 
 ### **Task**
+
 Beskriv kort hva modellen skal ekstrahere.
 
 Eksempel:  
 «Ekstraher alle relevante felter fra teksten og returner kun JSON.»
 
 ### **Context (optional)**
+
 Gi domene- eller prosesskontekst (QMS, engineering, risiko, support, etc.).
 
 ### **Instructions**
@@ -55,6 +59,7 @@ Gi domene- eller prosesskontekst (QMS, engineering, risiko, support, etc.).
 Promptet må kreve ren JSON uten tekst.
 
 ### **JSON Skeleton**
+
 ```json
 {
   "field_1": "",
@@ -65,10 +70,10 @@ Promptet må kreve ren JSON uten tekst.
 
 ### **Constraints**
 
-* Ingen kommentarer
-* Ingen Markdown
-* Ingen ekstra tegn
-* Kun gyldig JSON
+- Ingen kommentarer
+- Ingen Markdown
+- Ingen ekstra tegn
+- Kun gyldig JSON
 
 ---
 
