@@ -45,3 +45,5 @@ Legg inn 2–3 korte eksempler:
 ## 5. Summary
 
 Avslutt med 1–2 setninger som understreker at output alltid skal være strukturert, presist og direkte anvendbart.
+
+Dokumentet avsluttes her.

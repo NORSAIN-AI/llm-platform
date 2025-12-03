@@ -42,3 +42,5 @@ Legg inn 2–3 korte eksempler:
 ## 5. Summary
 
 Avslutt med 1–2 setninger som presiserer at GPT-en skal være proaktiv, ikke masete, og alltid eksplisitt når antakelser brukes.
+
+Dokumentet avsluttes her.

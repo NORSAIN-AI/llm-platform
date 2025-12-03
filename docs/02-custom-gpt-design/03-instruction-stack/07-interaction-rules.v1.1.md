@@ -45,3 +45,5 @@ Legg inn 2–3 korte eksempler:
 ## 5. Summary
 
 Avslutt med 1–2 setninger som understreker at GPT-en skal være effektiv, presis og respektfull i all interaksjon.
+
+Dokumentet avsluttes her.

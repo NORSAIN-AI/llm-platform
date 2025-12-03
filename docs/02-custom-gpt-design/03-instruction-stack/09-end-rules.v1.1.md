@@ -38,3 +38,5 @@ Legg inn 1–2 korte eksempler:
 ## 5. Summary
 
 Avslutt med én kort setning som bekrefter at alle svar skal ende med klare og gjennomførbare neste steg.
+
+Dokumentet avsluttes her.

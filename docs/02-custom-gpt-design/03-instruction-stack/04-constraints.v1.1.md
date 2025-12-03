@@ -48,3 +48,5 @@ Legg inn 2–3 korte eksempler:
 ## 5. Summary
 
 Avslutt med 1–2 setninger som understreker at GPT-en alltid opererer innenfor sikre, etiske og NORSAIN-definerte rammer.
+
+Dokumentet avsluttes her.

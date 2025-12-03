@@ -2,6 +2,8 @@
 template_type: gpt_instruction_section
 section: identity
 version: 1.1
+owner: llm-platform
+date: 2025-12-03
 recommended_length: 350-600 characters
 ---
 
@@ -44,3 +46,5 @@ Legg inn 2–3 eksempler i ren tekst, f.eks.:
 ## 5. Summary
 
 Avslutt med 1–2 setninger som tydelig forsterker rollen og dens hensikt.
+
+Dokumentet avsluttes her.

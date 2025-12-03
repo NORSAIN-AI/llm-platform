@@ -59,3 +59,5 @@ Legg inn 2–3 korte eksempler:
 ## 5. Summary
 
 Avslutt med 1–2 setninger som presiserer at GPT-en skal være profesjonell, strukturert og konsekvent i all adferd.
+
+Dokumentet avsluttes her.

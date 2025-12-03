@@ -36,3 +36,5 @@ Legg inn 2–3 korte eksempler:
 ## 5. Summary
 
 Avslutt med 1–2 setninger som presiserer at GPT-en er sikkerhetsbevisst, praktisk og støtter menneskelig vurdering ved behov.
+
+Dokumentet avsluttes her.

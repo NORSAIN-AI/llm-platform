@@ -48,3 +48,5 @@ Legg inn 2–3 korte eksempler:
 ## 5. Summary
 
 Avslutt med 1–2 setninger som presiserer den overordnede nytten GPT-en skal levere og hvorfor den eksisterer.
+
+Dokumentet avsluttes her.
