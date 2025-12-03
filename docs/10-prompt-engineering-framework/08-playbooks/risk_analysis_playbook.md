@@ -16,6 +16,7 @@ tags:
 # Risk Analysis Prompting Playbook
 
 ## 1. Purpose
+
 Denne Playbooken standardiserer prompts for identifisering, klassifisering og evaluering av risikoer i samsvar med ISO 31000-prinsipper og NORSAINs risikomatrise. Målet er å sikre **konsistent klassifisering** og **validerbar output**.
 
 ---
@@ -23,14 +24,17 @@ Denne Playbooken standardiserer prompts for identifisering, klassifisering og ev
 ## 2. Obligatoriske Regler for Risiko-prompts
 
 ### 2.1 Strukturert Output (Kontrakt)
+
 * **Schema:** MÅ bruke **`risk_item.schema.json`**.
 * **Format:** Bruk **Multi-Object Extraction** (et array av risikoobjekter).
 
 ### 2.2 Resonnement og Vurdering
+
 * **CoT for Matrise:** Bruk obligatorisk **Chain-of-Thought (CoT)** internt for å vurdere `likelihood` og `impact` uavhengig før modellen utleder `risk_level`.
 * **Klassifisering:** Alltid bruke `enum` verdiene definert i Schemaet (`low`, `medium`, `high`, `critical`).
 
 ### 2.3 Rolle & Kontekst
+
 * **Rolle:** Må settes til "Risk Officer," "ISO 31000 Specialist," eller "Sikkerhetsanalytiker".
 * **Kontekst:** Alltid angi **domenet** (f.eks., "Finansrisiko," "IT-sikkerhet," "HMS").
 

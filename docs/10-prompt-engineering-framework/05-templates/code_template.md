@@ -17,6 +17,7 @@ tags:
 # Code Prompt Template
 
 ## 1. Purpose
+
 Denne malen brukes for prompts som skal generere, forbedre, dokumentere eller refaktorere kode.  
 Formålet er å sikre:
 
@@ -32,14 +33,17 @@ Denne malen er optimalisert for bruk i NORSAIN engineering workflows (Node/TS, P
 ## 2. Standard Structure
 
 ### **Task**
+
 Definer nøyaktig hva som skal gjøres:
 
 Eksempler:
+
 - «Generer en funksjon i TypeScript som validerer input.»  
 - «Refaktorer denne Python-koden for bedre ytelse.»  
 - «Produser et komplett API-endepunkt med validering og dokumentasjon.»
 
 ### **Context (optional)**
+
 Gi nødvendig teknisk bakgrunn:
 
 - språk og rammeverk  
@@ -48,6 +52,7 @@ Gi nødvendig teknisk bakgrunn:
 - krav (performance, readability, security)  
 
 ### **Instructions**
+
 - Returner **kun kode i en kodeblokk**  
 - Ingen forklaringer, ingen metatekst (med mindre eksplisitt bedt om)  
 - Følg språkets stil (TS/Prettier, Python/PEP8, Go idioms)  
@@ -97,30 +102,30 @@ Explanation:
 
 ### **TypeScript / Node**
 
-* Bruk Prettier-kompatibel stil
-* Eksporter eksplisitt
-* Unngå `any`
-* Følg repository-arkitektur (core/api/shared)
+- Bruk Prettier-kompatibel stil
+- Eksporter eksplisitt
+- Unngå `any`
+- Følg repository-arkitektur (core/api/shared)
 
 ### **Python**
 
-* Følg PEP8
-* Bruk typer (`typing`) når relevant
-* Unngå global state
-* Returner deterministiske strukturer
+- Følg PEP8
+- Bruk typer (`typing`) når relevant
+- Unngå global state
+- Returner deterministiske strukturer
 
 ### **Go**
 
-* Idiomatisk Go
-* Bruk pakke-prefikser riktig
-* Organiser imports etter standarden
+- Idiomatisk Go
+- Bruk pakke-prefikser riktig
+- Organiser imports etter standarden
 
 ### **General Security Controls**
 
-* Escapede strenger ved behov
-* Ingen hardkodede credentials
-* Ikke lek med filsystemet uten kontekst
-* Sanitér input i API-kode
+- Escapede strenger ved behov
+- Ingen hardkodede credentials
+- Ikke lek med filsystemet uten kontekst
+- Sanitér input i API-kode
 
 ---
 

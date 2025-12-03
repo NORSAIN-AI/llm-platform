@@ -11,6 +11,7 @@ date: "2025-02-01"
 Denne seksjonen beskriver hvordan schemas (som JSON Schema, strukturerte kontrakter eller faste datamodeller) brukes til å styre LLM-output. Schema-basert prompting gir presis, stabil og maskinlesbar struktur som er kritisk i API-integrasjoner, datasystemer og automatiserte pipelines.
 
 **Key Points:**
+
 * Schemas fungerer som kontrakter mellom prompt og modell.
 * Sikrer korrekt struktur, datatyper og format.
 * Reduserer feil, variasjon og hallucinasjon i strukturert output.
@@ -18,32 +19,33 @@ Denne seksjonen beskriver hvordan schemas (som JSON Schema, strukturerte kontrak
 
 **Critical Details:**
 
-## Hvorfor bruke schemas?
+## Hvorfor bruke schemas
+
 LLM-er er gode på genererte mønstre, men svake på presise strukturelle krav uten hjelp.  
 Schemas løser dette ved å:
 
-- definere eksakte felt  
-- angi tillatte datatyper  
-- beskrive obligatoriske og valgfrie felter  
-- begrense variasjon  
-- redusere risiko for feil i automatiserte prosesser  
+* definere eksakte felt  
+* angi tillatte datatyper  
+* beskrive obligatoriske og valgfrie felter  
+* begrense variasjon  
+* redusere risiko for feil i automatiserte prosesser  
 
 Dette er essensielt når output skal brukes videre i systemer som:
-- backend-tjenester  
-- API-er  
-- databehandling  
-- valideringspipelines  
-- AI-agenter  
+* backend-tjenester  
+* API-er  
+* databehandling  
+* valideringspipelines  
+* AI-agenter  
 
 ---
 
 ## Typer schemas som modeller kan bruke
-- **JSON Schema** (vanligst og mest robust)  
-- **TypeScript interfaces**  
-- **OpenAPI models**  
-- **Protobuf-lignende strukturer**  
-- **YAML-kontrakter**  
-- **Egendefinerte feltspesifikasjoner i prompten**
+* **JSON Schema** (vanligst og mest robust)  
+* **TypeScript interfaces**  
+* **OpenAPI models**  
+* **Protobuf-lignende strukturer**  
+* **YAML-kontrakter**  
+* **Egendefinerte feltspesifikasjoner i prompten**
 
 LLM-er responderer best på JSON-lignende strukturer.
 
@@ -52,7 +54,9 @@ LLM-er responderer best på JSON-lignende strukturer.
 ## Hvordan bruke schema i prompting
 
 ### 1. Gi modellen schemaet eksplisitt
+
 Eksempel:
+
 ```
 
 Use the following schema:
@@ -69,6 +73,7 @@ Use the following schema:
 ```
 
 ### 2. Be modellen følge schema strengt
+
 ```
 
 Your output must conform exactly to the schema. Do not add or remove fields.
@@ -76,6 +81,7 @@ Your output must conform exactly to the schema. Do not add or remove fields.
 ```
 
 ### 3. Kombiner med JSON-validering
+
 ```
 
 Validate your output. If invalid, fix the JSON.
@@ -83,46 +89,49 @@ Validate your output. If invalid, fix the JSON.
 ```
 
 ### 4. Gi eksempler (few-shot) som følger schema
+
 Dette øker nøyaktighet og stabilitet.
 
 ---
 
 ## Eksempelsammendrag fra dokumentet (kondensert)
+
 Dokumentet viser et eksempel der modellen:
 
-- får et **schema** for en filmomtale  
-- får en tekst som input  
-- skal generere JSON som matcher nøyaktig  
+* får et **schema** for en filmomtale  
+* får en tekst som input  
+* skal generere JSON som matcher nøyaktig  
 
 Modellen instrueres til å:
-- trekke ut tittel  
-- identifisere årstall  
-- hente sjangerkategorier  
-- holde seg innenfor feltstruktur  
+* trekke ut tittel  
+* identifisere årstall  
+* hente sjangerkategorier  
+* holde seg innenfor feltstruktur  
 
 Schemaet gir rammen som sikrer korrekt datafangst.
 
 ---
 
 ## Fordeler med schema-basert prompting
-- Maskinlesbar og validerbar output  
-- Minimalt behov for “cleanup”  
-- Reduserer behov for prompt-reparasjon  
-- Gir deterministisk struktur (særlig ved temp = 0)  
-- Øker robusthet ved modellbytte (overførbarhet)
+* Maskinlesbar og validerbar output  
+* Minimalt behov for “cleanup”  
+* Reduserer behov for prompt-reparasjon  
+* Gir deterministisk struktur (særlig ved temp = 0)  
+* Øker robusthet ved modellbytte (overførbarhet)
 
 ---
 
 ## Begrensninger
-- Krever mer arbeid å definere schema.  
-- LLM-en kan ha problemer med svært komplekse schemas.  
-- Tokenbruk øker når schemaet er langt.  
+* Krever mer arbeid å definere schema.  
+* LLM-en kan ha problemer med svært komplekse schemas.  
+* Tokenbruk øker når schemaet er langt.  
 
 ---
 
 ## Beste praksis
 
 ### Lag en promptmal
+
 ```
 
 Task:
@@ -134,27 +143,28 @@ Validation Rules:
 ```
 
 ### Hold schemaet enkelt
-- Kompleksitet øker risiko for feil.  
-- Bruk “required” kun der nødvendig.
+* Kompleksitet øker risiko for feil.  
+* Bruk “required” kun der nødvendig.
 
 ### Kombiner med validering
-- Automatisk JSON-validator som ajv, Python `jsonschema`, eller lignende.
+* Automatisk JSON-validator som ajv, Python `jsonschema`, eller lignende.
 
 ### Sett temperatur = 0
+
 Gir maksimal stabilitet ved strukturerte data.
 
 ### Test med edge cases
-- ufullstendig input  
-- flertydig informasjon  
-- uvanlige datatyper  
+* ufullstendig input  
+* flertydig informasjon  
+* uvanlige datatyper  
 
 ---
 
 ## Sjekkliste for schema-arbeid
-- Er schemaet komplett og korrekt?  
-- Har modellen fått schemaet eksplisitt?  
-- Er formatkravet helt tydelig?  
-- Valideres output maskinelt?  
-- Dokumenteres input, output og evalueringsresultat?  
+* Er schemaet komplett og korrekt?  
+* Har modellen fått schemaet eksplisitt?  
+* Er formatkravet helt tydelig?  
+* Valideres output maskinelt?  
+* Dokumenteres input, output og evalueringsresultat?  
 
 ```

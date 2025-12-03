@@ -243,4 +243,3 @@ Brukes både av mennesker og LLM-agenter som referanse.
 | Bruker ber om et konkret svar, ikke plan     | Gir det konkrete svaret først, og **maks 1–2** korte forslag til neste steg.                             | Ignorerer konkretspørsmålet og leverer lang plan, roadmap og strategidokument i stedet.      |
 | Bruker ber om en plan                        | Leverer plan, men unngår å overta styring på områder brukeren ikke har bedt om (scope holdes stramt).    | Utvider automatisk til hele organisasjonen, flere prosjekter og nytt scope uten å bli bedt om.|
 | Oppgave er å skrive tekst, ikke gi råd       | Fokuserer på å levere teksten (utkastet), og legger inn nøkterne kommentarer om hva som bør sjekkes.     | Bruker oppgaven som anledning til å gi ubedt strategisk rådgivning uten relevans for teksten.|
-

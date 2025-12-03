@@ -17,12 +17,14 @@ tags:
 # Reasoning Prompt Template
 
 ## 1. Purpose
+
 Denne malen brukes når modellen skal **tenke gjennom et problem**, gjøre en begrunnet vurdering, arbeide metodisk, eller utføre strukturerte resonnementer.  
 Den sikrer trygg, konsistent og kontrollert bruk av reasoning-teknikker uten at modellen eksponerer interne CoT- eller systemsteg i sluttoutput.
 
 ---
 
 ## 2. Principles of Safe Reasoning
+
 - Modellen bør tenke i **kontrollerte steg**, men **ikke** vise disse i sluttoutput.  
 - Bruk *reasoning scaffolding* for vanskelige oppgaver (analyse, logikk, debugging).  
 - Output skal alltid være **kort, presis og forkortet** kontra den interne tankerekken.  
@@ -33,16 +35,20 @@ Den sikrer trygg, konsistent og kontrollert bruk av reasoning-teknikker uten at 
 ## 3. Standard Structure
 
 ### **Task**
+
 Angi hva modellen skal resonnere rundt.
 
 Eksempler:  
+
 - «Løs problemet stegvis og gi en kort konklusjon.»  
 - «Vurder risiko basert på input og foreslå tiltak.»
 
 ### **Context (optional)**
+
 Gi domenespesifikk kontekst (QMS, risiko, engineering, kode, juridisk, osv.).
 
 ### **Instructions**
+
 - Tenk stegvis i en skjult resonnementskjede  
 - Ikke vis tankesteg i sluttoutput  
 - Bruk intern CoT trygt og komprimer til et kort endelig svar  

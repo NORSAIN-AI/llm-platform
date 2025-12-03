@@ -49,52 +49,52 @@ docs/
 
 Kort beskrivelse av hver hovedmappe:
 
-* `00-overview/`
+- `00-overview/`
   Overordnet identitet og scope for `llm-platform`.
 
-* `01-ngas-standards/`
+- `01-ngas-standards/`
   Pekere og sammendrag av NGAS-standarder som er relevante for
   LLM-plattformen.
 
-* `02-custom-gpt-design/`
+- `02-custom-gpt-design/`
   Standarder for design, knowledge og actions for NORSAIN Custom GPT-er.
 
-* `03-gpt-packages/`
+- `03-gpt-packages/`
   Struktur og livssyklus for GPT-pakker (sandbox, instances, archive,
   templates).
 
-* `04-agents/`
+- `04-agents/`
   Dokumentasjon for hver agent (Custom GPT), med overview, instructions
   og knowledge-hierarchy.
 
-* `05-operations/`
+- `05-operations/`
   Operasjonelle prosesser, for eksempel knowledge-flow og
   publiseringsrutiner.
 
-* `06-integrations/`
+- `06-integrations/`
   Integrasjoner mot eksterne systemer (GitHub, Notion, andre tjenester).
 
-* `07-governance/`
+- `07-governance/`
   Styringsdokumenter, for eksempel model-governance-dashboard.
 
-* `08-models/`
+- `08-models/`
   Dokumentasjon for LLM-/GPT-modeller som brukes i plattformen.
 
-* `09-planning/`
+- `09-planning/`
   Planleggingsdokumenter, sjekklister og TODO-er for videreutvikling.
 
-* `10-prompt-engineering-framework/`
+- `10-prompt-engineering-framework/`
   Rammeverk for prompt engineering med egne underseksjoner
   (core, examples, templates, osv.).
 
-* `11-testing/`
+- `11-testing/`
   Teststandarder og testrelatert dokumentasjon (for eksempel
   `vitest-standard`).
 
-* `99-appendix/`
+- `99-appendix/`
   Tillegg og støttedokumenter som ikke passer naturlig inn andre steder.
 
-* `_templates/`
+- `_templates/`
   Maler for nye dokumenter og agentbeskrivelser. Skal brukes som
   oppstartspunkt, men er ikke kildesannhet.
 
@@ -120,50 +120,50 @@ superseded_by: ""
 
 Regler:
 
-* `title` skal være i lowercase og kebab-case uten mellomrom og kolon.
-* `status` er normalt `draft` eller `active`.
-* `authors` er en rolle eller et team, ikke nødvendigvis enkeltpersoner.
-* `tags` kan utvides med relevante emner (for eksempel `standard`,
+- `title` skal være i lowercase og kebab-case uten mellomrom og kolon.
+- `status` er normalt `draft` eller `active`.
+- `authors` er en rolle eller et team, ikke nødvendigvis enkeltpersoner.
+- `tags` kan utvides med relevante emner (for eksempel `standard`,
   `custom-gpt`, `agent`).
 
 Filnavn:
 
-* skal være i `kebab-case`, for eksempel:
+- skal være i `kebab-case`, for eksempel:
 
-  * `repo-identity-and-scope.md`
-  * `custom-gpt-design-standard.md`
-  * `platform-dev-architect-overview.md`
+  - `repo-identity-and-scope.md`
+  - `custom-gpt-design-standard.md`
+  - `platform-dev-architect-overview.md`
 
 ## 4. Headings og struktur
 
-* Første heading i dokumentet skal være en `#`-heading (H1) etter
+- Første heading i dokumentet skal være en `#`-heading (H1) etter
   frontmatter.
 
-* H1 skal være en menneskelesbar tittel, for eksempel:
+- H1 skal være en menneskelesbar tittel, for eksempel:
 
   ```markdown
   # NORSAIN Custom GPT – Designstandard
   ```
 
-* Ingen hopp i heading-nivå (H1 → H3 er ikke tillatt).
+- Ingen hopp i heading-nivå (H1 → H3 er ikke tillatt).
 
-* Én blank linje før nye headings og lister.
+- Én blank linje før nye headings og lister.
 
 ## 5. Bruk av `_templates`
 
 Maler i `docs/_templates/` skal:
 
-* følges når nye dokumenter opprettes
-* kopieres til riktig nummerert mappe under `docs/`
-* tilpasses dokumentets faktiske innhold
+- følges når nye dokumenter opprettes
+- kopieres til riktig nummerert mappe under `docs/`
+- tilpasses dokumentets faktiske innhold
 
 Eksempel på maler:
 
-* `document-template.md` – generisk dokument
-* `standard-template.md` – normative standarder
-* `agent-overview-template.md` – agentoversikt
-* `agent-instructions-template.md` – agentinstruksjoner (Layer B)
-* `agent-knowledge-hierarchy-template.md` – knowledge-hierarchy for
+- `document-template.md` – generisk dokument
+- `standard-template.md` – normative standarder
+- `agent-overview-template.md` – agentoversikt
+- `agent-instructions-template.md` – agentinstruksjoner (Layer B)
+- `agent-knowledge-hierarchy-template.md` – knowledge-hierarchy for
   agenter
 
 ## 6. Hvordan legge til nye dokumenter
@@ -174,13 +174,12 @@ Når du oppretter et nytt dokument:
 2. Kopier en passende mal fra `docs/_templates/`.
 3. Oppdater frontmatter:
 
-   * sett korrekt `title` i lowercase + kebab-case
-   * sett `date` til dagens dato
-   * sett `authors` og relevante `tags`
+   - sett korrekt `title` i lowercase + kebab-case
+   - sett `date` til dagens dato
+   - sett `authors` og relevante `tags`
 4. Oppdater H1 og struktur i dokumentet.
 5. Kjør lokal markdownlint dersom det er satt opp, og rett eventuelle
    avvik.
-
 
 ## 7. Site-konfigurasjon og infrastruktur
 

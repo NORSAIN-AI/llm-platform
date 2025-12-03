@@ -12,28 +12,36 @@ tags: [architecture, components]
 # Domain Architecture & Components
 
 ## 1. Purpose
+
 Describes the structural backbone of the domain, its components, and how they interact.  
 Provides a stable view for solution designers, integrators and AI agents.
 
 ## 2. Component Overview
 
 ### 2.1 Core Processing Unit
+
 Responsible for:
+
 - applying rules  
 - generating canonical outputs  
 - orchestrating lifecycle phases  
 
 ### 2.2 Validation Engine
+
 Performs schema, semantic and integrity validation.
 
 ### 2.3 Storage Layer
+
 Holds versioned artefacts, metadata, and lineage.
 
 ### 2.4 Interface Gateways
+
 APIs or connectors into surrounding systems.
 
 ## 3. Component Responsibilities
+
 Each component must specify:
+
 - input types  
 - output types  
 - responsibilities  

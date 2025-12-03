@@ -16,6 +16,7 @@ tags:
 # Engineering Prompting Playbook (Generell)
 
 ## 1. Purpose
+
 Denne Playbooken standardiserer prompts for generell ingeniørbruk, inkludert systemdesign, verktøyflyt, CI/CD-scripts og agent-arkitektur. Fokus ligger på strukturerte verktøykall og flerstegsresonnement.
 
 ---
@@ -23,15 +24,18 @@ Denne Playbooken standardiserer prompts for generell ingeniørbruk, inkludert sy
 ## 2. Obligatoriske Regler for Ingeniør-prompts
 
 ### 2.1 Agent Workflow (Verktøybruk)
+
 * **ReAct-modell:** Bruk **ReAct (Reason + Act)** for alle oppgaver som involverer eksterne verktøy, API-kall eller flerstegs datahenting.
 * **Struktur:** Følg streng struktur: `Thought: ... Action: [VERKTØY, INPUT] Observation: ...`.
 * **Sikkerhet:** Definer eksplisitt hvilke handlinger (`Action`) som er **tillatt**.
 
 ### 2.2 Systemdesign og Strategi
+
 * **ToT-modell:** Bruk **Tree-of-Thoughts (ToT)** for arkitekturvalg, strategisk planlegging eller problemer med flere mulige løsninger.
 * **CoT:** CoT-steget skal inkludere evaluering av risiko og *trade-offs*.
 
 ### 2.3 Struktur og Format
+
 * **Schema:** Bruk **Schema** for input/output av tekniske spesifikasjoner (f.eks. OpenAPI for API, JSON for konfigurasjon).
 
 ---

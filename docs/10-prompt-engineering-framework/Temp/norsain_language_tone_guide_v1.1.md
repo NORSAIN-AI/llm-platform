@@ -240,8 +240,10 @@ Hvis det oppstår konflikt:
 ## 11. Versjonshistorikk
 
 ### 1.1 – 2025-11-19
+
 **Status:** Draft  
 **Endring:**  
+
 - Dokumentet revidert for eksplisitt bruk som LLM-/systeminstruksjon.  
 - Klargjort prioritet mot rolle-/systemprompt og `output_standards.md`.  
 - Utvidet med egne seksjoner for:
@@ -252,6 +254,8 @@ Hvis det oppstår konflikt:
 - Forbudte elementer og anti-markedsføringsspråk presisert.
 
 ### 1.0 – 2025-11-16
+
 **Status:** Approved  
 **Endring:**  
+
 - Første versjon av NORSAIN language and tone guide etablert.

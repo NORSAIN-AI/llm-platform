@@ -16,6 +16,7 @@ tags:
 # Prompt Change History Templates
 
 ## Purpose
+
 Dette dokumentet definerer standardiserte maler for å dokumentere endringer i alle prompts i NORSAIN Prompt Engineering Framework (NPEF).  
 Målet er å sikre tydelig sporbarhet, god dokumentkontroll og etterlevelse av IMS/QMS-krav.
 
@@ -48,6 +49,7 @@ Approver:
 ---
 
 # 2. Extended Change Entry Template  
+
 For større endringer som påvirker integrasjoner, kvalitet, sikkerhet, eller produksjonssystemer.
 
 ## 2.1 Metadata

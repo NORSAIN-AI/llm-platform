@@ -18,6 +18,7 @@ Universal standards that apply to all NORSAIN GPTs and LLM agents.
 | `06-safety-and-risk-patterns.md` | `safety-and-risk-patterns` | NGAS – Safety and Risk Patterns for LLM Agents | stable |
 
 **Layer A Characteristics**:
+
 - Role-agnostic and domain-agnostic
 - High stability (rarely changes)
 - Should be included in most GPT packages
@@ -38,6 +39,7 @@ Templates for agent-specific knowledge files describing behavior, boundaries, an
 | `11-agent-examples-canonical-qa.md` | `agent-examples-canonical-qa` | Agent Evaluation Matrix Template | draft |
 
 **Layer B Characteristics**:
+
 - Agent-specific (requires customization)
 - Moderate stability (changes per agent)
 - Provides structure for agent behavior and evaluation
@@ -64,6 +66,7 @@ Templates and patterns for domain-specific knowledge about business processes, d
 | `23-domain-risks-constraints-and-failure-modes.md` | `domain-risks-constraints-and-failure-modes` | Domain Risks, Constraints & Failure Modes | stable |
 
 **Layer C Characteristics**:
+
 - Domain-specific (requires customization per business area)
 - Variable stability (changes based on domain evolution)
 - Provides business context for GPT decision-making
@@ -74,11 +77,13 @@ Templates and patterns for domain-specific knowledge about business processes, d
 ## Total: 23 Knowledge Files
 
 **Layer Distribution**:
+
 - Layer A (Global): 6 files
 - Layer B (Agent): 5 files
 - Layer C (Domain): 12 files
 
 **Status Distribution**:
+
 - Stable: 17 files
 - Draft: 6 files
 
@@ -98,6 +103,7 @@ Templates and patterns for domain-specific knowledge about business processes, d
 This index is automatically maintained. Last updated: 2025-11-26
 
 For questions about knowledge library structure, see:
+
 - `README.md` in this directory
 - `gpt-packages/templates/README.md`
 - `.github/agents/knowledge_builder.agent.md`

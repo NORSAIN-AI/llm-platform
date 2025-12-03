@@ -16,6 +16,7 @@ tags:
 # Prompt Diff Guidelines
 
 ## 1. Purpose
+
 Dette dokumentet beskriver hvordan endringer i prompts skal analyseres, sammenlignes og vurderes før de godkjennes.  
 Riktig diff-review er avgjørende for:
 
@@ -46,6 +47,7 @@ Et diff-review skal alltid gjennomføres når:
 ## 3. What to Compare in a Diff Review
 
 ### 3.1 Prompt Structure
+
 Sammenlign:
 
 - Task  
@@ -57,6 +59,7 @@ Sammenlign:
 - Model configuration (temp, top-P, top-K)  
 
 ### 3.2 Behavioural Impact
+
 Vurder:
 
 - Endrer dette modellens oppførsel vesentlig?  
@@ -64,6 +67,7 @@ Vurder:
 - Kan det introdusere hallucinasjoner eller formatdrift?  
 
 ### 3.3 Safety & Compliance
+
 Sjekk:
 
 - Har sikkerhetsregler blitt fjernet/forandret?  
@@ -71,6 +75,7 @@ Sjekk:
 - Trenger det nye promptet ekstra validering?  
 
 ### 3.4 Integration Impact
+
 Finn ut:
 
 - Påvirker endringen systemer som:  
@@ -100,16 +105,19 @@ For prompts som er >1500 tokens anbefales side-by-side diff for oversikt.
 ## 5. How to Conduct a Diff Review (Procedure)
 
 ### Step 1 — Analyze Textual Differences
+
 - Se gjennom all endret tekst  
 - Marker viktige endringer  
 - Identifiser potensielle risikoer  
 
 ### Step 2 — Evaluate Semantic Impact
+
 - Har meningen i instruksene endret seg?  
 - Er logikken endret i eksempler?  
 - Påvirkes forventet output?  
 
 ### Step 3 — Run a Behavioural Test
+
 - Kjør minimum:  
   - 2 positive tests  
   - 1 negative test  
@@ -117,9 +125,11 @@ For prompts som er >1500 tokens anbefales side-by-side diff for oversikt.
 - Sammenlign gamle vs nye resultater  
 
 ### Step 4 — Document Findings
+
 Bruk `change_history_templates.md`.
 
 ### Step 5 — Approve or Request Changes
+
 - **Approved** hvis ingenting bryter kravene  
 - **Needs Revision** hvis kritiske endringer identifiseres  
 - **Rejected** ved sikkerhets- eller QMS-risiko  

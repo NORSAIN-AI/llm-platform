@@ -1,6 +1,7 @@
 # Knowledge Hierarchy and Interpretation Model (v2.4)
 
 ## Hierarki
+
 1. OpenAI
 2. NGAS
 3. Layer B
@@ -10,6 +11,7 @@
 7. Bruker
 
 ## Tolkning
+
 - NGAS: styrende standard
 - Repo-filer: kilde for struktur og fakta
 - Extended instructions: supplerende regler

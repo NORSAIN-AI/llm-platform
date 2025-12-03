@@ -20,6 +20,7 @@ Denne filen definerer NORSAIN-standarder for strukturerte LLM-outputkontrakter.
 Formålet er å sikre **forutsigbarhet, validerbarhet og systemintegrasjon** i alle prompts som krever faste datastrukturer.
 
 Dette inkluderer:
+
 - JSON Schemas  
 - TypeScript Interfaces  
 - Valideringskrav  
@@ -31,6 +32,7 @@ Dette inkluderer:
 # 1. Purpose
 
 LLM Structure Contracts sikrer at:
+
 - alle prompts med strukturert output er **deterministiske**  
 - output er **maskinlesbar og validerbar** (JSON Schema, TS interfaces)  
 - downstream-systemer kan stole på format og feltnavn  
@@ -39,6 +41,7 @@ LLM Structure Contracts sikrer at:
 - agent-løp kan bruke kontraktene “som kode”
 
 Dette er kritisk for:
+
 - API-integrasjoner  
 - pipelines  
 - dashboards  
@@ -66,6 +69,7 @@ Alle tre spiller ulike roller.
 # 3. JSON Schema Contracts
 
 JSON Schema brukes for:
+
 - validering  
 - strenge krav til format  
 - automatisert testing  
@@ -107,10 +111,10 @@ export interface CapaRecord {
 
 Retningslinjer:
 
-* camelCase
-* optional fields med `?`
-* ingen unions unntatt spesifikke cases
-* eksporter ALT eksplisitt
+- camelCase
+- optional fields med `?`
+- ingen unions unntatt spesifikke cases
+- eksporter ALT eksplisitt
 
 ---
 
@@ -143,18 +147,18 @@ Dette brukes direkte av LLM-motorene.
 
 Minstekrav for alle strukturerte output:
 
-* 100 % gyldig JSON (ved JSON-modus)
-* Feltnavn må stemme nøyaktig
-* Arrays må ikke være tomme med mindre tillatt
-* Null-verdier kun når kontrakten tillater det
-* Extra fields → ikke tillatt
+- 100 % gyldig JSON (ved JSON-modus)
+- Feltnavn må stemme nøyaktig
+- Arrays må ikke være tomme med mindre tillatt
+- Null-verdier kun når kontrakten tillater det
+- Extra fields → ikke tillatt
 
 Valideringen skal gjøres av:
 
-* modellen selv (valgfritt)
-* pipelines
-* backend
-* agent scripts
+- modellen selv (valgfritt)
+- pipelines
+- backend
+- agent scripts
 
 ---
 
@@ -184,12 +188,12 @@ Kun når nødvendig.
 
 # 8. Rules for Creating New Contracts
 
-* Begrens antall felter
-* Bruk konsise navn
-* Unngå nested structures hvis mulig
-* Lag TS interface parallelt
-* Lag JSON schema for kritiske flows
-* Dokumentér alt i denne mappen
+- Begrens antall felter
+- Bruk konsise navn
+- Unngå nested structures hvis mulig
+- Lag TS interface parallelt
+- Lag JSON schema for kritiske flows
+- Dokumentér alt i denne mappen
 
 ---
 
@@ -197,20 +201,20 @@ Kun når nødvendig.
 
 ### QMS CAPA
 
-* JSON Schema
-* TS Interface
-* Prompt Contract
+- JSON Schema
+- TS Interface
+- Prompt Contract
   (alle tre kombinert)
 
 ### Engineering Code Review Output
 
-* bullet list eller JSON
-* deterministisk struktur
+- bullet list eller JSON
+- deterministisk struktur
 
 ### Risk Analysis
 
-* listestruktur
-* risikoobjekter med severity/impact
+- listestruktur
+- risikoobjekter med severity/impact
 
 ---
 

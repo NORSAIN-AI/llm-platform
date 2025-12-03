@@ -12,6 +12,7 @@ tags: [glossary, terminology]
 # Domain Glossary & Terminology
 
 ## 1. Purpose
+
 Provide authoritative definitions for all domain-specific terms, ensuring consistent interpretation by AI systems, engineers and analysts.
 
 ## 2. Terminology Table
@@ -25,6 +26,7 @@ Provide authoritative definitions for all domain-specific terms, ensuring consis
 | Artefact | Any output of a domain process | Versioned + auditable |
 
 ## 3. Abbreviations
+
 | Abbrev | Meaning |
 |--------|---------|
 | CF | Canonical Form |
@@ -32,6 +34,7 @@ Provide authoritative definitions for all domain-specific terms, ensuring consis
 | SOP | Standard Operating Procedure |
 
 ## 4. Synonyms & Disambiguation
+
 - “Record” vs. “Item”:  
   → Item = domain entity  
   → Record = storage representation
